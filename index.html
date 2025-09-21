@@ -1,26 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    
 
+    <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Loop - Метафора ресторана</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            color: #e74c3c;
+            margin: 30px 0 20px 0;
+            text-align: center;
+        }
+        
+        .restaurant-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            gap: 20px;
+            margin: 30px 0;
+            grid-template-areas: 
+                "kitchen kitchen kitchen"
+                "waiters queue manager"
+                "explanation explanation explanation";
+        }
+        
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid;
+        }
+        
+        .chef-section {
+            grid-area: kitchen;
+            border-color: #e74c3c;
+            text-align: center;
+        }
+        
+        .waiters-section {
+            grid-area: waiters;
+            border-color: #3498db;
+        }
+        
+        .queue-section {
+            grid-area: queue;
+            border-color: #9b59b6;
+        }
+        
+        .manager-section {
+            grid-area: manager;
+            border-color: #2ecc71;
+        }
+        
+        .explanation-section {
+            grid-area: explanation;
+            border-color: #f39c12;
+            background: #fff8e1;
+        }
+        
+        .section h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: inherit;
+            font-size: 1.5em;
+        }
+        
+        .chef {
+            font-size: 3em;
+            margin: 10px 0;
+        }
+        
+        .dish {
+            background: #e74c3c;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 8px 0;
+            display: inline-block;
+            animation: cooking 2s ease-in-out;
+        }
+        
+        .waiter {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .order {
+            background: #9b59b6;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .manager {
+            text-align: center;
+            font-size: 2em;
+            margin: 10px 0;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            line-height: 1.5;
+        }
+        
+        .status {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        @keyframes cooking {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .log {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JavaScript Event Loop: Метафора ресторана</h1>
+            <p>Визуализация работы Call Stack, Web APIs, Callback Queue и Event Loop</p>
+        </header>
 
+        <div class="restaurant-layout">
+            <div class="section chef-section">
+                <h3>Call Stack — Шеф-повар 👨‍🍳</h3>
+                <div class="chef">👨‍🍳</div>
+                <div id="chef-dishes">
+                    <div class="dish">Готовит: Ничего</div>
+                </div>
+                <p>Готовит по одному блюду за раз (синхронно)</p>
+            </div>
 
+            <div class="section waiters-section">
+                <h3>Web APIs — Официанты 🧑‍🍳</h3>
+                <div id="waiters">
+                    <div class="waiter"><span class="emoji">🧑‍🍳</span> Официант 1: Свободен</div>
+                    <div class="waiter"><span class="emoji">🧑‍🍳</span> Официант 2: Свободен</div>
+                    <div class="waiter"><span class="emoji">🧑‍🍳</span> Официант 3: Свободен</div>
+                </div>
+                <p>Могут выполнять несколько задач параллельно (асинхронно)</p>
+            </div>
 
-    <p>Привет Мир</p>
-    <p>Hello Word</p>
-    <p>Поехали!</p>
-     <p>Супер пуппер!</p>
+            <div class="section queue-section">
+                <h3>Callback Queue — Очередь заказов 📋</h3>
+                <div id="order-queue">
+                    <div class="order">Очередь пуста</div>
+                </div>
+                <p>Готовые заказы ждут, пока шеф-повар освободится</p>
+            </div>
 
+            <div class="section manager-section">
+                <h3>Event Loop — Менеджер 👔</h3>
+                <div class="manager">👔</div>
+                <div id="manager-status">
+                    Проверяет: Шеф занят → Ждём
+                </div>
+                <p>Постоянно проверяет: "Шеф свободен? → Передаём следующий заказ!"</p>
+            </div>
+
+            <div class="section explanation-section">
+                <h3>Как работает метафора 🎯</h3>
+                <p><strong>Шеф-повар (Call Stack)</strong> - выполняет одну задачу за раз. Не может готовить несколько блюд одновременно.</p>
+                <p><strong>Официанты (Web APIs)</strong> - могут одновременно выполнять несколько задач: ставить таймеры, делать запросы, обрабатывать события.</p>
+                <p><strong>Очередь заказов (Callback Queue)</strong> - когда официанты завершают задачи, они кладут результаты в очередь.</p>
+                <p><strong>Менеджер (Event Loop)</strong> - постоянно проверяет, свободен ли шеф-повар. Если свободен - передаёт следующий заказ из очереди.</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="placeOrder('setTimeout', 2000)">Заказ: setTimeout (2с)</button>
+            <button onclick="placeOrder('fetch', 3000)">Заказ: Fetch запрос (3с)</button>
+            <button onclick="placeOrder('event', 1500)">Заказ: Событие (1.5с)</button>
+            <button onclick="placeSyncOrder()">Синхронный заказ</button>
+            <button onclick="resetKitchen()">Перезапуск кухни</button>
+        </div>
+
+        <div class="status" id="status">
+            Готовность: Ожидание заказов
+        </div>
+
+        <div class="log">
+            <h3>Журнал событий 📝</h3>
+            <div id="event-log"></div>
+        </div>
+
+        <div class="code-block">
+// JavaScript код, соответствующий метафоре:
+
+// Call Stack (Шеф-повар) - выполняется сразу
+console.log("Начало работы ресторана");
+
+// Web API (Официант) - уходит выполнять задачу
+setTimeout(() => {
+    // Callback Queue → Call Stack когда шеф свободен
+    console.log("Заказ из setTimeout готов");
+}, 2000);
+
+// Снова Call Stack (Шеф-повар)
+console.log("Ресторан принимает заказы");
+
+// Event Loop (Менеджер) постоянно проверяет:
+// 1. Свободен ли Call Stack (шеф-повар)?
+// 2. Есть ли задачи в Callback Queue (очереди)?
+// 3. Если да → перемещает задачу в Call Stack
+        </div>
+    </div>
+
+    <script>
+        let orderId = 1;
+        let activeWaiters = 0;
+        let isChefBusy = false;
+        const orderQueue = [];
+        
+        function logEvent(message) {
+            const log = document.getElementById('event-log');
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+        }
+        
+        function updateStatus(message) {
+            document.getElementById('status').textContent = `Готовность: ${message}`;
+        }
+        
+        function updateChefStatus(dish) {
+            const chefDishes = document.getElementById('chef-dishes');
+            chefDishes.innerHTML = `<div class="dish">Готовит: ${dish}</div>`;
+            isChefBusy = !!dish;
+        }
+        
+        function updateWaiterStatus(waiterIndex, status) {
+            const waiters = document.getElementById('waiters').children;
+            if (waiterIndex < waiters.length) {
+                waiters[waiterIndex].innerHTML = 
+                    `<span class="emoji">🧑‍🍳</span> Официант ${waiterIndex + 1}: ${status}`;
+            }
+        }
+        
+        function updateOrderQueue() {
+            const queueElement = document.getElementById('order-queue');
+            queueElement.innerHTML = '';
+            
+            if (orderQueue.length === 0) {
+                queueElement.innerHTML = '<div class="order">Очередь пуста</div>';
+            } else {
+                orderQueue.forEach(order => {
+                    const orderElement = document.createElement('div');
+                    orderElement.className = 'order';
+                    orderElement.innerHTML = 
+                        `<span class="emoji">📋</span> Заказ #${order.id}: ${order.type}`;
+                    queueElement.appendChild(orderElement);
+                });
+            }
+        }
+        
+        function updateManagerStatus() {
+            const managerStatus = document.getElementById('manager-status');
+            managerStatus.textContent = isChefBusy ? 
+                'Проверяет: Шеф занят → Ждём' : 
+                'Проверяет: Шеф свободен → Передаём заказ!';
+        }
+        
+        function placeOrder(type, duration) {
+            const order = { id: orderId++, type, duration };
+            logEvent(`Поступил новый заказ: ${type} (#${order.id})`);
+            
+            // Находим свободного официанта
+            let waiterFound = false;
+            for (let i = 0; i < 3; i++) {
+                const waiter = document.getElementById('waiters').children[i];
+                if (waiter.textContent.includes('Свободен')) {
+                    waiterFound = true;
+                    activeWaiters++;
+                    updateWaiterStatus(i, `Выполняет: ${type} (#${order.id})`);
+                    updateStatus(`Официант выполняет заказ: ${type}`);
+                    
+                    // Имитация асинхронной операции (Web API)
+                    setTimeout(() => {
+                        logEvent(`Заказ ${type} (#${order.id}) готов, добавлен в очередь`);
+                        orderQueue.push(order);
+                        updateOrderQueue();
+                        updateWaiterStatus(i, 'Свободен');
+                        activeWaiters--;
+                        
+                        // Проверяем, может ли менеджер передать заказ шефу
+                        checkQueue();
+                    }, duration);
+                    
+                    break;
+                }
+            }
+            
+            if (!waiterFound) {
+                logEvent('Нет свободных официантов! Заказ отклонён');
+                updateStatus('Все официанты заняты!');
+            }
+        }
+        
+        function placeSyncOrder() {
+            if (isChefBusy) {
+                logEvent('Шеф-повар занят! Синхронный заказ не может быть принят');
+                updateStatus('Шеф занят - синхронный заказ отклонён');
+                return;
+            }
+            
+            logEvent('Синхронный заказ принят сразу шеф-поваром');
+            updateChefStatus('Синхронный заказ');
+            updateStatus('Шеф готовит синхронный заказ');
+            
+            // Имитация синхронной работы (блокирующая операция)
+            setTimeout(() => {
+                logEvent('Синхронный заказ готов!');
+                updateChefStatus('Ничего');
+                updateStatus('Шеф свободен');
+                checkQueue();
+            }, 1000);
+        }
+        
+        function checkQueue() {
+            updateManagerStatus();
+            
+            if (!isChefBusy && orderQueue.length > 0) {
+                const nextOrder = orderQueue.shift();
+                updateOrderQueue();
+                
+                logEvent(`Менеджер передаёт заказ ${nextOrder.type} (#${nextOrder.id}) шеф-повару`);
+                updateChefStatus(`${nextOrder.type} (#${nextOrder.id})`);
+                updateStatus(`Шеф готовит: ${nextOrder.type}`);
+                
+                // Шеф-повар готовит заказ (выполняется в Call Stack)
+                setTimeout(() => {
+                    logEvent(`Заказ ${nextOrder.type} (#${nextOrder.id}) завершён и отдан клиенту!`);
+                    updateChefStatus('Ничего');
+                    updateStatus('Шеф свободен');
+                    
+                    // После завершения проверяем очередь снова
+                    checkQueue();
+                }, 1000);
+            }
+        }
+        
+        function resetKitchen() {
+            orderId = 1;
+            orderQueue.length = 0;
+            isChefBusy = false;
+            
+            updateChefStatus('Ничего');
+            updateStatus('Ожидание заказов');
+            updateOrderQueue();
+            
+            // Сбрасываем всех официантов
+            for (let i = 0; i < 3; i++) {
+                updateWaiterStatus(i, 'Свободен');
+            }
+            
+            updateManagerStatus();
+            document.getElementById('event-log').innerHTML = '';
+            logEvent('Ресторан перезапущен! Готов к новым заказам');
+        }
+        
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            logEvent('Ресторан JavaScript открыт! Ожидаем заказы...');
+            updateManagerStatus();
+        });
+    </script>
+</body>
+</html>
 
 
     <script src="script.js"></script>
 </body>
-
 </html>
+
