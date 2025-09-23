@@ -1,0 +1,194 @@
+/* ---------- Base ---------- */
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: #0a0a0a;
+  color: #f0f0f0;
+}
+a { text-decoration: none; color: #00f5ff; transition: 0.3s; }
+a:hover { color: #0aff9d; }
+h1,h2,h3 { margin: 0 0 10px; }
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background: rgba(0,0,0,0.85);
+  border-bottom: 1px solid #111;
+}
+.navbar .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #0aff9d;
+}
+.navbar nav a {
+  margin: 0 15px;
+  font-weight: 500;
+}
+.telegram-btn {
+  padding: 8px 16px;
+  background: linear-gradient(45deg,#0aff9d,#00f5ff);
+  border-radius: 6px;
+  color: #000;
+  font-weight: 600;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding: 80px 5%;
+  background: url('assets/bg-hero.jpg') center/cover no-repeat;
+  position: relative;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 12px;
+  line-height: 1.05;
+  font-size: 2.5rem;
+  font-weight: 700;
+
+  /* --- Фолбэк цвет (для старых браузеров) --- */
+  color: #06cea3; /* красивый emerald фолбэк */
+
+  /* --- Градиент текст (современные браузеры) --- */
+  background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
+  -webkit-background-clip: text;   /* Chrome, Safari, Edge */
+  -webkit-text-fill-color: transparent; /* делаем fill прозрачным в WebKit, чтобы видно был фон-градиент */
+  background-clip: text;           /* Firefox (современные версии) */
+
+  /* читаемость поверх фонового изображения — мягкая тень */
+  text-shadow: 0 6px 20px rgba(0,0,0,0.55);
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 0 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.btn-primary {
+  background: linear-gradient(45deg,#0aff9d,#00f5ff);
+  color: #000;
+}
+.btn-secondary {
+  border: 2px solid #00f5ff;
+  color: #00f5ff;
+}
+.trust-badges span {
+  margin: 0 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* ---------- Deals Grid ---------- */
+.deals {
+  padding: 60px 5%;
+}
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 25px;
+}
+.deal-card {
+  background: #121212;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+}
+.deal-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+.deal-card .old-price {
+  text-decoration: line-through;
+  color: #888;
+}
+.deal-card .new-price {
+  color: #0aff9d;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.deal-card .badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ff0055;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.buy-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg,#0aff9d,#00f5ff);
+  color: #000;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* ---------- Categories ---------- */
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 5%;
+  background: #0f0f0f;
+}
+.categories a {
+  padding: 10px 20px;
+  background: #121212;
+  border-radius: 8px;
+}
+
+/* ---------- How It Works ---------- */
+.how {
+  padding: 60px 5%;
+  background: #0a0a0a;
+  text-align: center;
+}
+.how ol {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  line-height: 1.6;
+}
+
+/* ---------- Telegram Promo ---------- */
+.telegram-promo {
+  padding: 60px 5%;
+  text-align: center;
+  background: #121212;
+}
+
+/* ---------- Flash Deal Widget ---------- */
+.flash-deal {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #0aff9d55;
+  text-align: center;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 40px 5%;
+  background: #0f0f0f;
+  font-size: 0.9rem;
+  color: #777;
+}
+.footer a { color: #00f5ff; }
+.footer .disclaimer { margin-top: 10px; font-size: 0.8rem; }
