@@ -39,7 +39,7 @@ h1,h2,h3 { margin: 0 0 10px; }
 .hero {
   text-align: center;
   padding: 80px 5%;
-  /* background: url('assets/bg-hero.png') center/cover no-repeat; */
+  background: url('assets/bg-hero.png') center/cover no-repeat;
   position: relative;
 }
 
