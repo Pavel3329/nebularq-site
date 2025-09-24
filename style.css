@@ -289,6 +289,35 @@ h3 {
   border-radius: 12px;
   box-shadow: 0 0 20px #0aff9d55;
   text-align: center;
+  z-index: 1000;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #ff0055;
+}
+
+/* Скрытое состояние */
+.flash-deal.hidden {
+  display: none;
 }
 
 /* ---------- Footer ---------- */
