@@ -33,9 +33,19 @@ h3 {
 }
 
 .navbar .logo {
+  position: relative;
   font-weight: 700;
   font-size: 1.5rem;
   color: #0aff9d;
+  z-index: 2;
+}
+.navbar .logo::before {
+  content: "";
+  position: absolute;
+  inset: 0;                       /* занимает всю область текста */
+  background: url('assets/logo.png') center/contain no-repeat;
+  opacity: 0.15;                   /* лёгкая подложка за текстом */
+  z-index: -1;                     /* за текстом */
 }
 
 .navbar nav a {
@@ -84,9 +94,7 @@ h3 {
   text-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
 }
 
-.hero-buttons {
-  margin-top: 30px;
-}
+
 
 .btn-primary,
 .btn-secondary {
