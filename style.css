@@ -54,7 +54,7 @@ h3 {
     top: 0;
     width: 100%; /* На всю ширину навбара */
     height: 100%; /* На всю высоту навбара */
-    background: url('assets/favicon4.png') center/contain no-repeat;
+    background: url('assets/favicon1.png') center/contain no-repeat;
     background-size: auto 99%; /* Высота 80% от высоты навбара */
     z-index: 1; /* Под текстом, но над фоном */
     opacity: 0.9;
