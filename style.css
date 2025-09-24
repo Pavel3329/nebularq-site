@@ -39,15 +39,35 @@ h3 {
   color: #0aff9d;
   z-index: 2;
 }
-.navbar .logo::before {
-  content: "";
-  position: absolute;
-  inset: 0;                       /* занимает всю область текста */
-  background: url('assets/logo.png') center/contain no-repeat;
-  opacity: 0.15;                   /* лёгкая подложка за текстом */
-  z-index: -1;                     /* за текстом */
-}
 
+/* Только для мобильных */
+@media (max-width: 768px) {
+  .navbar {
+    position: relative; /* Для позиционирования псевдоэлемента */
+    overflow: hidden; /* Обрезаем лишнее */
+  }
+  
+  .navbar::before {
+    content: '';
+    position: absolute;
+    left: -150px;
+    top: 0;
+    width: 100%; /* На всю ширину навбара */
+    height: 100%; /* На всю высоту навбара */
+    background: url('assets/favicon4.png') center/contain no-repeat;
+    background-size: auto 99%; /* Высота 80% от высоты навбара */
+    z-index: 1; /* Под текстом, но над фоном */
+    opacity: 0.9;
+    pointer-events: none; /* Чтобы не блокировала клики */
+  }
+  
+  .navbar .logo,
+  .navbar nav,
+  .navbar .telegram-btn {
+    position: relative;
+    z-index: 2; /* Текст поверх картинки */
+  }
+}
 .navbar nav a {
   margin: 0 15px;
   font-weight: 500;
