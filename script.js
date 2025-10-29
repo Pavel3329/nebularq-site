@@ -1,3 +1,7 @@
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const flashDeal = document.querySelector('.flash-deal');
     const closeBtn = document.querySelector('.close-btn');

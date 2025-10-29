@@ -114,7 +114,28 @@ h3 {
   text-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
 }
 
+.hero-decoration {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
 
+.hero-decoration img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Скрываем картинку на мобильных устройствах */
+@media (max-width: 768px) {
+  .hero-decoration {
+    display: none;
+  }
+}
 
 .btn-primary,
 .btn-secondary {
