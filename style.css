@@ -48,18 +48,25 @@ h3 {
   }
   
   .navbar::before {
-    content: '';
-    position: absolute;
-    left: -150px;
-    top: 0;
-    width: 100%; /* На всю ширину навбара */
-    height: 100%; /* На всю высоту навбара */
-    background: url('assets/favicon1.png') center/contain no-repeat;
-    background-size: auto 99%; /* Высота 80% от высоты навбара */
-    z-index: 1; /* Под текстом, но над фоном */
-    opacity: 0.9;
-    pointer-events: none; /* Чтобы не блокировала клики */
-  }
+  content: '';
+  position: absolute;
+  left: -150px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/favicon1.png') center/contain no-repeat;
+  background-size: auto 99%;
+  z-index: 1;
+
+  opacity: 1; /* 💥 убрали тусклость */
+
+  /* 🔥 добавили свечение */
+  filter:
+    drop-shadow(0 0 8px rgba(0, 245, 255, 0.5))
+    drop-shadow(0 0 20px rgba(0, 245, 255, 0.3));
+
+  pointer-events: none;
+}
   
   .navbar .logo,
   .navbar nav,
@@ -166,6 +173,25 @@ h3 {
 }
 
 
+/* ссылки */
+a {
+  transition: all 0.25s ease;
+}
+
+a:hover {
+  text-shadow: 0 0 8px #00f5ff;
+}
+
+/* бейджи */
+.badge {
+  animation: pulseBadge 2s infinite;
+}
+
+@keyframes pulseBadge {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
 @keyframes fadeInUp {
   from {
     opacity: 0;
