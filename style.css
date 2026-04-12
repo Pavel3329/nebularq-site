@@ -89,29 +89,136 @@ h3 {
   position: relative;
 }
 
+/* УБРАТЬ ОТСЮДА ГРАДИЕНТ */
 .hero h1 {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 12px;
-  line-height: 1.05;
-  font-size: 2.5rem;
+  color: #06cea3; /* просто фолбэк */
+}
+
+.hero-sub {
+  margin-top: 15px;
+  color: #ccc;
+  animation: fadeInUp 1.4s ease forwards;
+}
+
+.hero-title {
+  font-size: 2.7rem;
   font-weight: 700;
+  line-height: 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 
-  /* --- Фолбэк цвет (для старых браузеров) --- */
-  color: #06cea3;
-  /* красивый emerald фолбэк */
+  animation: fadeInUp 1s ease forwards;
+}
 
-  /* --- Градиент текст (современные браузеры) --- */
+.title-text {
+  background: linear-gradient(
+    90deg,
+    #06cea3,
+    #00f5ff,
+    #06cea3
+  );
+
+  background-size: 200% auto;
+
+ 
+  -webkit-text-fill-color: transparent;
+   background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
+
+  animation: gradientMove 4s linear infinite;
+}
+
+/* 🌈 движение градиента */
+@keyframes gradientMove {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.fire {
+  position: relative;
+  display: inline-flex;
+  margin-right: 12px;
+}
+
+.fire svg {
+  fill: url(#fireGradient);
+
+  filter:
+    drop-shadow(0 0 6px #ff9800)
+    drop-shadow(0 0 12px #ff5722);
+
+  animation: fireUltra 0.7s infinite ease-in-out;
+}
+
+@keyframes fireUltra {
+  0%   { transform: scale(1) rotate(-1deg); }
+  50%  { transform: scale(1.15) rotate(1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.title-text {
   background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
   -webkit-background-clip: text;
-  /* Chrome, Safari, Edge */
   -webkit-text-fill-color: transparent;
-  /* делаем fill прозрачным в WebKit, чтобы видно был фон-градиент */
-  background-clip: text;
-  /* Firefox (современные версии) */
+}
 
-  /* читаемость поверх фонового изображения — мягкая тень */
-  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sparks {
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  pointer-events: none;
+}
+
+.sparks span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffcc00;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkFly 1.5s infinite;
+}
+
+/* разные искры */
+.sparks span:nth-child(1) {
+  left: 0;
+  animation-delay: 0s;
+}
+.sparks span:nth-child(2) {
+  left: 8px;
+  animation-delay: 0.3s;
+}
+.sparks span:nth-child(3) {
+  left: 4px;
+  animation-delay: 0.6s;
+}
+
+/* ✨ анимация искр */
+@keyframes sparkFly {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-20px) scale(0.5);
+    opacity: 0;
+  }
 }
 
 .hero-decoration {
