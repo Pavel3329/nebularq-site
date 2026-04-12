@@ -158,7 +158,10 @@ h3 {
 }
 .title-text {
   background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
-  -webkit-background-clip: text;
+  
+  background-clip: text;              /* ✅ добавь это */
+  -webkit-background-clip: text;      /* ✅ оставь это */
+
   -webkit-text-fill-color: transparent;
 }
 
