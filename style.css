@@ -286,6 +286,24 @@ a:hover {
 .btn-primary {
   background: linear-gradient(45deg, #0aff9d, #00f5ff);
   color: #000;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* 🔥 ХОВЕР */
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+
+  box-shadow:
+    0 0 10px #00f5ff,
+    0 0 20px rgba(0, 245, 255, 0.6),
+    0 0 30px rgba(10, 255, 157, 0.4);
+
+  filter: brightness(1.1);
+
+  color: #001a1a; /* мягкий тёмный */
+
+  text-shadow: 0 0 6px rgba(0,0,0,0.6); /* 💥 ВОТ ЭТО ТВОЙ КЛЮЧ */
 }
 
 .btn-secondary {
