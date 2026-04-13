@@ -152,8 +152,9 @@ h3 {
   fill: url(#fireGradient);
 
   filter:
-    drop-shadow(0 0 6px #ff9800)
-    drop-shadow(0 0 12px #ff5722);
+    drop-shadow(0 0 10px #ff9800)
+    drop-shadow(0 0 20px #ff5722)
+    drop-shadow(0 0 30px #ff2d00);
 
   animation: fireUltra 0.7s infinite ease-in-out;
 }
