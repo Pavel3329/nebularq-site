@@ -43,38 +43,42 @@ h3 {
 /* Только для мобильных */
 @media (max-width: 768px) {
   .navbar {
-    position: relative; /* Для позиционирования псевдоэлемента */
-    overflow: hidden; /* Обрезаем лишнее */
+    position: relative;
+    /* Для позиционирования псевдоэлемента */
+    overflow: hidden;
+    /* Обрезаем лишнее */
   }
-  
+
   .navbar::before {
-  content: '';
-  position: absolute;
-  left: -150px;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: url('assets/Futuristic_cyan_star_emblem-removebg-preview.png') center/contain no-repeat;
-  background-size: auto 99%;
-  z-index: 1;
+    content: '';
+    position: absolute;
+    left: -150px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/Futuristic_cyan_star_emblem-removebg-preview.png') center/contain no-repeat;
+    background-size: auto 99%;
+    z-index: 1;
 
-  opacity: 1; /* 💥 убрали тусклость */
+    opacity: 1;
+    /* 💥 убрали тусклость */
 
-  /* 🔥 добавили свечение */
-  filter:
-    drop-shadow(0 0 8px rgba(0, 245, 255, 0.5))
-    drop-shadow(0 0 20px rgba(0, 245, 255, 0.3));
+    /* 🔥 добавили свечение */
+    filter:
+      drop-shadow(0 0 8px rgba(0, 245, 255, 0.5)) drop-shadow(0 0 20px rgba(0, 245, 255, 0.3));
 
-  pointer-events: none;
-}
-  
+    pointer-events: none;
+  }
+
   .navbar .logo,
   .navbar nav,
   .navbar .telegram-btn {
     position: relative;
-    z-index: 2; /* Текст поверх картинки */
+    z-index: 2;
+    /* Текст поверх картинки */
   }
 }
+
 .navbar nav a {
   margin: 0 15px;
   font-weight: 500;
@@ -98,7 +102,8 @@ h3 {
 
 /* УБРАТЬ ОТСЮДА ГРАДИЕНТ */
 .hero h1 {
-  color: #06cea3; /* просто фолбэк */
+  color: #06cea3;
+  /* просто фолбэк */
 }
 
 .hero-sub {
@@ -120,26 +125,29 @@ h3 {
 }
 
 .title-text {
-  background: linear-gradient(
-    90deg,
-    #06cea3,
-    #00f5ff,
-    #06cea3
-  );
+  background: linear-gradient(90deg,
+      #06cea3,
+      #00f5ff,
+      #06cea3);
 
   background-size: 200% auto;
 
- 
+
   -webkit-text-fill-color: transparent;
-   background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
+  background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
 
   animation: gradientMove 4s linear infinite;
 }
 
 /* 🌈 движение градиента */
 @keyframes gradientMove {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .fire {
@@ -152,23 +160,32 @@ h3 {
   fill: url(#fireGradient);
 
   filter:
-    drop-shadow(0 0 10px #ff9800)
-    drop-shadow(0 0 20px #ff5722)
-    drop-shadow(0 0 30px #ff2d00);
+    drop-shadow(0 0 10px #ff9800) drop-shadow(0 0 20px #ff5722) drop-shadow(0 0 30px #ff2d00);
 
   animation: fireUltra 0.7s infinite ease-in-out;
 }
 
 @keyframes fireUltra {
-  0%   { transform: scale(1) rotate(-1deg); }
-  50%  { transform: scale(1.15) rotate(1deg); }
-  100% { transform: scale(1) rotate(0deg); }
+  0% {
+    transform: scale(1) rotate(-1deg);
+  }
+
+  50% {
+    transform: scale(1.15) rotate(1deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
+
 .title-text {
   background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
-  
-  background-clip: text;              /* ✅ добавь это */
-  -webkit-background-clip: text;      /* ✅ оставь это */
+
+  background-clip: text;
+  /* ✅ добавь это */
+  -webkit-background-clip: text;
+  /* ✅ оставь это */
 
   -webkit-text-fill-color: transparent;
 }
@@ -189,15 +206,25 @@ a:hover {
 }
 
 @keyframes pulseBadge {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -226,10 +253,12 @@ a:hover {
   left: 0;
   animation-delay: 0s;
 }
+
 .sparks span:nth-child(2) {
   left: 8px;
   animation-delay: 0.3s;
 }
+
 .sparks span:nth-child(3) {
   left: 4px;
   animation-delay: 0.6s;
@@ -241,10 +270,12 @@ a:hover {
     transform: translateY(0) scale(1);
     opacity: 1;
   }
+
   50% {
     transform: translateY(-10px) scale(1.2);
     opacity: 0.8;
   }
+
   100% {
     transform: translateY(-20px) scale(0.5);
     opacity: 0;
@@ -276,7 +307,13 @@ a:hover {
 
 .btn-primary,
 .btn-secondary {
-  display: inline-block;
+  display: inline-flex;
+
+  align-items: center;
+  /* ✅ вертикально */
+  justify-content: center;
+  /* ✅ по центру */
+
   padding: 12px 24px;
   margin: 0 10px;
   border-radius: 8px;
@@ -284,26 +321,99 @@ a:hover {
 }
 
 .btn-primary {
+  position: relative;
+  /* ✅ добавили */
+  overflow: hidden;
+  /* ✅ добавили */
+
   background: linear-gradient(45deg, #0aff9d, #00f5ff);
-  color: #000;
+  color: #001a1a;
+  border-radius: 8px;
+
   box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+
+  animation: pulseGlow 2.5s infinite;
   transition: all 0.3s ease;
 }
 
+@keyframes pulseGlow {
+  0% {
+    box-shadow:
+      0 0 8px rgba(0, 245, 255, 0.2),
+      0 0 15px rgba(10, 255, 157, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(0, 245, 255, 0.8),
+      0 0 50px rgba(10, 255, 157, 0.5);
+  }
+
+  100% {
+    box-shadow:
+      0 0 8px rgba(0, 245, 255, 0.2),
+      0 0 15px rgba(10, 255, 157, 0.1);
+  }
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+  box-shadow:
+    0 0 5px #00f5ff,
+    inset 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
+
+  transform: skewX(-20deg);
+
+  animation: shimmerMove 3s infinite;
+}
+
+@keyframes shimmerMove {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+
 /* 🔥 ХОВЕР */
 .btn-primary:hover {
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px) scale(1.05);
+  letter-spacing: 0.5px;
 
   box-shadow:
-    0 0 10px #00f5ff,
-    0 0 20px rgba(0, 245, 255, 0.6),
-    0 0 30px rgba(10, 255, 157, 0.4);
+    0 0 15px #00f5ff,
+    0 0 30px rgba(0, 245, 255, 0.8),
+    0 0 50px rgba(10, 255, 157, 0.6);
 
-  filter: brightness(1.1);
+  filter: brightness(1.15);
 
-  color: #001a1a; /* мягкий тёмный */
+  color: #001a1a;
 
-  text-shadow: 0 0 6px rgba(0,0,0,0.6); /* 💥 ВОТ ЭТО ТВОЙ КЛЮЧ */
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+
+  animation: none;
+  /* 💥 важно — отключаем пульс при наведении */
+}
+
+.btn-primary:hover::after {
+  transform: translateX(4px);
 }
 
 .btn-secondary {
