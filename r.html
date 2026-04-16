@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #0aff9d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .box {
+            animation: fade 0.6s ease;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .loader {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>⏳ Перенаправление...</h2>
+        <div class="loader">Проверяем лучшую цену</div>
+    </div>
+
+    <script>
+
+        // ===============================
+        // 📊 ПОЛУЧАЕМ ПАРАМЕТР
+        // ===============================
+        const params = new URLSearchParams(window.location.search);
+        const offer = params.get('offer');
+
+        // ===============================
+        // 💰 ТВОИ ПАРТНЁРСКИЕ ССЫЛКИ (ВСТАВЬ СВОИ!)
+        // ===============================
+        const offers = {
+
+            roblox: "https://admitad.link/roblox",
+            xbox: "https://admitad.link/xbox",
+            ps: "https://admitad.link/playstation",
+            giftcards: "https://admitad.link/giftcards",
+            vpn: "https://admitad.link/vpn",
+            temu: "https://admitad.link/temu"
+
+        };
+
+        // ===============================
+        // 🧠 ГЕНЕРАЦИЯ SUBID (ОЧЕНЬ ВАЖНО)
+        // ===============================
+        function generateSubID() {
+            return "nbq_" + Date.now();
+        }
+
+        // ===============================
+        // 📈 ТРЕКИНГ
+        // ===============================
+        let stats = JSON.parse(localStorage.getItem('nebularq_redirects')) || {};
+        stats[offer] = (stats[offer] || 0) + 1;
+        localStorage.setItem('nebularq_redirects', JSON.stringify(stats));
+
+        // ===============================
+        // 🚀 РЕДИРЕКТ
+        // ===============================
+        if (offer && offers[offer]) {
+
+            const subid = generateSubID();
+
+            let finalUrl = offers[offer];
+
+            // 👉 если хочешь — добавим subid в ссылку
+            if (finalUrl.includes("?")) {
+                finalUrl += "&subid=" + subid;
+            } else {
+                finalUrl += "?subid=" + subid;
+            }
+
+            console.log("🚀 Redirect →", finalUrl);
+
+            setTimeout(() => {
+                window.location.href = finalUrl;
+            }, 400);
+
+        } else {
+
+            document.body.innerHTML = `
+        <h2>❌ Ошибка ссылки</h2>
+        <p>Проверь URL</p>
+    `;
+        }
+
+    </script>
+
+</body>
+
+</html>

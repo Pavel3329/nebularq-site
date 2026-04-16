@@ -1,29 +1,68 @@
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // ===============================
-    // 🔥 FLASH DEAL (твоя логика)
+    // 💰 CLICK TRACKING (АНАЛИТИКА)
+    // ===============================
+    const trackedLinks = document.querySelectorAll('.track');
+
+    trackedLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const url = link.getAttribute('href');
+
+            let clicks = JSON.parse(localStorage.getItem('nebularq_clicks')) || {};
+
+            clicks[url] = (clicks[url] || 0) + 1;
+
+            localStorage.setItem('nebularq_clicks', JSON.stringify(clicks));
+
+            console.log("💰 Клик:", url, "| Всего:", clicks[url]);
+        });
+    });
+
+
+    // ===============================
+    // 🚀 SMART REDIRECT EFFECT
+    // ===============================
+    trackedLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const url = link.getAttribute('href');
+
+            link.innerText = "⏳ Переход...";
+            link.style.opacity = "0.7";
+
+            setTimeout(() => {
+                window.location.href = url;
+            }, 250);
+        });
+    });
+
+
+    // ===============================
+    // 🔥 FLASH DEAL
     // ===============================
     const flashDeal = document.querySelector('.flash-deal');
     const closeBtn = document.querySelector('.close-btn');
 
     if (flashDeal && closeBtn) {
-        if (localStorage.getItem('flashDealClosed') !== 'true') {
-            flashDeal.classList.remove('hidden');
-        }
 
-        closeBtn.addEventListener('click', function() {
+        // показываем через 5 сек
+        setTimeout(() => {
+            if (localStorage.getItem('flashClosed') !== 'true') {
+                flashDeal.classList.remove('hidden');
+            }
+        }, 5000);
+
+        closeBtn.addEventListener('click', () => {
             flashDeal.classList.add('hidden');
-            localStorage.setItem('flashDealClosed', 'true');
+            localStorage.setItem('flashClosed', 'true');
         });
     }
 
 
     // ===============================
-    // 🚀 SCROLL REVEAL (анимация появления)
+    // ✨ SCROLL REVEAL
     // ===============================
     const reveals = document.querySelectorAll('.reveal');
 
@@ -40,13 +79,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', revealOnScroll);
-
-    // запуск при загрузке
     revealOnScroll();
 
 
     // ===============================
-    // 😏 TILT ЭФФЕКТ (только ПК)
+    // 😏 TILT ЭФФЕКТ (ПК)
     // ===============================
     if (window.innerWidth > 768) {
         const cards = document.querySelectorAll('.deal-card');
@@ -75,6 +112,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
             });
         });
+    }
+
+
+    // ===============================
+    // 💣 BEST OFFER HIGHLIGHT
+    // ===============================
+    const clicks = JSON.parse(localStorage.getItem('nebularq_clicks')) || {};
+
+    let max = 0;
+    let best = null;
+
+    for (let key in clicks) {
+        if (clicks[key] > max) {
+            max = clicks[key];
+            best = key;
+        }
+    }
+
+    if (best) {
+        const bestLink = document.querySelector(`a[href="${best}"]`);
+
+        if (bestLink) {
+            bestLink.style.boxShadow = "0 0 20px #0aff9d";
+        }
     }
 
 });

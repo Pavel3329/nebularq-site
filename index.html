@@ -5,37 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nebularq — Игровые скидки до 90%</title>
-    <link rel="stylesheet" href="style.css?v=2">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="assets/favicon.png" type="image/png">
 
+    <link rel="stylesheet" href="style.css?v=3">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 
 <body>
+
     <!-- NAVBAR -->
     <header class="navbar">
         <div class="logo">NEBULARQ</div>
         <nav>
-            <a href="#roblox">Roblox</a>
-            <a href="#steam">Steam</a>
-            <a href="#playstation">PlayStation</a>
-            <a href="#xbox">Xbox</a>
+            <a href="#featured">Top</a>
+            <a href="#top-deals">Deals</a>
+            <a href="#save">Save</a>
         </nav>
-        <a href="https://t.me/nebularq" class="telegram-btn" target="_blank">t.me</a>
+        <a href="https://t.me/nebularq" class="telegram-btn" target="_blank">Telegram</a>
     </header>
+
 
     <!-- HERO -->
     <section class="hero">
 
         <div class="hero-decoration">
-            <img src="assets/Futuristic_cyan_star_emblem-removebg-preview.png" alt="Decoration">
+            <img src="assets/Futuristic_cyan_star_emblem-removebg-preview.png">
         </div>
 
         <h1 class="hero-title">
             <span class="fire">
-                <svg viewBox="0 0 64 64" width="42" height="42">
+                <svg viewBox="0 0 64 64" width="40" height="40">
                     <defs>
                         <linearGradient id="fireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" stop-color="#fff176" />
@@ -54,107 +55,167 @@
                     <span></span>
                 </span>
             </span>
-
-            <span class="title-text">
-                Игровые скидки до 90% — сегодня
-            </span>
+            <span class="title-text">Игровые скидки до 90% — сегодня</span>
         </h1>
 
         <p class="hero-sub">
-            Скидки, купоны, автодоставка. Только проверенные продавцы и мгновенные ключи.
+            Robux, Game Pass, ключи и подписки — дешевле, чем в официальных магазинах
         </p>
 
         <div class="hero-buttons">
-            <a href="#top-deals" class="btn-primary">🎯 Топ предложения</a>
-            <a href="https://t.me/nebularq" target="_blank" class="btn-secondary">🚀 Telegram</a>
-        </div>
-
-        <div class="trust-badges">
-            <span>✔️ Гарантия доставки</span>
-            <span>⚡ Поддержка 24/7</span>
+            <a href="#featured" class="btn-primary">🎯 Лучшие предложения</a>
+            <a href="https://t.me/nebularq" class="btn-secondary" target="_blank">🚀 Telegram</a>
         </div>
 
     </section>
 
-    <!-- TOP DEALS GRID -->
-    <section id="top-deals" class="deals">
-        <h2>🔥 Топ-предложения сегодня</h2>
+
+    <!-- 💰 FEATURED -->
+    <section id="featured" class="deals">
+        <h2>💰 Лучшие предложения</h2>
+
         <div class="grid-cards">
-            <!-- CARD 1 -->
+
             <article class="deal-card reveal">
-                <img src="assets/civ6.jpg" alt="CIV VI Anthology">
-                <h3>CIV VI Anthology</h3>
-                <p class="old-price">1999₽</p>
-                <p class="new-price">679₽</p>
-                <span class="badge">-70%</span>
-                <p class="promo">Промокод: EPLAY5</p>
-                <a href="https://nebularq.com/r/civ6" class="buy-btn">Купить со скидкой</a>
-            </article>
-            <!-- CARD 2 -->
-            <article class="deal-card reveal">
-                <img src="assets/cyberpunk.jpg" alt="Cyberpunk 2077">
-                <h3>Cyberpunk 2077</h3>
-                <p class="old-price">4199₽</p>
-                <p class="new-price">149₽</p>
-                <span class="badge">-96%</span>
-                <p class="promo">Промокод: PLAYBERU15</p>
-                <a href="https://nebularq.com/r/cyberpunk" class="buy-btn">Купить со скидкой</a>
-            </article>
-            <!-- CARD 3 -->
-            <article class="deal-card reveal">
-                <img src="assets/roblox.jpg" alt="Roblox Robux">
+                <img src="assets/roblox.jpg">
+
+                <span class="badge">TOP</span>
+
                 <h3>Roblox Robux</h3>
+
+                <p class="new-price">До -30%</p>
+
+                <a href="/r.html?offer=roblox" class="buy-btn track">Купить дешевле</a>
+            </article>
+
+            <article class="deal-card reveal">
+                <img src="assets/xbox.jpg">
+
+                <span class="badge">TOP</span>
+
+                <h3>Xbox Game Pass</h3>
+
+                <p class="new-price">Подписка дешевле</p>
+
+                <a href="/r.html?offer=xbox" class="buy-btn track">Активировать</a>
+            </article>
+
+            <article class="deal-card reveal">
+                <img src="assets/ps.jpg">
+
+                <span class="badge">TOP</span>
+
+                <h3>PlayStation Plus</h3>
+
+                <p class="new-price">До -40%</p>
+
+                <a href="/r.html?offer=ps" class="buy-btn track">Получить</a>
+            </article>
+
+            <article class="deal-card reveal">
+                <img src="assets/giftcard.jpg">
+
+                <span class="badge">TOP</span>
+
+                <h3>Gift Cards</h3>
+
+                <p class="new-price">Steam / PS / Xbox</p>
+
+                <a href="/r.html?offer=giftcards" class="buy-btn track">Смотреть</a>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- 🔥 HOT DEALS -->
+    <section id="top-deals" class="deals">
+        <h2>🔥 Горячие скидки сегодня</h2>
+
+        <div class="grid-cards">
+
+            <article class="deal-card reveal">
+                <img src="assets/roblox.jpg">
+
+                <span class="badge">-50%</span>
+
+                <h3>Roblox Robux</h3>
+
                 <p class="old-price">999₽</p>
                 <p class="new-price">499₽</p>
-                <span class="badge">-50%</span>
-                <p class="promo">Промокод: GGPLAY20</p>
-                <a href="https://nebularq.com/r/roblox" class="buy-btn">Купить со скидкой</a>
+
+                <a href="/r.html?offer=roblox" class="buy-btn track">Купить</a>
             </article>
+
+            <article class="deal-card reveal">
+                <img src="assets/cyberpunk.jpg">
+
+                <span class="badge">-96%</span>
+
+                <h3>Cyberpunk 2077</h3>
+
+                <p class="old-price">4199₽</p>
+                <p class="new-price">149₽</p>
+
+                <a href="/r.html?offer=giftcards" class="buy-btn track">Купить</a>
+            </article>
+
         </div>
     </section>
 
-    <!-- CATEGORIES -->
-    <section class="categories">
-        <a href="#">Roblox</a>
-        <a href="#">Steam</a>
-        <a href="#">PC Games</a>
-        <a href="#">Subscriptions</a>
-        <a href="#">Software</a>
+
+    <!-- 💸 SAVE MONEY -->
+    <section id="save" class="deals">
+        <h2>💸 Экономь ещё больше</h2>
+
+        <div class="grid-cards">
+
+            <article class="deal-card reveal">
+                <img src="assets/vpn.jpg">
+                <h3>VPN скидки</h3>
+                <p class="new-price">До -80%</p>
+                <a href="/r.html?offer=vpn" class="buy-btn track">Получить VPN</a>
+            </article>
+
+            <article class="deal-card reveal">
+                <img src="assets/temu.jpg">
+                <h3>Temu Deals</h3>
+                <p class="new-price">Скидки каждый день</p>
+                <a href="/r.html?offer=temu" class="buy-btn track">Перейти</a>
+            </article>
+
+        </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="how">
-        <h2>Как это работает</h2>
-        <ol>
-            <li>Мы находим купоны и сравниваем цены.</li>
-            <li>Кликай <strong>nebularq.com/r/...</strong> → Admitad deeplink + SubID/UTM.</li>
-            <li>Получаешь ключ / автодоставку, поддержка в Telegram.</li>
-        </ol>
-    </section>
 
-    <!-- TELEGRAM PROMO -->
+    <!-- TELEGRAM -->
+
+    > Pavel:
     <section class="telegram-promo">
-        <h2>Все купоны и мгновенные оповещения → <a href="https://t.me/nebularq" target="_blank">t.me/nebularq</a></h2>
+        <h2>🔥 Промокоды и скидки каждый день</h2>
+        <p>Эксклюзивные офферы, которых нет на сайте</p>
         <a href="https://t.me/nebularq" class="btn-primary" target="_blank">Перейти в Telegram</a>
     </section>
 
-    <!-- FLASH DEAL WIDGET -->
-    <aside class="flash-deal">
+
+    <!-- FLASH DEAL -->
+    <aside class="flash-deal hidden">
         <button class="close-btn">×</button>
         <h3>⚡ FLASH DEAL</h3>
-        <p>Cyberpunk 2077 — <strong>127₽</strong></p>
-        <a href="https://nebularq.com/r/cyberpunk" class="btn-primary">Купить сейчас</a>
+        <p>Roblox Robux — <strong>-30%</strong></p>
+        <a href="/r.html?offer=roblox" class="btn-primary track">Купить сейчас</a>
     </aside>
+
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p>© 2025 Nebularq • <a href="#">О проекте</a> • <a href="#">FAQ</a> • <a href="#">Политика</a></p>
-        <p class="disclaimer">Примечание: это партнёрский проект — мы получаем комиссию.</p>
+        <p>© 2025 Nebularq • Все права защищены</p>
+        <p class="disclaimer">Партнёрский проект — мы получаем комиссию</p>
     </footer>
 
 
-
     <script src="script.js"></script>
+
 </body>
 
 </html>
