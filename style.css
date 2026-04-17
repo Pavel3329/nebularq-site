@@ -62,9 +62,7 @@ h3 {
 
     /* 🔥 СВЕЧЕНИЕ */
     filter:
-      drop-shadow(0 0 10px rgba(0, 245, 255, 0.1))
-      drop-shadow(0 0 15px rgba(0, 245, 255, 0.2))
-      drop-shadow(0 0 35px rgba(10, 255, 157, 0.1));
+      drop-shadow(0 0 10px rgba(0, 245, 255, 0.1)) drop-shadow(0 0 15px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 35px rgba(10, 255, 157, 0.1));
 
     /* ✨ АНИМАЦИЯ */
     animation: starFloat 6s ease-in-out infinite;
@@ -87,9 +85,11 @@ h3 {
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-5px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -639,12 +639,12 @@ a:hover {
 
   color: #fff;
 
-  background: linear-gradient(
-    120deg,
-    #ff2d00,
-    #ff0055,
-    #ff2d00
-  );
+background: linear-gradient(
+  120deg,
+  #0a0a0a,
+  #000000,
+  #1a1a1a
+);
 
   background-size: 200% auto;
 
@@ -665,6 +665,7 @@ a:hover {
   0% {
     background-position: 0% center;
   }
+
   100% {
     background-position: 200% center;
   }
@@ -676,12 +677,14 @@ a:hover {
       0 0 8px rgba(255, 45, 0, 0.5),
       0 0 15px rgba(255, 0, 85, 0.3);
   }
+
   50% {
     box-shadow:
       0 0 20px rgba(255, 45, 0, 0.9),
       0 0 40px rgba(255, 0, 85, 0.6),
       0 0 60px rgba(255, 45, 0, 0.4);
   }
+
   100% {
     box-shadow:
       0 0 8px rgba(255, 45, 0, 0.5),
@@ -694,11 +697,13 @@ a:hover {
     box-shadow:
       0 0 8px rgba(255, 45, 0, 0.5);
   }
+
   50% {
     box-shadow:
       0 0 20px rgba(255, 45, 0, 0.9),
       0 0 40px rgba(255, 0, 85, 0.6);
   }
+
   100% {
     box-shadow:
       0 0 8px rgba(255, 45, 0, 0.5);
@@ -714,12 +719,10 @@ a:hover {
   width: 60%;
   height: 100%;
 
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.5),
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent);
 
   transform: skewX(-20deg);
 
@@ -732,10 +735,8 @@ a:hover {
   inset: 0;
   border-radius: 8px;
 
-  background: linear-gradient(
-    rgba(255,255,255,0.3),
-    transparent
-  );
+  background: linear-gradient(rgba(255, 255, 255, 0.3),
+      transparent);
 
   opacity: 0.4;
 }
@@ -744,6 +745,7 @@ a:hover {
   0% {
     left: -100%;
   }
+
   100% {
     left: 150%;
   }
@@ -1031,7 +1033,7 @@ a:hover {
 
 /* Footer улучшение */
 .footer {
-  border-top: 1px solid rgba(255,255,255,0.04);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 /* FLASH DEAL улучшение */
