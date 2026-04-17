@@ -115,6 +115,7 @@ h3 {
   .navbar {
     position: relative;
     overflow: hidden;
+     align-items: flex-start; /* ⬅️ ключ! */
   }
 
   .navbar::before {
@@ -1205,3 +1206,4 @@ a:hover {
     text-align: center;
   }
 }
+
