@@ -80,6 +80,21 @@ h3 {
   }
 }
 
+.telegram-btn:hover {
+  color: #000;
+  /* 💥 текст всегда черный */
+
+  text-shadow:
+    0 0 6px rgba(0, 245, 255, 0.6),
+    0 0 12px rgba(0, 245, 255, 0.4);
+
+  box-shadow:
+    0 0 15px rgba(0, 245, 255, 0.6),
+    0 0 30px rgba(0, 245, 255, 0.4);
+
+  transform: translateY(-2px) scale(1.03);
+}
+
 
 @keyframes starFloat {
   0% {
@@ -120,6 +135,9 @@ h3 {
   border-radius: 6px;
   color: #000;
   font-weight: 600;
+  text-shadow:
+    0 0 4px rgba(0, 245, 255, 0.2);
+
 }
 
 /* ---------- Hero ---------- */
@@ -639,12 +657,10 @@ a:hover {
 
   color: #fff;
 
-background: linear-gradient(
-  120deg,
-  #0a0a0a,
-  #000000,
-  #1a1a1a
-);
+  background: linear-gradient(120deg,
+      #0a0a0a,
+      #000000,
+      #1a1a1a);
 
   background-size: 200% auto;
 
