@@ -33,11 +33,104 @@ h3 {
 
 .navbar .logo {
   position: relative;
+
   font-weight: 700;
-  font-size: 1.5rem;
-  color: #0aff9d;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+
+  background: linear-gradient(90deg,
+      #0aff9d,
+      #00f5ff,
+      #0aff9d);
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: logoFlow 4s linear infinite;
+
+  text-shadow:
+    0 0 6px rgba(0, 245, 255, 0.3);
+
   z-index: 2;
 }
+
+.navbar .logo::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00f5ff,
+    #0aff9d,
+    transparent
+  );
+
+  opacity: 0.7;
+
+  filter: blur(1px);
+
+  animation: logoLineGlow 3s ease-in-out infinite;
+}
+
+.navbar .logo::before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: -50%;
+
+  width: 50%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+
+  animation: logoShine 3s infinite;
+}
+
+@keyframes logoShine {
+  0% { left: -50%; }
+  100% { left: 120%; }
+}
+
+@keyframes logoLineGlow {
+  0% {
+    opacity: 0.3;
+    transform: scaleX(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scaleX(0.7);
+  }
+}
+
+
+@keyframes logoFlow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+
 
 /* Только для мобильных */
 @media (max-width: 768px) {
