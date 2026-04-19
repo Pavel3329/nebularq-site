@@ -78,11 +78,7 @@ h3 {
     overflow: hidden;
      align-items: flex-start; /* ⬅️ ключ! */
   }
-    .telegram-btn {
-    margin-left: auto;
-    max-width: 100%;
-    white-space: nowrap;
-  }
+  
 
 @media (max-width: 768px) {
 
