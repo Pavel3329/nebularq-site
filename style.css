@@ -57,46 +57,7 @@ h3 {
   z-index: 2;
 }
 
-.navbar .logo::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
 
-  width: 100%;
-  height: 2px;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #00f5ff,
-    #0aff9d,
-    transparent
-  );
-
-  opacity: 0.7;
-
-  filter: blur(1px);
-
-  animation: logoLineGlow 3s ease-in-out infinite;
-}
-
-
-
-@keyframes logoLineGlow {
-  0% {
-    opacity: 0.3;
-    transform: scaleX(0.7);
-  }
-  50% {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-  100% {
-    opacity: 0.3;
-    transform: scaleX(0.7);
-  }
-}
 
 
 @keyframes logoFlow {
@@ -117,6 +78,10 @@ h3 {
     overflow: hidden;
      align-items: flex-start; /* ⬅️ ключ! */
   }
+
+  .navbar nav {
+  margin-left: 10px;
+}
 
   .navbar::before {
     content: '';
