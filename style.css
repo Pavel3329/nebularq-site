@@ -79,8 +79,20 @@ h3 {
      align-items: flex-start; /* ⬅️ ключ! */
   }
 
+@media (max-width: 768px) {
+
   .navbar nav {
-  margin-left: 10px;
+    display: flex;
+    flex-direction: column; /* ⬅️ делаем вертикально */
+    align-items: flex-start; /* ⬅️ выравниваем по левому краю */
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .navbar nav a {
+    margin: 0; /* убираем кривые отступы */
+  }
+
 }
 
   .navbar::before {
