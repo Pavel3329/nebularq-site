@@ -42,23 +42,31 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===============================
     // 🔥 FLASH DEAL
     // ===============================
-    const flashDeal = document.querySelector('.flash-deal');
-    const closeBtn = document.querySelector('.close-btn');
+const flashDeal = document.querySelector('.flash-deal');
+const closeBtn = document.querySelector('.close-btn');
 
-    if (flashDeal && closeBtn) {
+if (flashDeal && closeBtn) {
 
-        // показываем через 5 сек
+    const ONE_HOUR = 60 * 60 * 1000;
+
+    let closedTime = null;
+
+    // 👇 всегда показываем через 4 секунды при загрузке
+    setTimeout(() => {
+        flashDeal.classList.remove('hidden');
+    }, 4000);
+
+    // закрытие
+    closeBtn.addEventListener('click', () => {
+        flashDeal.classList.add('hidden');
+        closedTime = Date.now();
+
+        // 👇 через час снова появится (если пользователь не обновил страницу)
         setTimeout(() => {
-            if (localStorage.getItem('flashClosed') !== 'true') {
-                flashDeal.classList.remove('hidden');
-            }
-        }, 5000);
-
-        closeBtn.addEventListener('click', () => {
-            flashDeal.classList.add('hidden');
-            localStorage.setItem('flashClosed', 'true');
-        });
-    }
+            flashDeal.classList.remove('hidden');
+        }, ONE_HOUR);
+    });
+}
 
 
     // ===============================

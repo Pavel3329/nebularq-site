@@ -415,7 +415,7 @@ a:hover {
     drop-shadow(0 0 10px rgba(0, 245, 255, 0.1)) drop-shadow(0 0 15px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 35px rgba(10, 255, 157, 0.1));
 
   /* ✨ лёгкая анимация */
-  animation: starGlow 6s ease-in-out infinite;
+  animation: starGlow 4s ease-in-out infinite;
 }
 
 @keyframes starGlow {
@@ -584,9 +584,11 @@ a:hover {
 
   font-size: 2rem;
 
-  background: linear-gradient(90deg, #06cea3, #00f5ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #00f5ff; /* 💥 чистый цвет */
+
+  text-shadow:
+    0 0 6px rgba(0, 245, 255, 0.5),
+    0 0 12px rgba(0, 245, 255, 0.3);
 }
 
 .title-icon svg {
