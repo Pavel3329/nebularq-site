@@ -1228,3 +1228,201 @@ a:hover {
   }
 }
 
+
+
+/* ===================================
+🔥 PRO FIXES / НЕ ЛОМАЕМ ДИЗАЙН
+=================================== */
+
+
+/* ===============================
+🔥 1. ЖИВОЙ ОГОНЬ (УЛУЧШЕН)
+=============================== */
+.fire svg {
+  animation: fireUltra 0.6s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes fireUltra {
+  0% {
+    transform: scale(1) rotate(-2deg);
+    filter:
+      drop-shadow(0 0 6px #ff9800)
+      drop-shadow(0 0 12px #ff5722)
+      drop-shadow(0 0 18px #ff2d00);
+  }
+
+  50% {
+    transform: scale(1.25) rotate(2deg);
+    filter:
+      drop-shadow(0 0 15px #ff9800)
+      drop-shadow(0 0 25px #ff5722)
+      drop-shadow(0 0 40px #ff2d00);
+  }
+
+  100% {
+    transform: scale(1.05) rotate(0deg);
+    filter:
+      drop-shadow(0 0 8px #ff9800)
+      drop-shadow(0 0 16px #ff5722)
+      drop-shadow(0 0 22px #ff2d00);
+  }
+}
+
+
+/* ===============================
+✨ 2. ИСКРЫ (СДЕЛАЛ ЖИВЕЕ)
+=============================== */
+.sparks span {
+  animation: sparkFly 1.2s infinite;
+  filter: drop-shadow(0 0 4px #ffcc00);
+}
+
+@keyframes sparkFly {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  40% {
+    transform: translateY(-12px) scale(1.3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-30px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+
+/* ===============================
+💎 3. КАРТОЧКИ — ДОРОЖЕ ВИЗУАЛ
+=============================== */
+.deal-card {
+  backdrop-filter: blur(14px);
+}
+
+.deal-card:hover {
+  transform: translateY(-10px) scale(1.025);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.7),
+    0 0 25px rgba(0,245,255,0.25),
+    0 0 60px rgba(10,255,157,0.12);
+}
+
+
+/* ===============================
+💰 4. КНОПКИ — БОЛЬШЕ КОНВЕРСИЯ
+=============================== */
+.buy-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.buy-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.buy-btn:hover::after {
+  opacity: 1;
+  animation: shineBtn 1.2s;
+}
+
+@keyframes shineBtn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(200%); }
+}
+
+
+/* ===============================
+🔥 5. BADGE — СИЛЬНЕЕ ВНИМАНИЕ
+=============================== */
+.deal-card .badge {
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+.deal-card:hover .badge {
+  transform: scale(1.2);
+}
+
+
+/* ===============================
+⚡ 6. FLASH DEAL — ДОРОЖЕ ВИД
+=============================== */
+.flash-deal {
+  border: 1px solid rgba(0,245,255,0.2);
+
+  box-shadow:
+    0 0 15px rgba(0,245,255,0.25),
+    0 0 40px rgba(10,255,157,0.15);
+}
+
+.flash-deal h3 {
+  text-shadow: 0 0 10px rgba(0,245,255,0.5);
+}
+
+
+/* ===============================
+📱 7. МОБИЛКА (ВАЖНО)
+=============================== */
+@media (max-width: 768px) {
+
+  .deal-card:hover {
+    transform: none;
+  }
+
+  .buy-btn:active {
+    transform: scale(0.95);
+  }
+
+}
+
+
+/* ===============================
+💣 8. ЛЁГКИЙ FOCUS (UX + ДЕНЬГИ)
+=============================== */
+.buy-btn:focus {
+  outline: none;
+
+  box-shadow:
+    0 0 0 2px rgba(0,245,255,0.4),
+    0 0 15px rgba(0,245,255,0.6);
+}
+
+
+/* ===============================
+🚀 9. HERO ТЕКСТ ЧУТЬ ЯРЧЕ
+=============================== */
+.hero-title {
+  text-shadow:
+    0 0 10px rgba(0,245,255,0.2);
+}
+
+
+/* ===============================
+💡 10. ЛЁГКИЙ ПУЛЬС (НЕ НАВЯЗЧИВО)
+=============================== */
+@keyframes subtlePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+  100% { transform: scale(1); }
+}
+
+.btn-primary {
+  animation: subtlePulse 3s infinite;
+}

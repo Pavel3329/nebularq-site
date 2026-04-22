@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const url = link.getAttribute('href');
 
             let clicks = JSON.parse(localStorage.getItem('nebularq_clicks')) || {};
-
             clicks[url] = (clicks[url] || 0) + 1;
 
             localStorage.setItem('nebularq_clicks', JSON.stringify(clicks));
@@ -25,52 +24,69 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===============================
     trackedLinks.forEach(link => {
         link.addEventListener('click', function (e) {
+
             e.preventDefault();
 
             const url = link.getAttribute('href');
 
+            // UX эффект
+            const originalText = link.innerText;
             link.innerText = "⏳ Переход...";
             link.style.opacity = "0.7";
 
             setTimeout(() => {
                 window.location.href = url;
             }, 250);
+
+            // возврат текста если вдруг не ушли
+            setTimeout(() => {
+                link.innerText = originalText;
+                link.style.opacity = "1";
+            }, 2000);
         });
     });
 
 
     // ===============================
-    // 🔥 FLASH DEAL
+    // 🔥 FLASH DEAL (PRO ЛОГИКА)
     // ===============================
-const flashDeal = document.querySelector('.flash-deal');
-const closeBtn = document.querySelector('.close-btn');
+    const flashDeal = document.querySelector('.flash-deal');
+    const closeBtn = document.querySelector('.close-btn');
 
-if (flashDeal && closeBtn) {
+    if (flashDeal && closeBtn) {
 
-    const ONE_HOUR = 60 * 60 * 1000;
+        const ONE_HOUR = 60 * 60 * 1000;
 
-    let closedTime = null;
+        let isClosed = false;
+        let reopenTimer = null;
 
-    // 👇 всегда показываем через 4 секунды при загрузке
-    setTimeout(() => {
-        flashDeal.classList.remove('hidden');
-    }, 4000);
+        // 👉 ВСЕГДА показываем через 4 сек после загрузки
+        const showTimer = setTimeout(() => {
+            if (!isClosed) {
+                flashDeal.classList.remove('hidden');
+            }
+        }, 4000);
 
-    // закрытие
-    closeBtn.addEventListener('click', () => {
-        flashDeal.classList.add('hidden');
-        closedTime = Date.now();
+        // 👉 закрытие
+        closeBtn.addEventListener('click', () => {
 
-        // 👇 через час снова появится (если пользователь не обновил страницу)
-        setTimeout(() => {
-            flashDeal.classList.remove('hidden');
-        }, ONE_HOUR);
-    });
-}
+            flashDeal.classList.add('hidden');
+            isClosed = true;
+
+            // сбрасываем предыдущий таймер если был
+            if (reopenTimer) clearTimeout(reopenTimer);
+
+            // 👉 через 60 минут снова показать (если вкладка не закрыта)
+            reopenTimer = setTimeout(() => {
+                flashDeal.classList.remove('hidden');
+                isClosed = false;
+            }, ONE_HOUR);
+        });
+    }
 
 
     // ===============================
-    // ✨ SCROLL REVEAL
+    // ✨ SCROLL REVEAL (АНИМАЦИЯ)
     // ===============================
     const reveals = document.querySelectorAll('.reveal');
 
@@ -94,10 +110,13 @@ if (flashDeal && closeBtn) {
     // 😏 TILT ЭФФЕКТ (ПК)
     // ===============================
     if (window.innerWidth > 768) {
+
         const cards = document.querySelectorAll('.deal-card');
 
         cards.forEach(card => {
+
             card.addEventListener('mousemove', (e) => {
+
                 const rect = card.getBoundingClientRect();
 
                 const x = e.clientX - rect.left;
@@ -119,7 +138,7 @@ if (flashDeal && closeBtn) {
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
             });
-        });
+            });
     }
 
 
