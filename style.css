@@ -1045,6 +1045,7 @@ a:hover {
 
 /* ---------- Flash Deal Widget ---------- */
 .flash-deal {
+  box-sizing: border-box;
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -1487,4 +1488,136 @@ a:hover {
 
 .btn-primary {
   animation: subtlePulse 3s infinite;
+}
+
+.lead-capture {
+  text-align: center;
+  padding: 50px 5%;
+}
+
+/* ===================================
+💣 FINAL FIXES (НЕ ЛОМАЕМ ДИЗАЙН)
+=================================== */
+
+
+/* ❌ УБИРАЕМ СТАТИСТИКУ ДЛЯ ВСЕХ */
+.stats-panel {
+  display: none !important;
+}
+
+
+/* ===============================
+💎 EMAIL FORM PRO (АПГРЕЙД)
+=============================== */
+
+.email-form {
+  margin-top: 15px;
+}
+
+.email-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+.email-wrapper {
+  display: flex;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(0,245,255,0.35);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  max-width: 440px;
+  margin: 0 auto;
+
+  box-shadow:
+    0 0 15px rgba(0,245,255,0.15),
+    inset 0 0 10px rgba(0,0,0,0.4);
+}
+
+.email-wrapper input {
+  flex: 1;
+  padding: 14px 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+}
+
+.email-wrapper input::placeholder {
+  color: #888;
+  letter-spacing: 0.5px;
+}
+
+.email-wrapper button {
+  padding: 0 22px;
+  background: linear-gradient(45deg,#0aff9d,#00f5ff);
+  border: none;
+  color: #001a1a;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.email-wrapper button:hover {
+  filter: brightness(1.2);
+  box-shadow:
+    0 0 10px rgba(0,245,255,0.6),
+    0 0 25px rgba(10,255,157,0.4);
+}
+
+
+/* ===============================
+⚡ FLASH DEAL FIX (КНОПКА НЕ ВЫЛАЗИТ)
+=============================== */
+
+.flash-deal {
+  box-sizing: border-box;
+  max-width: calc(100vw - 30px);
+}
+
+.flash-deal .btn-primary {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+/* ===============================
+📱 MOBILE FIX (КРИТИЧНО)
+=============================== */
+
+@media (max-width: 480px) {
+
+  .email-wrapper {
+    flex-direction: column;
+  }
+
+  .email-wrapper button {
+    width: 100%;
+    padding: 14px;
+  }
+
+}
+
+
+/* ===============================
+💰 КОНВЕРСИЯ + UX (ЛЕГКИЕ ДОБАВКИ)
+=============================== */
+
+.email-wrapper:focus-within {
+  border-color: rgba(0,245,255,0.8);
+
+  box-shadow:
+    0 0 20px rgba(0,245,255,0.4),
+    0 0 40px rgba(10,255,157,0.2);
+}
+
+
+/* лёгкий hover эффект */
+.email-wrapper:hover {
+  border-color: rgba(0,245,255,0.6);
 }

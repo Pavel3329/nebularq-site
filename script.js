@@ -166,3 +166,99 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+// ===============================
+// 📩 EMAIL CAPTURE + ANALYTICS
+// ===============================
+const emailForm = document.getElementById('emailForm');
+const emailInput = document.getElementById('emailInput');
+
+if (emailForm) {
+    emailForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const email = emailInput.value.trim();
+
+        if (!email) return;
+
+        // сохраняем email
+        let emails = JSON.parse(localStorage.getItem('nebularq_emails')) || [];
+        emails.push(email);
+
+        localStorage.setItem('nebularq_emails', JSON.stringify(emails));
+
+        // счётчик подписок
+        let subs = parseInt(localStorage.getItem('nebularq_subs')) || 0;
+        subs++;
+
+        localStorage.setItem('nebularq_subs', subs);
+
+        emailInput.value = "";
+        alert("🔥 Готово! Ты получишь лучшие скидки первым");
+    });
+}
+
+
+// ===============================
+// 📊 SIMPLE ANALYTICS DASHBOARD
+// ===============================
+function showStats() {
+
+    const clicks = JSON.parse(localStorage.getItem('nebularq_clicks')) || {};
+    const subs = parseInt(localStorage.getItem('nebularq_subs')) || 0;
+
+    let totalClicks = 0;
+
+    for (let key in clicks) {
+        totalClicks += clicks[key];
+    }
+
+    const conversion = totalClicks > 0 
+        ? ((subs / totalClicks) * 100).toFixed(2)
+        : 0;
+
+    console.log("📊 ===== NEBULARQ STATS =====");
+    console.log("Клики:", totalClicks);
+    console.log("Подписки:", subs);
+    console.log("Конверсия:", conversion + "%");
+}
+
+// запуск при загрузке
+showStats();
+
+// ===============================
+// 📊 LIVE STATS PANEL
+// ===============================
+function updateStatsUI() {
+
+    const clicks = JSON.parse(localStorage.getItem('nebularq_clicks')) || {};
+    const subs = parseInt(localStorage.getItem('nebularq_subs')) || 0;
+
+    let totalClicks = 0;
+
+    for (let key in clicks) {
+        totalClicks += clicks[key];
+    }
+
+    const conversion = totalClicks > 0
+        ? ((subs / totalClicks) * 100).toFixed(2)
+        : 0;
+
+    document.getElementById('statClicks').innerText = totalClicks;
+    document.getElementById('statSubs').innerText = subs;
+    document.getElementById('statConv').innerText = conversion + "%";
+}
+
+function showEmails() {
+    const emails = JSON.parse(localStorage.getItem('nebularq_emails')) || [];
+
+    if (emails.length === 0) {
+        alert("Нет email");
+        return;
+    }
+
+    alert("📩 Emails:\n\n" + emails.join("\n"));
+}
+
+// обновление при загрузке
+updateStatsUI();
