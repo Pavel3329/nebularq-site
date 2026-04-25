@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ===============================
-    // 😏 TILT EFFECT
+    // 😏 TILT EFFECT (PC ONLY)
     // ===============================
     if (window.innerWidth > 768) {
 
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ===============================
-    // 💣 BEST OFFER
+    // 💣 BEST OFFER HIGHLIGHT
     // ===============================
     const clicks = JSON.parse(localStorage.getItem('nebularq_clicks')) || {};
 
@@ -150,8 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (best) {
-        const bestLink = document.
-        querySelector(`a[href="${best}"]`);
+        const bestLink = document.querySelector(`a[href="${best}"]`);
         if (bestLink) {
             bestLink.style.boxShadow = "0 0 20px #0aff9d";
         }
@@ -159,13 +158,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ===============================
-    // 📩 EMAIL → TELEGRAM
+    // 📩 EMAIL → TELEGRAM (ULTRA DATA)
     // ===============================
     const emailForm = document.getElementById('emailForm');
     const emailInput = document.getElementById('emailInput');
 
     const BOT_TOKEN = "8478118705:AAFNbXH97kGjrxdsqU6-QodJnRPvOO8JeYc";
     const CHAT_ID = "2103334794";
+
+    function getUTM() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('utm_source') || 'direct';
+    }
+
+    function getDevice() {
+        const ua = navigator.userAgent;
+
+        if (/mobile/i.test(ua)) return "📱 Mobile";
+        if (/tablet/i.test(ua)) return "📲 Tablet";
+        return "💻 Desktop";
+    }
 
     if (emailForm) {
         emailForm.addEventListener('submit', async function (e) {
@@ -175,11 +187,27 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!email) return;
 
             const message = `
-🔥 Новый лид!
+🔥 НОВЫЙ ЛИД NEBULARQ
 
 📧 Email: ${email}
-🌍 Страница: ${window.location.href}
-🕒 Время: ${new Date().toLocaleString()}
+
+🌍 Страница:
+${window.location.href}
+
+📊 Источник:
+${getUTM()}
+
+📱 Устройство:
+${getDevice()}
+
+🌐 Язык:
+${navigator.language}
+
+🧠 Платформа:
+${navigator.platform}
+
+🕒 Время:
+${new Date().toLocaleString()}
 `;
 
             try {
