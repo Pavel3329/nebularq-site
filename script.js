@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ===============================
-    // 💰 CLICK TRACKING (АНАЛИТИКА)
+    // 💰 CLICK TRACKING
     // ===============================
     const trackedLinks = document.querySelectorAll('.track');
 
@@ -13,14 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
             clicks[url] = (clicks[url] || 0) + 1;
 
             localStorage.setItem('nebularq_clicks', JSON.stringify(clicks));
-
-            console.log("💰 Клик:", url, "| Всего:", clicks[url]);
         });
     });
 
 
     // ===============================
-    // 🚀 SMART REDIRECT EFFECT
+    // 🚀 SMART REDIRECT
     // ===============================
     trackedLinks.forEach(link => {
         link.addEventListener('click', function (e) {
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const url = link.getAttribute('href');
 
-            // UX эффект
             const originalText = link.innerText;
             link.innerText = "⏳ Переход...";
             link.style.opacity = "0.7";
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = url;
             }, 250);
 
-            // возврат текста если вдруг не ушли
             setTimeout(() => {
                 link.innerText = originalText;
                 link.style.opacity = "1";
@@ -48,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ===============================
-    // 🔥 FLASH DEAL (PRO ЛОГИКА)
+    // 🔥 FLASH DEAL
     // ===============================
     const flashDeal = document.querySelector('.flash-deal');
     const closeBtn = document.querySelector('.close-btn');
@@ -60,23 +56,19 @@ document.addEventListener('DOMContentLoaded', function () {
         let isClosed = false;
         let reopenTimer = null;
 
-        // 👉 ВСЕГДА показываем через 4 сек после загрузки
-        const showTimer = setTimeout(() => {
+        setTimeout(() => {
             if (!isClosed) {
                 flashDeal.classList.remove('hidden');
             }
         }, 4000);
 
-        // 👉 закрытие
         closeBtn.addEventListener('click', () => {
 
             flashDeal.classList.add('hidden');
             isClosed = true;
 
-            // сбрасываем предыдущий таймер если был
             if (reopenTimer) clearTimeout(reopenTimer);
 
-            // 👉 через 60 минут снова показать (если вкладка не закрыта)
             reopenTimer = setTimeout(() => {
                 flashDeal.classList.remove('hidden');
                 isClosed = false;
@@ -86,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ===============================
-    // ✨ SCROLL REVEAL (АНИМАЦИЯ)
+    // ✨ SCROLL REVEAL
     // ===============================
     const reveals = document.querySelectorAll('.reveal');
 
@@ -107,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ===============================
-    // 😏 TILT ЭФФЕКТ (ПК)
+    // 😏 TILT EFFECT
     // ===============================
     if (window.innerWidth > 768) {
 
@@ -138,12 +130,12 @@ document.addEventListener('DOMContentLoaded', function () {
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
             });
-            });
+        });
     }
 
 
     // ===============================
-    // 💣 BEST OFFER HIGHLIGHT
+    // 💣 BEST OFFER
     // ===============================
     const clicks = JSON.parse(localStorage.getItem('nebularq_clicks')) || {};
 
@@ -158,107 +150,58 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (best) {
-        const bestLink = document.querySelector(`a[href="${best}"]`);
-
+        const bestLink = document.
+        querySelector(`a[href="${best}"]`);
         if (bestLink) {
             bestLink.style.boxShadow = "0 0 20px #0aff9d";
         }
     }
 
+
+    // ===============================
+    // 📩 EMAIL → TELEGRAM
+    // ===============================
+    const emailForm = document.getElementById('emailForm');
+    const emailInput = document.getElementById('emailInput');
+
+    const BOT_TOKEN = "8478118705:AAFNbXH97kGjrxdsqU6-QodJnRPvOO8JeYc";
+    const CHAT_ID = "2103334794";
+
+    if (emailForm) {
+        emailForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            const message = `
+🔥 Новый лид!
+
+📧 Email: ${email}
+🌍 Страница: ${window.location.href}
+🕒 Время: ${new Date().toLocaleString()}
+`;
+
+            try {
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message
+                    })
+                });
+
+                emailInput.value = "";
+                alert("🔥 Доступ открыт! Проверь Telegram");
+
+            } catch (err) {
+                alert("Ошибка 😢");
+                console.error(err);
+            }
+        });
+    }
+
 });
-
-// ===============================
-// 📩 EMAIL CAPTURE + ANALYTICS
-// ===============================
-const emailForm = document.getElementById('emailForm');
-const emailInput = document.getElementById('emailInput');
-
-if (emailForm) {
-    emailForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const email = emailInput.value.trim();
-
-        if (!email) return;
-
-        // сохраняем email
-        let emails = JSON.parse(localStorage.getItem('nebularq_emails')) || [];
-        emails.push(email);
-
-        localStorage.setItem('nebularq_emails', JSON.stringify(emails));
-
-        // счётчик подписок
-        let subs = parseInt(localStorage.getItem('nebularq_subs')) || 0;
-        subs++;
-
-        localStorage.setItem('nebularq_subs', subs);
-
-        emailInput.value = "";
-        alert("🔥 Готово! Ты получишь лучшие скидки первым");
-    });
-}
-
-
-// ===============================
-// 📊 SIMPLE ANALYTICS DASHBOARD
-// ===============================
-function showStats() {
-
-    const clicks = JSON.parse(localStorage.getItem('nebularq_clicks')) || {};
-    const subs = parseInt(localStorage.getItem('nebularq_subs')) || 0;
-
-    let totalClicks = 0;
-
-    for (let key in clicks) {
-        totalClicks += clicks[key];
-    }
-
-    const conversion = totalClicks > 0 
-        ? ((subs / totalClicks) * 100).toFixed(2)
-        : 0;
-
-    console.log("📊 ===== NEBULARQ STATS =====");
-    console.log("Клики:", totalClicks);
-    console.log("Подписки:", subs);
-    console.log("Конверсия:", conversion + "%");
-}
-
-// запуск при загрузке
-showStats();
-
-// ===============================
-// 📊 LIVE STATS PANEL
-// ===============================
-function updateStatsUI() {
-
-    const clicks = JSON.parse(localStorage.getItem('nebularq_clicks')) || {};
-    const subs = parseInt(localStorage.getItem('nebularq_subs')) || 0;
-
-    let totalClicks = 0;
-
-    for (let key in clicks) {
-        totalClicks += clicks[key];
-    }
-
-    const conversion = totalClicks > 0
-        ? ((subs / totalClicks) * 100).toFixed(2)
-        : 0;
-
-    document.getElementById('statClicks').innerText = totalClicks;
-    document.getElementById('statSubs').innerText = subs;
-    document.getElementById('statConv').innerText = conversion + "%";
-}
-
-function showEmails() {
-    const emails = JSON.parse(localStorage.getItem('nebularq_emails')) || [];
-
-    if (emails.length === 0) {
-        alert("Нет email");
-        return;
-    }
-
-    alert("📩 Emails:\n\n" + emails.join("\n"));
-}
-
-// обновление при загрузке
-updateStatsUI();
