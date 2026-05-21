@@ -1623,112 +1623,234 @@ a:hover {
 }
 
 /* =========================================
-✅ FINAL SAFE FIXES (НЕ ЛОМАЕМ ДИЗАЙН)
+📱 MOBILE NAVBAR PREMIUM FIX
 ========================================= */
 
-/* 🔥 FIX: сайт не уходит за края */
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+@media (max-width: 768px) {
+
+  .navbar {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    padding: 18px 20px;
+  }
+
+  /* 🔥 ЗВЕЗДА СЛЕВА */
+  .navbar::before {
+    content: '';
+
+    position: absolute;
+
+    left: -45px;
+    top: -10px;
+
+    width: 170px;
+    height: 170px;
+
+    background:
+      url('assets/Futuristic_cyan_star_emblem-removebg-preview.png')
+      center/contain no-repeat;
+
+    opacity: 0.95;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    animation:
+      navbarStarFloat 5s ease-in-out infinite,
+      navbarStarGlow 4s ease-in-out infinite;
+
+    filter:
+      drop-shadow(0 0 10px rgba(0,245,255,0.35))
+      drop-shadow(0 0 20px rgba(0,245,255,0.22))
+      drop-shadow(0 0 35px rgba(10,255,157,0.16));
+  }
+
+  /* 🔥 контент поверх звезды */
+  .navbar .logo,
+  .navbar nav,
+  .navbar .telegram-btn {
+    position: relative;
+    z-index: 3;
+  }
+
+  /* 🔥 навигация */
+  .navbar nav {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 6px;
+
+    margin-left: 72px;
+  }
+
+  .navbar nav a {
+    margin: 0;
+
+    animation: navbarFloat 4s ease-in-out infinite;
+  }
+
+  .navbar .logo {
+    margin-left: 72px;
+
+    animation: navbarFloat 4s ease-in-out infinite;
+  }
+
+  .telegram-btn {
+    margin-left: 72px;
+
+    max-width: calc(100vw - 120px);
+
+    animation: navbarFloat 4s ease-in-out infinite;
+  }
+
 }
 
-/* 🔥 FIX: правильный box sizing */
+
+/* =========================================
+✨ FLOATING NAVBAR
+========================================= */
+
+@keyframes navbarFloat {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+
+/* =========================================
+🌟 STAR FLOAT
+========================================= */
+
+@keyframes navbarStarFloat {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+
+/* =========================================
+💎 STAR GLOW
+========================================= */
+
+@keyframes navbarStarGlow {
+
+  0% {
+
+    filter:
+      drop-shadow(0 0 8px rgba(0,245,255,0.18))
+      drop-shadow(0 0 18px rgba(0,245,255,0.12));
+
+  }
+
+  50% {
+
+    filter:
+      drop-shadow(0 0 20px rgba(0,245,255,0.42))
+      drop-shadow(0 0 40px rgba(10,255,157,0.28));
+
+  }
+
+  100% {
+
+    filter:
+      drop-shadow(0 0 8px rgba(0,245,255,0.18))
+      drop-shadow(0 0 18px rgba(0,245,255,0.12));
+
+  }
+
+}
+
+
+/* =========================================
+📱 iPHONE WIDTH FIX
+========================================= */
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* 🔥 FIX: картинки */
 img {
   max-width: 100%;
-  display: block;
 }
 
-/* =========================================
-✅ КНОПКИ НЕ ВЫЛАЗЯТ ЗА ЭКРАН
-========================================= */
-
-.btn-primary,
-.btn-secondary,
-.buy-btn,
-.telegram-btn {
-  max-width: 100%;
-  word-break: break-word;
-}
 
 /* =========================================
-✅ FLASH DEAL НЕ ЛОМАЕТ МОБИЛКУ
+🔥 FLASH DEAL FLOAT
 ========================================= */
 
 .flash-deal {
-  max-width: calc(100vw - 30px);
+
+  animation: flashFloat 4s ease-in-out infinite;
 }
 
-/* =========================================
-✅ PC HOVER FIX
-Текст больше не сливается с glow
-========================================= */
 
-@media (min-width: 769px) {
+@keyframes flashFloat {
 
-  .deal-card:hover::before {
-    opacity: 0.22;
-    filter: blur(10px);
+  0% {
+    transform: translateY(0px);
   }
 
-  .deal-card h3,
-  .deal-card .new-price,
-  .deal-card .old-price {
-    position: relative;
-    z-index: 5;
+  50% {
+    transform: translateY(-8px);
   }
 
-  .deal-card:hover h3 {
-    color: #ffffff;
-
-    text-shadow:
-      0 0 2px rgba(0,0,0,0.9),
-      0 0 6px rgba(0,0,0,0.8);
-  }
-
-  .deal-card:hover .new-price {
-    text-shadow:
-      0 0 3px rgba(0,0,0,0.9),
-      0 0 8px rgba(0,0,0,0.8);
+  100% {
+    transform: translateY(0px);
   }
 
 }
 
+
 /* =========================================
-✅ iPHONE FIX
+📱 MOBILE BUTTON FIX
 ========================================= */
 
 @media (max-width: 480px) {
 
-  .navbar,
-  .hero,
-  .deals,
-  .telegram-promo,
-  .footer,
-  .lead-capture {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  .telegram-btn,
   .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: 100%;
-  }
+  .btn-secondary,
+  .buy-btn,
+  .telegram-btn {
 
-  .flash-deal {
-    left: 15px;
-    right: 15px;
-    width: auto;
+    max-width: 100%;
   }
 
 }
