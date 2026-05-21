@@ -1,1623 +1,1257 @@
-body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background: #0a0a0a;
-  color: #f0f0f0;
+/* ==================================================
+   NEBULARQ — PREMIUM CYBER STYLE v7
+================================================== */
+
+
+/* ==================================================
+   RESET / CORE
+================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+
+    font-family: 'Orbitron', sans-serif;
+
+    background: #0a0a0a;
+    color: #f0f0f0;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ==================================================
+   LINKS
+================================================== */
+
 a {
-  text-decoration: none;
-  color: #00f5ff;
-  transition: 0.3s;
+    text-decoration: none;
+    color: #00f5ff;
+
+    transition:
+        color 0.25s ease,
+        text-shadow 0.25s ease,
+        transform 0.25s ease;
 }
 
 a:hover {
-  color: #0aff9d;
+    text-shadow: 0 0 8px rgba(0, 245, 255, 0.6);
+}
+
+img {
+    display: block;
+    max-width: 100%;
 }
 
 h1,
 h2,
-h3 {
-  margin: 0 0 10px;
+h3,
+p {
+    margin-top: 0;
 }
 
-/* ---------- Navbar ---------- */
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 5%;
-  background: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid #111;
-}
-
-.navbar .logo {
-  position: relative;
-
-  font-weight: 700;
-  font-size: 1.6rem;
-  letter-spacing: 1px;
-
-  background: linear-gradient(90deg,
-      #0aff9d,
-      #00f5ff,
-      #0aff9d);
-
-  background-size: 200% auto;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  animation: logoFlow 4s linear infinite;
-
-  text-shadow:
-    0 0 6px rgba(0, 245, 255, 0.3);
-
-  z-index: 2;
-}
-
-
-
-
-@keyframes logoFlow {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-
-
-/* Только для мобильных */
-@media (max-width: 768px) {
-  .navbar {
     position: relative;
-    overflow: hidden;
-     align-items: flex-start; /* ⬅️ ключ! */
-  }
-  
 
-@media (max-width: 768px) {
-
-  .navbar nav {
     display: flex;
-    flex-direction: column; /* ⬅️ делаем вертикально */
-    align-items: flex-start; /* ⬅️ выравниваем по левому краю */
-    gap: 6px;
-    margin-top: 8px;
-  }
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 
-  .navbar nav a {
-    margin: 0; /* убираем кривые отступы */
-  }
+    padding: 20px 5%;
 
+    background: rgba(0, 0, 0, 0.88);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+    overflow: hidden;
+
+    z-index: 100;
 }
 
-  .navbar::before {
+.navbar::before {
     content: '';
+
     position: absolute;
-    left: -150px;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
 
-    background: url('assets/Futuristic_cyan_star_emblem-removebg-preview.png?v=2') center/contain no-repeat;
-    background-size: auto 99%;
-
-    z-index: 1;
-    opacity: 1;
-
-    /* 🔥 СВЕЧЕНИЕ */
-    filter:
-      drop-shadow(0 0 10px rgba(0, 245, 255, 0.1)) drop-shadow(0 0 15px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 35px rgba(10, 255, 157, 0.1));
-
-    /* ✨ АНИМАЦИЯ */
-    animation: starFloat 6s ease-in-out infinite;
-
-    will-change: transform, filter;
+    background:
+        radial-gradient(circle at left,
+            rgba(0, 245, 255, 0.08),
+            transparent 45%);
 
     pointer-events: none;
-  }
+}
 
-  .navbar .logo,
-  .navbar nav,
-  .navbar .telegram-btn {
+.logo {
     position: relative;
     z-index: 2;
-  }
+
+    flex-shrink: 0;
+
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    background:
+        linear-gradient(90deg,
+            #0aff9d,
+            #00f5ff,
+            #0aff9d);
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation: logoFlow 4s linear infinite;
+
+    text-shadow:
+        0 0 8px rgba(0, 245, 255, 0.25);
 }
 
-.telegram-btn:hover {
-  color: #000;
-  /* 💥 текст всегда черный */
+@keyframes logoFlow {
+    0% {
+        background-position: 0% center;
+    }
 
-  text-shadow:
-    0 0 6px rgba(0, 245, 255, 0.6),
-    0 0 12px rgba(0, 245, 255, 0.4);
-
-  box-shadow:
-    0 0 15px rgba(0, 245, 255, 0.6),
-    0 0 30px rgba(0, 245, 255, 0.4);
-
-  transform: translateY(-2px) scale(1.03);
+    100% {
+        background-position: 200% center;
+    }
 }
 
+.nav-links {
+    display: flex;
+    gap: 24px;
 
-@keyframes starFloat {
-  0% {
-    transform: translateY(0px);
-  }
+    position: relative;
+    z-index: 2;
 
-  50% {
-    transform: translateY(-5px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
+    min-width: 0;
 }
 
-@keyframes starFloat {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-5px) rotate(1deg);
-  }
-
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-}
-
-.navbar nav a {
-  margin: 0 15px;
-  font-weight: 500;
+.nav-links a {
+    font-size: 0.95rem;
+    white-space: nowrap;
 }
 
 .telegram-btn {
-  padding: 8px 16px;
-  background: linear-gradient(45deg, #0aff9d, #00f5ff);
-  border-radius: 6px;
-  color: #000;
-  font-weight: 600;
-  text-shadow:
-    0 0 4px rgba(0, 245, 255, 0.2);
+    position: relative;
+    z-index: 2;
 
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(45deg,
+            #0aff9d,
+            #00f5ff);
+
+    color: #001a1a;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 0 10px rgba(0, 245, 255, 0.2);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
 }
 
-/* ---------- Hero ---------- */
+.telegram-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 15px rgba(0, 245, 255, 0.45),
+        0 0 30px rgba(10, 255, 157, 0.25);
+
+    color: #000;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
 .hero {
-  text-align: center;
-  padding: 80px 5%;
-  background: url('assets/bg-hero.png') center/cover no-repeat;
-  position: relative;
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 90px 5%;
+
+    text-align: center;
+
+    background:
+        url('assets/bg-hero.png') center/cover no-repeat;
 }
 
 .hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
+    content: '';
 
-  background: radial-gradient(circle at 50% 20%,
-      rgba(0, 245, 255, 0.12),
-      transparent 60%);
+    position: absolute;
+    inset: 0;
 
-  pointer-events: none;
-}
+    background:
+        radial-gradient(circle at 50% 20%,
+            rgba(0, 245, 255, 0.12),
+            transparent 60%);
 
-/* УБРАТЬ ОТСЮДА ГРАДИЕНТ */
-.hero h1 {
-  color: #06cea3;
-  /* просто фолбэк */
-}
-
-.hero-sub {
-  margin-top: 15px;
-  color: #ccc;
-  animation: fadeInUp 1.4s ease forwards;
-}
-
-.hero-title {
-  font-size: 2.7rem;
-  font-weight: 700;
-  line-height: 1.1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-
-  animation: fadeInUp 1s ease forwards;
-}
-
-.title-text {
-  background: linear-gradient(90deg,
-      #06cea3,
-      #00f5ff,
-      #06cea3);
-
-  background-size: 200% auto;
-
-
-  -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
-
-  animation: gradientMove 4s linear infinite;
-}
-
-/* 🌈 движение градиента */
-@keyframes gradientMove {
-  0% {
-    background-position: 0% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.fire {
-  position: relative;
-  display: inline-flex;
-  margin-right: 12px;
-}
-
-.fire svg {
-  fill: url(#fireGradient);
-
-  filter:
-    drop-shadow(0 0 10px #ff9800) drop-shadow(0 0 20px #ff5722) drop-shadow(0 0 30px #ff2d00);
-
-  animation: fireUltra 0.7s infinite ease-in-out;
-}
-
-@keyframes fireUltra {
-  0% {
-    transform: scale(1) rotate(-1deg);
-  }
-
-  50% {
-    transform: scale(1.15) rotate(1deg);
-  }
-
-  100% {
-    transform: scale(1) rotate(0deg);
-  }
-}
-
-.title-text {
-  background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
-
-  background-clip: text;
-  /* ✅ добавь это */
-  -webkit-background-clip: text;
-  /* ✅ оставь это */
-
-  -webkit-text-fill-color: transparent;
-}
-
-
-/* ссылки */
-a {
-  transition: all 0.25s ease;
-}
-
-a:hover {
-  text-shadow: 0 0 8px #00f5ff;
-}
-
-/* бейджи */
-.badge {
-  animation: pulseBadge 2s infinite;
-}
-
-@keyframes pulseBadge {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.08);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.sparks {
-  position: absolute;
-  top: -5px;
-  left: 10px;
-  pointer-events: none;
-}
-
-.sparks span {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #ffcc00;
-  border-radius: 50%;
-  opacity: 0;
-  animation: sparkFly 1.5s infinite;
-}
-
-/* разные искры */
-.sparks span:nth-child(1) {
-  left: 0;
-  animation-delay: 0s;
-}
-
-.sparks span:nth-child(2) {
-  left: 8px;
-  animation-delay: 0.3s;
-}
-
-.sparks span:nth-child(3) {
-  left: 4px;
-  animation-delay: 0.6s;
-}
-
-/* ✨ анимация искр */
-@keyframes sparkFly {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: translateY(-10px) scale(1.2);
-    opacity: 0.8;
-  }
-
-  100% {
-    transform: translateY(-20px) scale(0.5);
-    opacity: 0;
-  }
+    pointer-events: none;
 }
 
 .hero-decoration {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 200px;
-  height: auto;
-  z-index: 1;
-  pointer-events: none;
-  mix-blend-mode: screen;
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 200px;
+
+    pointer-events: none;
+
+    opacity: 0.9;
+
+    z-index: 1;
 }
 
-
-
 .hero-decoration img {
-  width: 100%;
-  height: auto;
-  display: block;
-
-  animation: starGlow 4s ease-in-out infinite;
+    animation: starGlow 4s ease-in-out infinite;
 }
 
 @keyframes starGlow {
 
-  /* 🔵 минимум */
-  0% {
-    filter:
-      drop-shadow(0 0 2px rgba(0, 245, 255, 0.05))
-      drop-shadow(0 0 4px rgba(0, 245, 255, 0.05))
-      brightness(0.85);
-  }
+    0% {
+        filter:
+        drop-shadow(0 0 4px rgba(0, 245, 255, 0.08))
+            brightness(0.9);
+    }
 
-  /* 👈 мягкий разогрев */
-  6% {
-    filter:
-      drop-shadow(0 0 3px rgba(200, 240, 255, 0.12))
-      drop-shadow(0 0 6px rgba(200, 240, 255, 0.1))
-      brightness(0.92);
-  }
+    50% {
+        filter:
+            drop-shadow(0 0 25px rgba(0, 245, 255, 0.55))
+            drop-shadow(0 0 50px rgba(10, 255, 157, 0.25))
+            brightness(1.15);
+    }
 
-  /* 👈 ещё ближе к вспышке (сглаживание ключ!) */
-  10% {
-    filter:
-      drop-shadow(0 0 5px rgba(220, 250, 255, 0.25))
-      drop-shadow(0 0 10px rgba(220, 250, 255, 0.18))
-      brightness(1.02);
-  }
-
-  /* ✨ внутренняя вспышка (уже НЕ резкая) */
-  14% {
-    filter:
-      drop-shadow(0 0 8px rgba(255, 255, 255, 0.45))
-      drop-shadow(0 0 14px rgba(220, 255, 255, 0.3))
-      brightness(1.12);
-  }
-
-  /* 👈 плавный выход из вспышки */
-  22% {
-    filter:
-      drop-shadow(0 0 12px rgba(200, 255, 255, 0.35))
-      drop-shadow(0 0 22px rgba(200, 255, 255, 0.25))
-      brightness(1.08);
-  }
-
-  /* 🔥 основной разгон */
-  50% {
-    filter:
-      drop-shadow(0 0 25px rgba(0, 245, 255, 0.7))
-      drop-shadow(0 0 50px rgba(10, 255, 157, 0.5))
-      brightness(1.1);
-  }
-
-  /* 👈 подготовка к пику */
-  65% {
-    filter:
-      drop-shadow(0 0 28px rgba(0, 255, 200, 0.75))
-      drop-shadow(0 0 55px rgba(10, 255, 157, 0.55))
-      brightness(1.15);
-  }
-
-  /* 🌟 пик */
-  75% {
-    filter:
-      drop-shadow(0 0 30px rgba(10, 255, 157, 0.9))
-      drop-shadow(0 0 60px rgba(10, 255, 157, 0.6))
-      brightness(1.2);
-  }
-
-  /* 👈 мягкое затухание */
-  88% {
-    filter:
-      drop-shadow(0 0 10px rgba(0, 245, 255, 0.2))
-      drop-shadow(0 0 18px rgba(0, 245, 255, 0.15))
-      brightness(0.95);
-  }
-
-  /* 🔵 обратно в минимум */
-  100% {
-    filter:
-      drop-shadow(0 0 2px rgba(0, 245, 255, 0.05))
-      drop-shadow(0 0 4px rgba(0, 245, 255, 0.05))
-      brightness(0.85);
-
-      animation: starGlow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  }
+    100% {
+        filter:
+            drop-shadow(0 0 4px rgba(0, 245, 255, 0.08))
+            brightness(0.9);
+    }
 }
 
-/* Скрываем картинку на мобильных устройствах */
-@media (max-width: 768px) {
-  .hero-decoration {
-    display: none;
-  }
+.hero-title {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    font-size: 2.8rem;
+    line-height: 1.15;
+
+    text-shadow:
+        0 0 12px rgba(0, 245, 255, 0.15);
+
+    animation: fadeInUp 1s ease forwards;
+}
+
+.title-text {
+    background:
+        linear-gradient(90deg,
+            #06cea3 0%,
+            #00f5ff 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+    position: relative;
+    z-index: 2;
+
+    max-width: 760px;
+
+    margin:
+        18px auto 0;
+
+    color: #bfbfbf;
+
+    line-height: 1.7;
+
+    animation: fadeInUp 1.3s ease forwards;
+}
+
+.hero-buttons {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+
+    margin-top: 35px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ==================================================
+   FIRE ICON
+================================================== */
+
+.fire {
+    position: relative;
+
+    display: inline-flex;
+}
+
+.fire svg {
+    fill: url(#fireGradient);
+
+    transform-origin: center;
+
+    animation: fireUltra 0.65s infinite ease-in-out;
+}
+
+@keyframes fireUltra {
+
+    0% {
+        transform: scale(1) rotate(-2deg);
+
+        filter:
+            drop-shadow(0 0 6px #ff9800)
+            drop-shadow(0 0 12px #ff5722);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(2deg);
+
+        filter:
+            drop-shadow(0 0 15px #ff9800)
+            drop-shadow(0 0 28px #ff5722)
+            drop-shadow(0 0 40px #ff2d00);
+    }
+
+    100% {
+        transform: scale(1.05);
+
+        filter:
+            drop-shadow(0 0 8px #ff9800)
+            drop-shadow(0 0 18px #ff5722);
+    }
+}
+
+.sparks {
+    position: absolute;
+
+    top: -4px;
+    left: 10px;
+
+    pointer-events: none;
+}
+
+.sparks span {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #ffcc00;
+
+    filter: drop-shadow(0 0 4px #ffcc00);
+
+    animation: sparkFly 1.2s infinite;
+}
+
+.sparks span:nth-child(1) {
+    left: 0;
+}
+
+.sparks span:nth-child(2) {
+    left: 8px;
+    animation-delay: 0.3s;
+}
+
+.sparks span:nth-child(3) {
+    left: 4px;
+    animation-delay: 0.6s;
+}
+
+@keyframes sparkFly {
+
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    40% {
+        transform: translateY(-12px) scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-28px) scale(0.3);
+        opacity: 0;
+    }
+}
+
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+.btn-primary,
+.btn-secondary,
+.buy-btn {
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn-primary,
 .btn-secondary {
-  display: inline-flex;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  align-items: center;
-  /* ✅ вертикально */
-  justify-content: center;
-  /* ✅ по центру */
+    min-height: 52px;
 
-  padding: 12px 24px;
-  margin: 0 10px;
-  border-radius: 8px;
-  font-weight: 600;
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
 }
 
 .btn-primary {
-  position: relative;
-  /* ✅ добавили */
-  overflow: hidden;
-  /* ✅ добавили */
+    position: relative;
 
-  background: linear-gradient(45deg, #0aff9d, #00f5ff);
-  color: #001a1a;
-  border-radius: 8px;
+    overflow: hidden;
 
-  box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+    background:
+        linear-gradient(45deg,
+            #0aff9d,
+            #00f5ff);
 
-  animation: pulseGlow 2.5s infinite;
-  transition: all 0.3s ease;
-}
+    color: #001a1a;
 
-@keyframes pulseGlow {
-  0% {
     box-shadow:
-      0 0 8px rgba(0, 245, 255, 0.2),
-      0 0 15px rgba(10, 255, 157, 0.1);
-  }
+        0 0 10px rgba(0, 245, 255, 0.25);
 
-  50% {
-    box-shadow:
-      0 0 25px rgba(0, 245, 255, 0.8),
-      0 0 50px rgba(10, 255, 157, 0.5);
-  }
-
-  100% {
-    box-shadow:
-      0 0 8px rgba(0, 245, 255, 0.2),
-      0 0 15px rgba(10, 255, 157, 0.1);
-  }
-}
-
-.btn-primary:active {
-  transform: scale(0.96);
-  box-shadow:
-    0 0 5px #00f5ff,
-    inset 0 0 10px rgba(0, 0, 0, 0.4);
+    animation: subtlePulse 3s infinite;
 }
 
 .btn-primary::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
+    content: "";
 
-  background: linear-gradient(120deg,
-      transparent,
-      rgba(255, 255, 255, 0.4),
-      transparent);
+    position: absolute;
 
-  transform: skewX(-20deg);
-
-  animation: shimmerMove 3s infinite;
-}
-
-@keyframes shimmerMove {
-  0% {
+    top: 0;
     left: -100%;
-  }
 
-  100% {
-    left: 150%;
-  }
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+
+    transform: skewX(-20deg);
+
+    animation: shimmerMove 3s infinite;
+}
+@keyframes shimmerMove {
+
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 150%;
+    }
 }
 
-
-/* 🔥 ХОВЕР */
 .btn-primary:hover {
-  transform: translateY(-2px) scale(1.05);
-  letter-spacing: 0.5px;
+    transform: translateY(-2px);
 
-  box-shadow:
-    0 0 15px #00f5ff,
-    0 0 30px rgba(0, 245, 255, 0.8),
-    0 0 50px rgba(10, 255, 157, 0.6);
+    filter: brightness(1.08);
 
-  filter: brightness(1.15);
+    box-shadow:
+        0 0 15px rgba(0, 245, 255, 0.55),
+        0 0 30px rgba(10, 255, 157, 0.25);
 
-  color: #001a1a;
-
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-
-  animation: none;
-  /* 💥 важно — отключаем пульс при наведении */
-}
-
-.btn-primary:hover::after {
-  transform: translateX(4px);
+    color: #001a1a;
 }
 
 .btn-secondary {
-  border: 2px solid #00f5ff;
-  color: #00f5ff;
-}
-
-.trust-badges span {
-  margin: 0 10px;
-  font-size: 0.9rem;
-  color: #ccc;
-}
-
-/* ---------- Deals Grid ---------- */
-.deals {
-  padding: 60px 5%;
-}
-
-.deals h2:hover {
-  text-shadow: 0 0 10px rgba(0,245,255,0.4);
-}
-
-.section-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  font-size: 2rem;
-
-  color: #00f5ff; /* 💥 чистый цвет */
-
-  text-shadow:
-    0 0 6px rgba(0, 245, 255, 0.5),
-    0 0 12px rgba(0, 245, 255, 0.3);
-}
-
-.title-icon svg {
-  width: 27px;
-  height: 27px;
-  fill: #00f5ff;
-
-  /* 💎 лёгкий glow, БЕЗ анимации */
-  filter:
-    drop-shadow(0 0 4px rgba(0, 245, 255, 0.5))
-    drop-shadow(0 0 8px rgba(0, 245, 255, 0.3));
-}
-
-.section-title:hover .title-icon svg {
-  filter:
-    drop-shadow(0 0 8px rgba(0, 245, 255, 0.9))
-    drop-shadow(0 0 16px rgba(0, 245, 255, 0.6));
-}
-.grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-}
-
-.deal-card {
-  background: rgba(18, 18, 18, 0.6);
-  /* прозрачность */
-  backdrop-filter: blur(12px);
-  /* 💎 стекло */
-  -webkit-backdrop-filter: blur(12px);
-  overflow: hidden;
-
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: #121212;
-  padding: 20px;
-  border-radius: 14px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-
-  transform: translateY(0) scale(1);
-
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-
-  transform-style: preserve-3d;
-  perspective: 1000px;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.3s ease,
-    filter 0.3s ease;
-}
-
-.deal-card::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-
-  background: radial-gradient(circle,
-      rgba(0, 245, 255, 0.15),
-      transparent 60%);
-
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.deal-card:hover::after {
-  opacity: 1;
-}
-
-.deal-card>* {
-  position: relative;
-  z-index: 2;
-}
-
-.deal-card:active {
-  transform: scale(0.97);
-}
-
-.deal-card:hover {
-  transform: translateY(-8px) scale(1.02);
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(0, 245, 255, 0.2),
-    0 0 40px rgba(10, 255, 157, 0.1);
-}
-
-.deal-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-
-  background: linear-gradient(45deg, #00f5ff, #0aff9d, #00f5ff);
-
-  opacity: 0;
-  transition: opacity 0.3s ease;
-
-  z-index: 0;
-}
-
-.deal-card:hover::before {
-  opacity: 0.70;
-  /* 🔥 ключ! не 1, а 0.15 */
-  filter: blur(8px);
-}
-
-.deal-card img {
-  width: 100%;
-  border-radius: 10px;
-
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-.deal-card:hover img {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-.deal-card .old-price {
-  text-decoration: line-through;
-  color: #777;
-  font-size: 0.9rem;
-}
-
-.deal-card .new-price {
-  font-size: 1.4rem;
-  font-weight: 700;
-
-  background: linear-gradient(90deg, #00f5ff, #0aff9d);
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow: 0 0 6px rgba(0, 245, 255, 0.25);
-}
-
-.deal-card:hover .new-price {
-  text-shadow:
-    0 0 10px #00f5ff,
-    0 0 20px rgba(0, 245, 255, 0.5);
-}
-
-.deal-card .badge {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  padding: 6px 12px;
-  border-radius: 10px;
-
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-
-  color: #fff;
-
-  background: linear-gradient(120deg,
-      #0a0a0a,
-      #000000,
-      #1a1a1a);
-
-  background-size: 200% auto;
-
-  box-shadow:
-    0 0 10px rgba(255, 45, 0, 0.6),
-    0 0 25px rgba(255, 0, 85, 0.4);
-
-  animation:
-    badgeFlow 3s linear infinite,
-    badgePulse 2s ease-in-out infinite;
-
-  transition: all 0.3s ease;
-
-  overflow: hidden;
-}
-
-@keyframes badgeFlow {
-  0% {
-    background-position: 0% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
-}
-
-@keyframes badgePulse {
-  0% {
-    box-shadow:
-      0 0 8px rgba(255, 45, 0, 0.5),
-      0 0 15px rgba(255, 0, 85, 0.3);
-  }
-
-  50% {
-    box-shadow:
-      0 0 20px rgba(255, 45, 0, 0.9),
-      0 0 40px rgba(255, 0, 85, 0.6),
-      0 0 60px rgba(255, 45, 0, 0.4);
-  }
-
-  100% {
-    box-shadow:
-      0 0 8px rgba(255, 45, 0, 0.5),
-      0 0 15px rgba(255, 0, 85, 0.3);
-  }
-}
-
-@keyframes badgeGlow {
-  0% {
-    box-shadow:
-      0 0 8px rgba(255, 45, 0, 0.5);
-  }
-
-  50% {
-    box-shadow:
-      0 0 20px rgba(255, 45, 0, 0.9),
-      0 0 40px rgba(255, 0, 85, 0.6);
-  }
-
-  100% {
-    box-shadow:
-      0 0 8px rgba(255, 45, 0, 0.5);
-  }
-}
-
-
-.deal-card .badge::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-
-  background: linear-gradient(120deg,
-      transparent,
-      rgba(255, 255, 255, 0.5),
-      transparent);
-
-  transform: skewX(-20deg);
-
-  animation: badgeShine 2.5s infinite;
-}
-
-.deal-card .badge::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 8px;
-
-  background: linear-gradient(rgba(255, 255, 255, 0.3),
-      transparent);
-
-  opacity: 0.4;
-}
-
-@keyframes badgeShine {
-  0% {
-    left: -100%;
-  }
-
-  100% {
-    left: 150%;
-  }
-}
-
-.deal-card:hover .badge {
-  transform: scale(1.15);
-
-  box-shadow:
-    0 0 25px rgba(255, 45, 0, 1),
-    0 0 50px rgba(255, 0, 85, 0.8),
-    0 0 80px rgba(255, 45, 0, 0.6);
-}
-
-.buy-btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 20px;
-
-  background: rgba(0, 0, 0, 0.6);
-  /* 🔥 вот тот самый баланс */
-  color: #00f5ff;
-
-  border: 1px solid rgba(0, 245, 255, 0.5);
-  border-radius: 8px;
-
-  font-weight: 600;
-
-  backdrop-filter: blur(6px);
-
-  transition: all 0.3s ease;
-}
-
-/* ХОВЕР */
-.buy-btn:hover {
-  background: linear-gradient(45deg, #0aff9d, #00f5ff);
-  color: #000;
-
-  box-shadow:
-    0 0 10px #00f5ff,
-    0 0 20px rgba(0, 245, 255, 0.6);
-}
-
-/* ---------- Categories ---------- */
-/* .categories {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 5%;
-  background: #0f0f0f;
-}
-.categories a {
-  padding: 10px 20px;
-  background: #121212;
-  border-radius: 8px;
-} */
-
-
-.categories {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-
-  gap: 20px;
-
-  padding: 40px 5%;
-
-  background: #0f0f0f;
-
-  justify-items: center;
-  /* выравнивание кнопок по центру в своих ячейках */
-
-}
-
-.categories a {
-
-  padding: 10px 20px;
-
-  background: #121212;
-
-  border-radius: 8px;
-
-  text-align: center;
-
-  white-space: nowrap;
-  /* чтобы текст не ломался по словам */
-
-}
-
-
-/* Дополнительная настройка для совсем узких экранов (опционально) */
-
-@media (max-width: 480px) {
-
-  .categories {
-
-    grid-template-columns: repeat(2, 1fr);
-    /* по 2 кнопки в ряд */
+    border: 2px solid rgba(0, 245, 255, 0.6);
 
-  }
+    color: #00f5ff;
 
+    background: transparent;
 }
 
+.btn-secondary:hover {
+    transform: translateY(-2px);
 
-/* ---------- How It Works ---------- */
-.how {
-  padding: 60px 5%;
-  background: #0a0a0a;
-  text-align: center;
-}
-
-.how ol {
-  max-width: 600px;
-  margin: 20px auto;
-  text-align: left;
-  line-height: 1.6;
-}
-
-/* ---------- Telegram Promo ---------- */
-.telegram-promo {
-  padding: 60px 5%;
-  text-align: center;
-  background: #121212;
-}
-
-/* ---------- Flash Deal Widget ---------- */
-.flash-deal {
-  box-sizing: border-box;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #0aff9d55;
-  text-align: center;
-  z-index: 1000;
-}
-
-.close-btn {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: #888;
-  font-size: 24px;
-  cursor: pointer;
-  line-height: 1;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s;
-}
-
-.close-btn:hover {
-  color: #ff0055;
-}
-
-/* Скрытое состояние */
-.flash-deal.hidden {
-  display: none;
-}
-
-/* ---------- Footer ---------- */
-.footer {
-  text-align: center;
-  padding: 40px 5%;
-  background: #0f0f0f;
-  font-size: 0.9rem;
-  color: #777;
-}
-
-.footer a {
-  color: #00f5ff;
-}
-
-.footer .disclaimer {
-  margin-top: 10px;
-  font-size: 0.8rem;
-}
-
-
-.reveal:nth-child(1) {
-  transition-delay: 0.1s;
-}
-
-.reveal:nth-child(2) {
-  transition-delay: 0.2s;
-}
-
-.reveal:nth-child(3) {
-  transition-delay: 0.3s;
-}
-
-.reveal:nth-child(4) {
-  transition-delay: 0.4s;
-}
-
-.reveal:nth-child(5) {
-  transition-delay: 0.5s;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px) scale(0.95);
-  filter: blur(10px);
-
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease,
-    filter 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
-}
-
-/* ===================================
-   💰 NEW STRUCTURE SUPPORT
-   Добавить в конец style.css
-=================================== */
-
-/* Featured / Save секции */
-#featured,
-#save,
-#top-deals {
-  scroll-margin-top: 100px;
-}
-
-/* Заголовки секций */
-.deals h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  background: linear-gradient(90deg, #06cea3, #00f5ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Карточки одинаковой высоты */
-.grid-cards {
-  align-items: stretch;
-}
-
-.deal-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 420px;
-}
-
-/* Кнопка всегда внизу карточки */
-.buy-btn {
-  margin-top: auto;
-}
-
-/* HERO spacing */
-.hero-buttons {
-  margin-top: 30px;
-}
-
-.hero-sub {
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Telegram block */
-.telegram-promo {
-  border-top: 1px solid rgba(0, 245, 255, 0.08);
-  border-bottom: 1px solid rgba(0, 245, 255, 0.08);
-}
-
-.telegram-promo p {
-  color: #bdbdbd;
-  margin: 10px 0 25px;
-}
-
-/* Footer улучшение */
-.footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-/* FLASH DEAL улучшение */
-.flash-deal {
-  width: 280px;
-  max-width: calc(100vw - 30px);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.flash-deal p {
-  margin: 10px 0 15px;
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-
-  .hero {
-    padding: 60px 5%;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: 320px;
-    margin: 0;
-  }
-
-  .deals {
-    padding: 45px 5%;
-  }
+    border-color: #0aff9d;
 
-  .deal-card {
-    min-height: auto;
-  }
-
-  .flash-deal {
-    bottom: 15px;
-    right: 15px;
-    left: 15px;
-    width: auto;
-  }
-
-  .navbar nav {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-/* ===== EXTRA SMALL ===== */
-@media (max-width: 480px) {
-
-  .hero-title {
-    font-size: 1.6rem;
-  }
-
-  .deals h2 {
-    font-size: 1.5rem;
-  }
-
-  .deal-card {
-    padding: 16px;
-  }
-
-  .buy-btn {
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-  }
-}
-
-
-
-/* ===================================
-🔥 PRO FIXES / НЕ ЛОМАЕМ ДИЗАЙН
-=================================== */
-
-
-/* ===============================
-🔥 1. ЖИВОЙ ОГОНЬ (УЛУЧШЕН)
-=============================== */
-.fire svg {
-  animation: fireUltra 0.6s infinite ease-in-out;
-  transform-origin: center;
-}
-
-@keyframes fireUltra {
-  0% {
-    transform: scale(1) rotate(-2deg);
-    filter:
-      drop-shadow(0 0 6px #ff9800)
-      drop-shadow(0 0 12px #ff5722)
-      drop-shadow(0 0 18px #ff2d00);
-  }
-
-  50% {
-    transform: scale(1.25) rotate(2deg);
-    filter:
-      drop-shadow(0 0 15px #ff9800)
-      drop-shadow(0 0 25px #ff5722)
-      drop-shadow(0 0 40px #ff2d00);
-  }
-
-  100% {
-    transform: scale(1.05) rotate(0deg);
-    filter:
-      drop-shadow(0 0 8px #ff9800)
-      drop-shadow(0 0 16px #ff5722)
-      drop-shadow(0 0 22px #ff2d00);
-  }
-}
-
-
-/* ===============================
-✨ 2. ИСКРЫ (СДЕЛАЛ ЖИВЕЕ)
-=============================== */
-.sparks span {
-  animation: sparkFly 1.2s infinite;
-  filter: drop-shadow(0 0 4px #ffcc00);
-}
-
-@keyframes sparkFly {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-
-  40% {
-    transform: translateY(-12px) scale(1.3);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(-30px) scale(0.3);
-    opacity: 0;
-  }
-}
-
-
-/* ===============================
-💎 3. КАРТОЧКИ — ДОРОЖЕ ВИЗУАЛ
-=============================== */
-.deal-card {
-  backdrop-filter: blur(14px);
-}
-
-.deal-card:hover {
-  transform: translateY(-10px) scale(1.025);
-
-  box-shadow:
-    0 15px 35px rgba(0,0,0,0.7),
-    0 0 25px rgba(0,245,255,0.25),
-    0 0 60px rgba(10,255,157,0.12);
-}
-
-
-/* ===============================
-💰 4. КНОПКИ — БОЛЬШЕ КОНВЕРСИЯ
-=============================== */
-.buy-btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.buy-btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.25),
-    transparent
-  );
-
-  opacity: 0;
-  transition: 0.4s;
-}
-
-.buy-btn:hover::after {
-  opacity: 1;
-  animation: shineBtn 1.2s;
-}
-
-@keyframes shineBtn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(200%); }
-}
-
-
-/* ===============================
-🔥 5. BADGE — СИЛЬНЕЕ ВНИМАНИЕ
-=============================== */
-.deal-card .badge {
-  letter-spacing: 1px;
-  font-size: 0.8rem;
-}
-
-.deal-card:hover .badge {
-  transform: scale(1.2);
-}
-
-
-/* ===============================
-⚡ 6. FLASH DEAL — ДОРОЖЕ ВИД
-=============================== */
-.flash-deal {
-  border: 1px solid rgba(0,245,255,0.2);
-
-  box-shadow:
-    0 0 15px rgba(0,245,255,0.25),
-    0 0 40px rgba(10,255,157,0.15);
-}
-
-.flash-deal h3 {
-  text-shadow: 0 0 10px rgba(0,245,255,0.5);
-}
-
-
-/* ===============================
-📱 7. МОБИЛКА (ВАЖНО)
-=============================== */
-@media (max-width: 768px) {
-
-  .deal-card:hover {
-    transform: none;
-  }
-
-  .buy-btn:active {
-    transform: scale(0.95);
-  }
-
-}
-
-
-/* ===============================
-💣 8. ЛЁГКИЙ FOCUS (UX + ДЕНЬГИ)
-=============================== */
-.buy-btn:focus {
-  outline: none;
-
-  box-shadow:
-    0 0 0 2px rgba(0,245,255,0.4),
-    0 0 15px rgba(0,245,255,0.6);
-}
-
-
-/* ===============================
-🚀 9. HERO ТЕКСТ ЧУТЬ ЯРЧЕ
-=============================== */
-.hero-title {
-  text-shadow:
-    0 0 10px rgba(0,245,255,0.2);
+    color: #0aff9d;
 }
-
 
-/* ===============================
-💡 10. ЛЁГКИЙ ПУЛЬС (НЕ НАВЯЗЧИВО)
-=============================== */
 @keyframes subtlePulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.015); }
-  100% { transform: scale(1); }
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.015);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
-.btn-primary {
-  animation: subtlePulse 3s infinite;
-}
+
+/* ==================================================
+   LEAD CAPTURE
+================================================== */
 
 .lead-capture {
-  text-align: center;
-  padding: 10px 5%;
+    padding: 10px 5% 40px;
+
+    text-align: center;
 }
 
-/* ===================================
-💣 FINAL FIXES (НЕ ЛОМАЕМ ДИЗАЙН)
-=================================== */
+.lead-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
 
+    flex-wrap: wrap;
 
-/* ❌ УБИРАЕМ СТАТИСТИКУ ДЛЯ ВСЕХ */
-.stats-panel {
-  display: none !important;
+    margin-top: 25px;
 }
-
-
-/* ===============================
-💎 EMAIL FORM PRO (АПГРЕЙД)
-=============================== */
 
 .email-form {
-  margin-top: 15px;
-}
-
-.email-form input {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
+    width: 100%;
+    max-width: 440px;
 }
 
 .email-wrapper {
-  display: flex;
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(0,245,255,0.35);
-  border-radius: 12px;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-  max-width: 440px;
-  margin: 0 auto;
+    display: flex;
+    align-items: stretch;
 
-  box-shadow:
-    0 0 15px rgba(0,245,255,0.15),
-    inset 0 0 10px rgba(0,0,0,0.4);
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    border: 1px solid rgba(0, 245, 255, 0.35);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 15px rgba(0, 245, 255, 0.12);
 }
 
 .email-wrapper input {
-  flex: 1;
-  padding: 14px 16px;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #fff;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 14px;
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 14px 16px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-family: inherit;
 }
 
 .email-wrapper input::placeholder {
-  color: #888;
-  letter-spacing: 0.5px;
+    color: #888;
 }
 
 .email-wrapper button {
-  padding: 0 22px;
-  background: linear-gradient(45deg,#0aff9d,#00f5ff);
-  border: none;
-  color: #001a1a;
-  font-weight: 700;
-  cursor: pointer;
+    border: none;
 
-  transition: all 0.25s ease;
+    padding: 0 22px;
+
+    background:
+        linear-gradient(45deg,
+            #0aff9d,
+            #00f5ff);
+
+    color: #001a1a;
+
+    font-weight: 700;
+
+    cursor: pointer;
 }
 
-.email-wrapper button:hover {
-  filter: brightness(1.2);
-  box-shadow:
-    0 0 10px rgba(0,245,255,0.6),
-    0 0 25px rgba(10,255,157,0.4);
+.email-wrapper:focus-within {
+    border-color: rgba(0, 245, 255, 0.8);
+
+    box-shadow:
+        0 0 20px rgba(0, 245, 255, 0.3);
 }
 
 
-/* ===============================
-⚡ FLASH DEAL FIX (КНОПКА НЕ ВЫЛАЗИТ)
-=============================== */
+/* ==================================================
+   DEALS
+================================================== */
+
+.deals {
+    padding: 60px 5%;
+}
+
+#featured,
+#top-deals,
+#save {
+    scroll-margin-top: 100px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 35px;
+
+    text-align: center;
+
+    font-size: 2rem;
+
+    color: #00f5ff;
+
+    text-shadow:
+        0 0 8px rgba(0, 245, 255, 0.35);
+}
+
+.title-icon svg {
+    fill: #00f5ff;
+
+    filter:
+        drop-shadow(0 0 6px rgba(0, 245, 255, 0.45));
+}
+
+.grid-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(260px, 1fr));
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+
+/* ==================================================
+   DEAL CARD
+================================================== */
+
+.deal-card {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 420px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(18, 18, 18, 0.82);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.05);
+
+    backdrop-filter: blur(14px);
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.deal-card::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(45deg,
+            rgba(0, 245, 255, 0.18),
+            rgba(10, 255, 157, 0.14));
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+
+    pointer-events: none;
+}
+
+.deal-card:hover::before {
+    opacity: 1;
+}
+
+.deal-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(0, 245, 255, 0.18);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.55),
+        0 0 25px rgba(0, 245, 255, 0.12);
+}
+
+.deal-card>* {
+    position: relative;
+    z-index: 2;
+}
+
+.deal-card img {
+    width: 100%;
+
+    border-radius: 12px;
+
+    transition:
+    transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.deal-card:hover img {
+    transform: scale(1.03);
+
+    filter: brightness(1.05);
+}
+
+.deal-card h3 {
+    margin-top: 18px;
+
+    font-size: 1.25rem;
+
+    line-height: 1.4;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.45);
+}
+
+.old-price {
+    margin-top: 10px;
+
+    color: #777;
+
+    text-decoration: line-through;
+}
+
+.new-price {
+    margin-top: 10px;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    background:
+        linear-gradient(90deg,
+            #00f5ff,
+            #0aff9d);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 4px rgba(0, 245, 255, 0.12);
+
+    line-height: 1.5;
+}
+
+
+/* ==================================================
+   BADGE
+================================================== */
+
+.badge {
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    z-index: 3;
+
+    padding: 6px 12px;
+
+    border-radius: 10px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    color: #fff;
+
+    background:
+        linear-gradient(120deg,
+            #0a0a0a,
+            #111,
+            #1b1b1b);
+
+    box-shadow:
+        0 0 12px rgba(255, 45, 0, 0.55);
+
+    animation:
+        badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ==================================================
+   BUY BUTTON
+================================================== */
+
+.buy-btn {
+    position: relative;
+
+    overflow: hidden;
+
+    margin-top: auto;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    border:
+        1px solid rgba(0, 245, 255, 0.4);
+
+    color: #00f5ff;
+
+    font-weight: 700;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.buy-btn:hover {
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(45deg,
+            #0aff9d,
+            #00f5ff);
+
+    color: #000;
+
+    box-shadow:
+        0 0 12px rgba(0, 245, 255, 0.45);
+}
+
+
+/* ==================================================
+   TELEGRAM PROMO
+================================================== */
+
+.telegram-promo {
+    padding: 60px 5%;
+
+    text-align: center;
+
+    background: #121212;
+
+    border-top:
+        1px solid rgba(0, 245, 255, 0.08);
+
+    border-bottom:
+        1px solid rgba(0, 245, 255, 0.08);
+}
+
+.telegram-promo p {
+    color: #bdbdbd;
+
+    margin-bottom: 28px;
+}
+
+
+/* ==================================================
+   FLASH DEAL
+================================================== */
 
 .flash-deal {
-  box-sizing: border-box;
-  max-width: calc(100vw - 30px);
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 1000;
+
+    width: 320px;
+    max-width: calc(100vw - 24px);
+
+    padding: 22px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(18, 18, 18, 0.92);
+
+    border:
+        1px solid rgba(0, 245, 255, 0.14);
+
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 0 20px rgba(0, 245, 255, 0.18);
+
+    text-align: center;
+
+    animation:
+        flashFloat 4s ease-in-out infinite;
+}
+
+@keyframes flashFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.flash-deal.hidden {
+    display: none;
+}
+
+.flash-deal h3 {
+    margin-bottom: 12px;
+
+    color: #00f5ff;
+}
+
+.flash-deal p {
+    margin-bottom: 18px;
+
+    color: #d0d0d0;
 }
 
 .flash-deal .btn-primary {
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
+    width: 100%;
+
+    margin: 0;
+}
+
+.close-btn {
+    position: absolute;
+
+    top: 8px;
+    right: 10px;
+
+    border: none;
+    background: none;
+
+    color: #888;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ff0055;
 }
 
 
-/* ===============================
-📱 MOBILE FIX (КРИТИЧНО)
-=============================== */
+/* ==================================================
+   FOOTER
+   ================================================== */
+
+.footer {
+    padding: 40px 5%;
+
+    text-align: center;
+
+    background: #0f0f0f;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.04);
+
+    color: #777;
+}
+
+.disclaimer {
+    margin-top: 12px;
+
+    font-size: 0.82rem;
+}
+
+
+/* ==================================================
+   REVEAL
+================================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+    filter: blur(8px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    filter: blur(0);
+}
+
+@keyframes fadeInUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        text-align: center;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        padding: 65px 5%;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-sub {
+        font-size: 0.95rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .hero-decoration {
+        display: none;
+    }
+
+    .lead-buttons {
+        flex-direction: column;
+    }
+
+    .email-form {
+        max-width: 100%;
+    }
+
+    .email-wrapper {
+        flex-direction: column;
+    }
+
+    .email-wrapper button {
+        width: 100%;
+
+        min-height: 52px;
+    }
+
+    .deals {
+        padding: 50px 5%;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .deal-card {
+        min-height: auto;
+    }
+
+    .deal-card:hover {
+        transform: none;
+    }
+
+    .buy-btn:hover {
+        transform: none;
+    }
+
+    .flash-deal {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+
+        width: auto;
+
+        max-width: unset;
+    }
+}
+
+
+/* ==================================================
+   EXTRA SMALL
+================================================== */
 
 @media (max-width: 480px) {
 
-  .email-wrapper {
-    flex-direction: column;
-  }
+    .logo {
+        font-size: 1.35rem;
+    }
 
-  .email-wrapper button {
-    width: 100%;
-    padding: 14px;
-  }
+    .hero-title {
+        font-size: 1.6rem;
+    }
 
-}
+    .section-title {
+        font-size: 1.35rem;
+    }
 
+    .deal-card {
+        padding: 16px;
+    }
 
-/* ===============================
-💰 КОНВЕРСИЯ + UX (ЛЕГКИЕ ДОБАВКИ)
-=============================== */
-
-.email-wrapper:focus-within {
-  border-color: rgba(0,245,255,0.8);
-
-  box-shadow:
-    0 0 20px rgba(0,245,255,0.4),
-    0 0 40px rgba(10,255,157,0.2);
-}
-
-
-/* лёгкий hover эффект */
-.email-wrapper:hover {
-  border-color: rgba(0,245,255,0.6);
+    .telegram-btn {
+        width: 100%;
+    }
 }

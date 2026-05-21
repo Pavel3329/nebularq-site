@@ -2,98 +2,190 @@
 <html lang="ru">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ✅ ВАЖНО ДЛЯ iPHONE -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
     <title>Nebularq — Игровые скидки до 90%</title>
 
-    <link rel="stylesheet" href="style.css?v=6">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Private gaming deals, Robux, VPN, subscriptions and premium access.">
+
+    <link rel="stylesheet" href="style.css?v=7">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"
+        rel="stylesheet">
+
     <link rel="icon" href="assets/favicon.png">
+
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
     <header class="navbar">
-        <div class="logo">NEBULARQ</div>
 
-        <nav>
+        <div class="logo">
+            NEBULARQ
+        </div>
+
+        <nav class="nav-links">
+
             <a href="#featured">Top</a>
             <a href="#top-deals">Deals</a>
             <a href="#save">Save</a>
+
         </nav>
 
-        <a href="https://t.me/nebularq" class="telegram-btn" target="_blank">
+        <a href="https://t.me/nebularq"
+            class="telegram-btn"
+            target="_blank"
+            rel="noopener noreferrer">
+
             Public Channel
+
         </a>
+
     </header>
 
 
-    <!-- HERO -->
+    <!-- =========================
+         HERO
+    ========================== -->
     <section class="hero">
 
         <div class="hero-decoration">
-            <img src="assets/Futuristic_cyan_star_emblem-removebg-preview.png">
+
+            <img
+                src="assets/Futuristic_cyan_star_emblem-removebg-preview.png"
+                alt="Nebularq decoration">
+
         </div>
 
         <h1 class="hero-title">
+
             <span class="fire">
-                <svg viewBox="0 0 64 64" width="40" height="40">
+
+                <svg viewBox="0 0 64 64"
+                    width="40"
+                    height="40"
+                    aria-hidden="true">
+
                     <defs>
-                        <linearGradient id="fireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+
+                        <linearGradient id="fireGradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="0%"
+                            y2="100%">
+
                             <stop offset="0%" stop-color="#fff176" />
                             <stop offset="40%" stop-color="#ff9800" />
                             <stop offset="70%" stop-color="#ff5722" />
                             <stop offset="100%" stop-color="#ff2d00" />
+
                         </linearGradient>
+
                     </defs>
+
                     <path
                         d="M32 2C28 10 18 16 18 28c0 10 7 18 14 18s14-8 14-18c0-8-5-14-10-18 1 6-2 10-6 12 2-8-2-14-8-20z" />
+
                 </svg>
 
                 <span class="sparks">
+
                     <span></span>
                     <span></span>
                     <span></span>
+
                 </span>
+
             </span>
 
-            <span class="title-text">Закрытый доступ к игровым скидкам и сервисам</span>
+            <span class="title-text">
+                Закрытый доступ к игровым скидкам и сервисам
+            </span>
+
         </h1>
 
         <p class="hero-sub">
-            Robux, VPN, подписки и Gift Cards — доступ без ограничений и блокировок.
+
+            Robux, VPN, подписки и Gift Cards —
+            доступ без ограничений и блокировок.
+
         </p>
 
         <div class="hero-buttons">
-            <a href="#featured" class="btn-primary">🔥 Лучшие предложения</a>
-            <a href="https://t.me/nebularq" class="btn-secondary" target="_blank">🚀 Telegram</a>
+
+            <a href="#featured"
+                class="btn-primary">
+
+                🔥 Лучшие предложения
+
+            </a>
+
+            <a href="https://t.me/nebularq"
+                class="btn-secondary"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                🚀 Telegram
+
+            </a>
+
         </div>
 
     </section>
 
 
-
-    <!-- ✅ LEAD CAPTURE (УЛУЧШЕННЫЙ) -->
+    <!-- =========================
+         LEAD CAPTURE
+    ========================== -->
     <section class="lead-capture reveal">
 
         <h2>🔒 Private Access</h2>
-        <p>Открой доступ к закрытым предложениям,
-            VPN и игровым сервисам.</p>
+
+        <p>
+            Открой доступ к закрытым предложениям,
+            VPN и игровым сервисам.
+        </p>
 
         <div class="lead-buttons">
 
-            <a href="https://t.me/nebularq" class="btn-primary track" target="_blank">
+            <a href="https://t.me/nebularq"
+                class="btn-primary track"
+                target="_blank"
+                rel="noopener noreferrer">
+
                 🚀 В Telegram
+
             </a>
 
-            <form id="emailForm" class="email-form">
+            <form id="emailForm"
+                class="email-form">
+
                 <div class="email-wrapper">
-                    <input type="email" id="emailInput" placeholder="Введите email" required>
+
+                    <input
+                        type="email"
+                        id="emailInput"
+                        placeholder="Введите email"
+                        autocomplete="email"
+                        required>
+
                     <button type="submit">
                         Открыть Private Access
                     </button>
+
                 </div>
+
             </form>
 
         </div>
@@ -101,186 +193,375 @@
     </section>
 
 
-    <!-- 💰 FEATURED -->
-    <section id="featured" class="deals">
+    <!-- =========================
+         FEATURED
+    ========================== -->
+    <section id="featured"
+        class="deals">
+
         <h2 class="section-title">
+
             <span class="title-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22">
-                    <path d="M12 2L15 8H21L16.5 12L18 18L12 14L6 18L7.5 12L3 8H9L12 2Z" />
+
+                <svg viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    aria-hidden="true">
+
+                    <path
+                        d="M12 2L15 8H21L16.5 12L18 18L12 14L6 18L7.5 12L3 8H9L12 2Z" />
+
                 </svg>
+
             </span>
+
             Открыть доступ к лучшим предложениям
+
         </h2>
 
         <div class="grid-cards">
 
-            <!-- 💰 ROBUX -->
+            <!-- ROBUX -->
             <article class="deal-card reveal">
-                <img src="assets/roblox.jpg">
-                <span class="badge">🔥 ТОП</span>
+
+                <img src="assets/roblox.jpg"
+                    alt="Roblox Robux">
+
+                <span class="badge">
+                    🔥 ТОП
+                </span>
 
                 <h3>Roblox Robux</h3>
-                <p class="new-price">Доступ без ограничений</p>
 
-                <a href="/r.html?offer=roblox" class="buy-btn track">
+                <p class="new-price">
+                    Доступ без ограничений
+                </p>
+
+                <a href="/r.html?offer=roblox"
+                    class="buy-btn track">
+
                     Получить доступ
+
                 </a>
+
             </article>
 
-            <!-- 🎮 XBOX -->
+
+            <!-- XBOX -->
             <article class="deal-card reveal">
-                <img src="assets/xbox.jpg">
-                <span class="badge">ХИТ</span>
+
+                <img src="assets/xbox.jpg"
+                    alt="Xbox Game Pass">
+
+                <span class="badge">
+                    ХИТ
+                </span>
 
                 <h3>Xbox Game Pass</h3>
-                <p class="new-price">Мгновенная активация</p>
 
-                <a href="/r.html?offer=xbox" class="buy-btn track">
+                <p class="new-price">
+                    Мгновенная активация
+                </p>
+
+                <a href="/r.html?offer=xbox"
+                    class="buy-btn track">
+
                     Активировать
+
                 </a>
+
             </article>
 
-            <!-- 🎮 PS -->
+
+            <!-- PLAYSTATION -->
             <article class="deal-card reveal">
-                <img src="assets/ps.jpg">
-                <span class="badge">-40%</span>
+
+                <img src="assets/ps.jpg"
+                    alt="PlayStation Plus">
+
+                <span class="badge">
+                    -40%
+                </span>
 
                 <h3>PlayStation Plus</h3>
-                <p class="new-price">Работает в любом регионе</p>
 
-                <a href="/r.html?offer=ps" class="buy-btn track">
+                <p class="new-price">
+                    Работает в любом регионе
+                </p>
+
+                <a href="/r.html?offer=ps"
+                    class="buy-btn track">
+
                     Получить
+
                 </a>
+
             </article>
 
-            <!-- 🎁 GIFTCARDS -->
+
+            <!-- GIFTCARDS -->
             <article class="deal-card reveal">
-                <img src="assets/giftcard.jpg">
-                <span class="badge">💳</span>
+
+                <img src="assets/giftcard.jpg"
+                    alt="Gift Cards">
+
+                <span class="badge">
+                    💳
+                </span>
 
                 <h3>Gift Cards</h3>
-                <p class="new-price">Доступ и пополнение игровых сервисов</p>
 
-                <a href="/r.html?offer=giftcards" class="buy-btn track">
+                <p class="new-price">
+                    Доступ и пополнение игровых сервисов
+                </p>
+
+                <a href="/r.html?offer=giftcards"
+                    class="buy-btn track">
+
                     Выбрать
+
                 </a>
+
             </article>
 
         </div>
+
     </section>
 
 
-    <!-- 🔥 HOT DEALS -->
-    <section id="top-deals" class="deals">
+    <!-- =========================
+         HOT DEALS
+    ========================== -->
+    <section id="top-deals"
+        class="deals">
+
         <h2 class="section-title">
+
             <span class="title-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22">
-                    <path d="M13 3C11 6 7 9 7 14a5 5 0 0 0 10 0c0-3-2-5-4-7 0 2-1 3-2 4 1-3-1-5-3-8z" />
+
+                <svg viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    aria-hidden="true">
+
+                    <path
+                        d="M13 3C11 6 7 9 7 14a5 5 0 0 0 10 0c0-3-2-5-4-7 0 2-1 3-2 4 1-3-1-5-3-8z" />
+
                 </svg>
+
             </span>
+
             Горячие скидки сегодня
+
         </h2>
 
         <div class="grid-cards">
 
             <article class="deal-card reveal">
-                <img src="assets/roblox.jpg">
-                <span class="badge">-50%</span>
 
+                <img src="assets/roblox.jpg"
+                    alt="Robux">
+
+                <span class="badge">
+                    -50%
+                </span>
                 <h3>Robux</h3>
-                <p class="old-price">999₽</p>
-                <p class="new-price">499₽</p>
 
-                <a href="/r.html?offer=roblox" class="buy-btn track">
+                <p class="old-price">
+                    999₽
+                </p>
+
+                <p class="new-price">
+                    499₽
+                </p>
+
+                <a href="/r.html?offer=roblox"
+                    class="buy-btn track">
+
                     Открыть предложение
+
                 </a>
+
             </article>
 
+
             <article class="deal-card reveal">
-                <img src="assets/starfield.jpg">
-                <span class="badge">-96%</span>
+
+                <img src="assets/starfield.jpg"
+                    alt="Starfield">
+
+                <span class="badge">
+                    -96%
+                </span>
 
                 <h3>Starfield</h3>
-                <p class="old-price">4199₽</p>
-                <p class="new-price">149₽</p>
 
-                <a href="/r.html?offer=giftcards" class="buy-btn track">
+                <p class="old-price">
+                    4199₽
+                </p>
+
+                <p class="new-price">
+                    149₽
+                </p>
+
+                <a href="/r.html?offer=giftcards"
+                    class="buy-btn track">
+
                     Получить доступ
+
                 </a>
+
             </article>
 
         </div>
+
     </section>
 
 
-    <!-- 💸 SAVE -->
-    <section id="save" class="deals">
+    <!-- =========================
+         SAVE MORE
+    ========================== -->
+    <section id="save"
+        class="deals">
+
         <h2 class="section-title">
+
             <span class="title-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22">
-                    <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+
+                <svg viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    aria-hidden="true">
+
+                    <path
+                        d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+
                 </svg>
+
             </span>
+
             Экономь ещё больше
+
         </h2>
 
         <div class="grid-cards">
 
-            <!-- 🔥 VPN -->
+            <!-- VPN -->
             <article class="deal-card reveal">
-                <img src="assets/vpn nebula access.jpg">
-                <span class="badge">🔥 MUST</span>
 
-                <h3>Nebula Access</h3>
-                <p class="new-price">Private VPN & Region Access</p>
+                <img
+                    src="assets/vpn nebula access.jpg"
+                    alt="Nebula Access VPN">
 
-                <a href="/r.html?offer=vpn" class="buy-btn track">
+                <span class="badge">
+                    🔥 MUST
+                </span>
+
+                <h3>NEBULA ACCESS</h3>
+
+                <p class="new-price">
+                    Private VPN & Region Access
+                </p>
+
+                <a href="/r.html?offer=vpn"
+                    class="buy-btn track">
+
                     Открыть доступ
+
                 </a>
+
             </article>
 
-            <article class="deal-card reveal">
-                <img src="assets/spotify.jpg">
-                <h3>Spotify Premium</h3>
-                <p class="new-price">Premium без ограничений</p>
 
-                <a href="/r.html?offer=temu" class="buy-btn track">
+            <!-- SPOTIFY -->
+            <article class="deal-card reveal">
+
+                <img src="assets/spotify.jpg"
+                    alt="Spotify Premium">
+
+                <h3>Spotify Premium</h3>
+
+                <p class="new-price">
+                    Premium без ограничений
+                </p>
+
+                <a href="/r.html?offer=spotify"
+                    class="buy-btn track">
+
                     Перейти
+
                 </a>
+
             </article>
 
         </div>
+
     </section>
 
 
-    <!-- TELEGRAM -->
+    <!-- =========================
+         TELEGRAM PROMO
+    ========================== -->
     <section class="telegram-promo">
-        <h2>🔥 Private Deals каждый день</h2>
-        <p>Закрытые предложения и быстрый доступ к скидкам</p>
-        <a href="https://t.me/nebularq" class="btn-primary" target="_blank">
+
+        <h2>
+            🔥 Private Deals каждый день
+        </h2>
+
+        <p>
+            Закрытые предложения и быстрый доступ к скидкам
+        </p>
+
+        <a href="https://t.me/nebularq"
+            class="btn-primary"
+            target="_blank"
+            rel="noopener noreferrer">
+
             Открыть канал Telegram
+
         </a>
+
     </section>
 
 
-    <!-- FLASH DEAL -->
+    <!-- =========================
+         FLASH DEAL
+    ========================== -->
     <aside class="flash-deal hidden">
-        <button class="close-btn">×</button>
 
-        <h3>⚡ДОСТУП ОТКРЫТ</h3>
-        <p>Private VPN Access<strong></strong> для обхода ограничений</p>
+        <button class="close-btn"
+            aria-label="Закрыть">
 
-        <a href="/r.html?offer=vpn" class="btn-primary track">
+            ×
+
+        </button>
+
+        <h3>⚡ ДОСТУП ОТКРЫТ</h3>
+
+        <p>
+            Private VPN Access
+            для обхода ограничений
+        </p>
+
+        <a href="/r.html?offer=vpn"
+            class="btn-primary track">
+
             Получить доступ
+
         </a>
+
     </aside>
 
 
-
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
     <footer class="footer">
 
-        <p>© 2025 NEBULARQ. All rights reserved.</p>
+        <p>
+            © 2025 NEBULARQ.
+            All rights reserved.
+        </p>
 
         <p class="disclaimer">
             Private digital access platform
@@ -288,7 +569,8 @@
 
     </footer>
 
-    <script src="script.js?v=6"></script>
+
+    <script src="script.js?v=7"></script>
 
 </body>
 
