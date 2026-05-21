@@ -1621,3 +1621,114 @@ a:hover {
 .email-wrapper:hover {
   border-color: rgba(0,245,255,0.6);
 }
+
+/* =========================================
+✅ FINAL SAFE FIXES (НЕ ЛОМАЕМ ДИЗАЙН)
+========================================= */
+
+/* 🔥 FIX: сайт не уходит за края */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 🔥 FIX: правильный box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 🔥 FIX: картинки */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================================
+✅ КНОПКИ НЕ ВЫЛАЗЯТ ЗА ЭКРАН
+========================================= */
+
+.btn-primary,
+.btn-secondary,
+.buy-btn,
+.telegram-btn {
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* =========================================
+✅ FLASH DEAL НЕ ЛОМАЕТ МОБИЛКУ
+========================================= */
+
+.flash-deal {
+  max-width: calc(100vw - 30px);
+}
+
+/* =========================================
+✅ PC HOVER FIX
+Текст больше не сливается с glow
+========================================= */
+
+@media (min-width: 769px) {
+
+  .deal-card:hover::before {
+    opacity: 0.22;
+    filter: blur(10px);
+  }
+
+  .deal-card h3,
+  .deal-card .new-price,
+  .deal-card .old-price {
+    position: relative;
+    z-index: 5;
+  }
+
+  .deal-card:hover h3 {
+    color: #ffffff;
+
+    text-shadow:
+      0 0 2px rgba(0,0,0,0.9),
+      0 0 6px rgba(0,0,0,0.8);
+  }
+
+  .deal-card:hover .new-price {
+    text-shadow:
+      0 0 3px rgba(0,0,0,0.9),
+      0 0 8px rgba(0,0,0,0.8);
+  }
+
+}
+
+/* =========================================
+✅ iPHONE FIX
+========================================= */
+
+@media (max-width: 480px) {
+
+  .navbar,
+  .hero,
+  .deals,
+  .telegram-promo,
+  .footer,
+  .lead-capture {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .telegram-btn,
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .flash-deal {
+    left: 15px;
+    right: 15px;
+    width: auto;
+  }
+
+}
