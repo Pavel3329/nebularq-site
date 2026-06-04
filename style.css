@@ -1625,3 +1625,18 @@ a:hover {
 .email-wrapper:hover {
   border-color: rgba(0,245,255,0.6);
 }
+
+@media (max-width: 768px) {
+
+  .telegram-btn {
+    width: 78%;
+    max-width: 340px;
+
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
