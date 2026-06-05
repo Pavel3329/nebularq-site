@@ -124,7 +124,7 @@ h3 {
     background: url('assets/Futuristic_cyan_star_emblem-removebg-preview.png?v=2') center/contain no-repeat;
     background-size: auto 99%;
 
-    z-index: 1;
+    z-index: 3;
     opacity: 1;
 
     /* 🔥 СВЕЧЕНИЕ */
@@ -1625,6 +1625,9 @@ a:hover {
 .email-wrapper:hover {
   border-color: rgba(0,245,255,0.6);
 }
+
+
+
 
 @media (max-width: 768px) {
 
