@@ -1622,7 +1622,7 @@ a:hover {
 @media (max-width: 768px) {
 
   .telegram-btn {
-    width: 92%;
+    width: 98%;
     max-width: none;
 
     text-align: center;
@@ -1641,7 +1641,7 @@ a:hover {
 
   .btn-primary,
   .btn-secondary {
-    width: 92%;
+    width: 98%;
     max-width: none;
 
     margin-left: auto;
