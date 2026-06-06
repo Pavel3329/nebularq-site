@@ -1643,3 +1643,15 @@ a:hover {
   }
 
 }
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
