@@ -73,14 +73,6 @@ h3 {
 
 /* Только для мобильных */
 @media (max-width: 768px) {
-  .navbar {
-    position: relative;
-    overflow: hidden;
-     align-items: flex-start; /* ⬅️ ключ! */
-  }
-  
-
-@media (max-width: 768px) {
 
   .navbar {
     position: relative;
@@ -111,8 +103,6 @@ h3 {
     z-index: 2;
   }
 
-}
-
   .navbar::before {
     content: '';
     position: absolute;
@@ -127,15 +117,14 @@ h3 {
     z-index: 3;
     opacity: 1;
 
-    /* 🔥 СВЕЧЕНИЕ */
     filter:
-      drop-shadow(0 0 10px rgba(0, 245, 255, 0.1)) drop-shadow(0 0 15px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 35px rgba(10, 255, 157, 0.1));
+      drop-shadow(0 0 10px rgba(0,245,255,0.1))
+      drop-shadow(0 0 15px rgba(0,245,255,0.2))
+      drop-shadow(0 0 35px rgba(10,255,157,0.1));
 
-    /* ✨ АНИМАЦИЯ */
     animation: starFloat 6s ease-in-out infinite;
 
     will-change: transform, filter;
-
     pointer-events: none;
   }
 
@@ -145,7 +134,8 @@ h3 {
     position: relative;
     z-index: 2;
   }
-}
+
+} /* ← ОДНА единственная закрывающая скобка */
 
 .telegram-btn:hover {
   color: #000;
