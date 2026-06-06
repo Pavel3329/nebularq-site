@@ -1654,7 +1654,9 @@ a:hover {
 
   .email-wrapper {
     width: 82%;
-    max-width: 420px;
+
+    margin-left: 1%;
+    margin-right: 0;
   }
 
 }
