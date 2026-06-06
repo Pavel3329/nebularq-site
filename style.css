@@ -1521,7 +1521,7 @@ a:hover {
   border-radius: 12px;
   overflow: hidden;
   backdrop-filter: blur(12px);
-  max-width: 440px;
+  max-width: 420px;
   margin: 0 auto;
 
   box-shadow:
@@ -1622,14 +1622,39 @@ a:hover {
 @media (max-width: 768px) {
 
   .telegram-btn {
-    width: 78%;
-    max-width: 340px;
+    width: 92%;
+    max-width: none;
 
     text-align: center;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .btn-primary,
+  .btn-secondary {
+    width: 92%;
+    max-width: none;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .email-wrapper {
+    width: 82%;
+    max-width: 420px;
   }
 
 }
