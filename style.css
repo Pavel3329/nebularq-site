@@ -706,7 +706,7 @@ a:hover {
   height: 200%;
 
   background: radial-gradient(circle,
-      rgba(0, 245, 255, 0.15),
+      rgba(0, 245, 255, 0.05),
       transparent 60%);
 
   opacity: 0;
@@ -722,37 +722,67 @@ a:hover {
   z-index: 2;
 }
 
+.deal-card img {
+  position: relative;
+  z-index: 1;
+}
+
+.deal-card h3,
+.deal-card p,
+.deal-card .new-price,
+.deal-card .old-price {
+  position: relative;
+  z-index: 5;
+}
+
 .deal-card:active {
   transform: scale(0.97);
 }
 
 .deal-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-10px) scale(1.025);
 
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(0, 245, 255, 0.2),
-    0 0 40px rgba(10, 255, 157, 0.1);
+    0 20px 40px rgba(0,0,0,0.8),
+    0 0 25px rgba(0,245,255,0.45),
+    0 0 60px rgba(0,245,255,0.25),
+    0 0 100px rgba(10,255,157,0.18);
 }
 
 .deal-card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: 14px;
 
-  background: linear-gradient(45deg, #00f5ff, #0aff9d, #00f5ff);
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    #00f5ff,
+    #0aff9d,
+    #00f5ff
+  );
 
   opacity: 0;
-  transition: opacity 0.3s ease;
+
+  filter: blur(18px);
+
+  transition:
+    opacity 0.35s ease,
+    filter 0.35s ease;
 
   z-index: 0;
+
+  pointer-events: none;
 }
 
 .deal-card:hover::before {
-  opacity: 0.70;
-  /* 🔥 ключ! не 1, а 0.15 */
-  filter: blur(8px);
+  opacity: 0.85;
+  filter: blur(22px);
 }
 
 .deal-card img {
@@ -826,6 +856,26 @@ a:hover {
 
   overflow: hidden;
 }
+
+.deal-card:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.75),
+    0 0 12px rgba(0,245,255,0.18),
+    0 0 25px rgba(0,245,255,0.10),
+    0 0 45px rgba(10,255,157,0.06);
+}
+
+.deal-card:hover::before {
+  opacity: 0.28;
+  filter: blur(14px);
+}
+
+.deal-card:hover::after {
+  opacity: 0.25;
+}
+
 
 @keyframes badgeFlow {
   0% {
@@ -1354,21 +1404,7 @@ a:hover {
 }
 
 
-/* ===============================
-💎 3. КАРТОЧКИ — ДОРОЖЕ ВИЗУАЛ
-=============================== */
-.deal-card {
-  backdrop-filter: blur(14px);
-}
 
-.deal-card:hover {
-  transform: translateY(-10px) scale(1.025);
-
-  box-shadow:
-    0 15px 35px rgba(0,0,0,0.7),
-    0 0 25px rgba(0,245,255,0.25),
-    0 0 60px rgba(10,255,157,0.12);
-}
 
 
 /* ===============================
