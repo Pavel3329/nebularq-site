@@ -739,15 +739,6 @@ a:hover {
   transform: scale(0.97);
 }
 
-.deal-card:hover {
-  transform: translateY(-10px) scale(1.025);
-
-  box-shadow:
-    0 20px 40px rgba(0,0,0,0.8),
-    0 0 25px rgba(0,245,255,0.45),
-    0 0 60px rgba(0,245,255,0.25),
-    0 0 100px rgba(10,255,157,0.18);
-}
 
 .deal-card::before {
   content: '';
@@ -780,10 +771,6 @@ a:hover {
   pointer-events: none;
 }
 
-.deal-card:hover::before {
-  opacity: 0.85;
-  filter: blur(22px);
-}
 
 .deal-card img {
   width: 100%;
@@ -868,12 +855,12 @@ a:hover {
 }
 
 .deal-card:hover::before {
-  opacity: 0.28;
-  filter: blur(14px);
+  opacity: 0.55;
+  filter: blur(18px);
 }
 
 .deal-card:hover::after {
-  opacity: 0.25;
+  opacity: 0.08;
 }
 
 
