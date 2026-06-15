@@ -8,11 +8,12 @@ body {
 a {
   text-decoration: none;
   color: #00f5ff;
-  transition: 0.3s;
+  transition: all 0.25s ease;
 }
 
 a:hover {
   color: #0aff9d;
+  text-shadow: 0 0 8px #00f5ff;
 }
 
 h1,
@@ -295,15 +296,6 @@ h3 {
   -webkit-text-fill-color: transparent;
 }
 
-
-/* ссылки */
-a {
-  transition: all 0.25s ease;
-}
-
-a:hover {
-  text-shadow: 0 0 8px #00f5ff;
-}
 
 /* бейджи */
 .badge {
@@ -969,7 +961,6 @@ a:hover {
   padding: 10px 20px;
 
   background: rgba(0, 0, 0, 0.6);
-  /* 🔥 вот тот самый баланс */
   color: #00f5ff;
 
   border: 1px solid rgba(0, 245, 255, 0.5);
@@ -978,6 +969,11 @@ a:hover {
   font-weight: 600;
 
   backdrop-filter: blur(6px);
+
+  /* ✨ очень лёгкое постоянное свечение */
+  box-shadow:
+    0 0 12px rgba(0, 245, 255, 0.18),
+    0 0 24px rgba(0, 245, 255, 0.08);
 
   transition: all 0.3s ease;
 }
@@ -1696,4 +1692,3 @@ body {
 *::after {
   box-sizing: border-box;
 }
-
