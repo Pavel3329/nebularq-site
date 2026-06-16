@@ -236,16 +236,11 @@ h3 {
 }
 
 .title-text {
-  background: linear-gradient(90deg,
-      #06cea3,
-      #00f5ff,
-      #06cea3);
-
-  background-size: 200% auto;
-
-
-  -webkit-text-fill-color: transparent;
   background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
   animation: gradientMove 4s linear infinite;
 }
@@ -290,16 +285,6 @@ h3 {
   }
 }
 
-.title-text {
-  background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
-
-  background-clip: text;
-  /* ✅ добавь это */
-  -webkit-background-clip: text;
-  /* ✅ оставь это */
-
-  -webkit-text-fill-color: transparent;
-}
 
 
 /* бейджи */
