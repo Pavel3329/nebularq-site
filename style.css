@@ -1273,7 +1273,7 @@ h3 {
 
   .navbar nav {
     display: flex;
-    gap: 30px;
+    gap: 32px;
     flex-wrap: wrap;
     justify-content: center;
   }
