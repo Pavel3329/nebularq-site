@@ -1681,6 +1681,22 @@ h3 {
 
 }
 
+@media (max-width: 768px) {
+
+  .section-title {
+    flex-direction: column;
+    gap: 10px;
+
+    text-align: center;
+  }
+
+  .title-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+}
+
 html,
 body {
   overflow-x: hidden;
