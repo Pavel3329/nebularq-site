@@ -65,6 +65,7 @@ h3 {
   0% {
     background-position: 0% center;
   }
+
   100% {
     background-position: 200% center;
   }
@@ -120,9 +121,7 @@ h3 {
     opacity: 1;
 
     filter:
-      drop-shadow(0 0 10px rgba(0,245,255,0.1))
-      drop-shadow(0 0 15px rgba(0,245,255,0.2))
-      drop-shadow(0 0 35px rgba(10,255,157,0.1));
+      drop-shadow(0 0 10px rgba(0, 245, 255, 0.1)) drop-shadow(0 0 15px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 35px rgba(10, 255, 157, 0.1));
 
     animation: starFloat 6s ease-in-out infinite;
 
@@ -137,7 +136,8 @@ h3 {
     z-index: 2;
   }
 
-} /* ← ОДНА единственная закрывающая скобка */
+}
+
 
 .telegram-btn:hover {
   color: #000;
@@ -175,6 +175,8 @@ h3 {
   font-weight: 500;
 }
 
+
+
 .telegram-btn {
   padding: 8px 16px;
   background: linear-gradient(45deg, #0aff9d, #00f5ff);
@@ -185,6 +187,8 @@ h3 {
     0 0 4px rgba(0, 245, 255, 0.2);
 
 }
+
+
 
 /* ---------- Hero ---------- */
 .hero {
@@ -405,83 +409,63 @@ h3 {
   /* 🔵 минимум */
   0% {
     filter:
-      drop-shadow(0 0 2px rgba(0, 245, 255, 0.05))
-      drop-shadow(0 0 4px rgba(0, 245, 255, 0.05))
-      brightness(0.85);
+      drop-shadow(0 0 2px rgba(0, 245, 255, 0.05)) drop-shadow(0 0 4px rgba(0, 245, 255, 0.05)) brightness(0.85);
   }
 
   /* 👈 мягкий разогрев */
   6% {
     filter:
-      drop-shadow(0 0 3px rgba(200, 240, 255, 0.12))
-      drop-shadow(0 0 6px rgba(200, 240, 255, 0.1))
-      brightness(0.92);
+      drop-shadow(0 0 3px rgba(200, 240, 255, 0.12)) drop-shadow(0 0 6px rgba(200, 240, 255, 0.1)) brightness(0.92);
   }
 
   /* 👈 ещё ближе к вспышке (сглаживание ключ!) */
   10% {
     filter:
-      drop-shadow(0 0 5px rgba(220, 250, 255, 0.25))
-      drop-shadow(0 0 10px rgba(220, 250, 255, 0.18))
-      brightness(1.02);
+      drop-shadow(0 0 5px rgba(220, 250, 255, 0.25)) drop-shadow(0 0 10px rgba(220, 250, 255, 0.18)) brightness(1.02);
   }
 
   /* ✨ внутренняя вспышка (уже НЕ резкая) */
   14% {
     filter:
-      drop-shadow(0 0 8px rgba(255, 255, 255, 0.45))
-      drop-shadow(0 0 14px rgba(220, 255, 255, 0.3))
-      brightness(1.12);
+      drop-shadow(0 0 8px rgba(255, 255, 255, 0.45)) drop-shadow(0 0 14px rgba(220, 255, 255, 0.3)) brightness(1.12);
   }
 
   /* 👈 плавный выход из вспышки */
   22% {
     filter:
-      drop-shadow(0 0 12px rgba(200, 255, 255, 0.35))
-      drop-shadow(0 0 22px rgba(200, 255, 255, 0.25))
-      brightness(1.08);
+      drop-shadow(0 0 12px rgba(200, 255, 255, 0.35)) drop-shadow(0 0 22px rgba(200, 255, 255, 0.25)) brightness(1.08);
   }
 
   /* 🔥 основной разгон */
   50% {
     filter:
-      drop-shadow(0 0 25px rgba(0, 245, 255, 0.7))
-      drop-shadow(0 0 50px rgba(10, 255, 157, 0.5))
-      brightness(1.1);
+      drop-shadow(0 0 25px rgba(0, 245, 255, 0.7)) drop-shadow(0 0 50px rgba(10, 255, 157, 0.5)) brightness(1.1);
   }
 
   /* 👈 подготовка к пику */
   65% {
     filter:
-      drop-shadow(0 0 28px rgba(0, 255, 200, 0.75))
-      drop-shadow(0 0 55px rgba(10, 255, 157, 0.55))
-      brightness(1.15);
+      drop-shadow(0 0 28px rgba(0, 255, 200, 0.75)) drop-shadow(0 0 55px rgba(10, 255, 157, 0.55)) brightness(1.15);
   }
 
   /* 🌟 пик */
   75% {
     filter:
-      drop-shadow(0 0 30px rgba(10, 255, 157, 0.9))
-      drop-shadow(0 0 60px rgba(10, 255, 157, 0.6))
-      brightness(1.2);
+      drop-shadow(0 0 30px rgba(10, 255, 157, 0.9)) drop-shadow(0 0 60px rgba(10, 255, 157, 0.6)) brightness(1.2);
   }
 
   /* 👈 мягкое затухание */
   88% {
     filter:
-      drop-shadow(0 0 10px rgba(0, 245, 255, 0.2))
-      drop-shadow(0 0 18px rgba(0, 245, 255, 0.15))
-      brightness(0.95);
+      drop-shadow(0 0 10px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 18px rgba(0, 245, 255, 0.15)) brightness(0.95);
   }
 
   /* 🔵 обратно в минимум */
   100% {
     filter:
-      drop-shadow(0 0 2px rgba(0, 245, 255, 0.05))
-      drop-shadow(0 0 4px rgba(0, 245, 255, 0.05))
-      brightness(0.85);
+      drop-shadow(0 0 2px rgba(0, 245, 255, 0.05)) drop-shadow(0 0 4px rgba(0, 245, 255, 0.05)) brightness(0.85);
 
-      animation: starGlow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: starGlow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 }
 
@@ -620,7 +604,7 @@ h3 {
 }
 
 .deals h2:hover {
-  text-shadow: 0 0 10px rgba(0,245,255,0.4);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.4);
 }
 
 .section-title {
@@ -631,7 +615,8 @@ h3 {
 
   font-size: 2rem;
 
-  color: #00f5ff; /* 💥 чистый цвет */
+  color: #00f5ff;
+  /* 💥 чистый цвет */
 
   text-shadow:
     0 0 6px rgba(0, 245, 255, 0.5),
@@ -645,15 +630,14 @@ h3 {
 
   /* 💎 лёгкий glow, БЕЗ анимации */
   filter:
-    drop-shadow(0 0 4px rgba(0, 245, 255, 0.5))
-    drop-shadow(0 0 8px rgba(0, 245, 255, 0.3));
+    drop-shadow(0 0 4px rgba(0, 245, 255, 0.5)) drop-shadow(0 0 8px rgba(0, 245, 255, 0.3));
 }
 
 .section-title:hover .title-icon svg {
   filter:
-    drop-shadow(0 0 8px rgba(0, 245, 255, 0.9))
-    drop-shadow(0 0 16px rgba(0, 245, 255, 0.6));
+    drop-shadow(0 0 8px rgba(0, 245, 255, 0.9)) drop-shadow(0 0 16px rgba(0, 245, 255, 0.6));
 }
+
 .grid-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -743,12 +727,10 @@ h3 {
 
   border-radius: 16px;
 
-  background: linear-gradient(
-    135deg,
-    #00f5ff,
-    #0aff9d,
-    #00f5ff
-  );
+  background: linear-gradient(135deg,
+      #00f5ff,
+      #0aff9d,
+      #00f5ff);
 
   opacity: 0;
 
@@ -840,10 +822,10 @@ h3 {
   transform: translateY(-10px) scale(1.02);
 
   box-shadow:
-    0 12px 30px rgba(0,0,0,0.75),
-    0 0 12px rgba(0,245,255,0.18),
-    0 0 25px rgba(0,245,255,0.10),
-    0 0 45px rgba(10,255,157,0.06);
+    0 12px 30px rgba(0, 0, 0, 0.75),
+    0 0 12px rgba(0, 245, 255, 0.18),
+    0 0 25px rgba(0, 245, 255, 0.10),
+    0 0 45px rgba(10, 255, 157, 0.06);
 }
 
 .deal-card:hover::before {
@@ -1338,25 +1320,19 @@ h3 {
   0% {
     transform: scale(1) rotate(-2deg);
     filter:
-      drop-shadow(0 0 6px #ff9800)
-      drop-shadow(0 0 12px #ff5722)
-      drop-shadow(0 0 18px #ff2d00);
+      drop-shadow(0 0 6px #ff9800) drop-shadow(0 0 12px #ff5722) drop-shadow(0 0 18px #ff2d00);
   }
 
   50% {
     transform: scale(1.25) rotate(2deg);
     filter:
-      drop-shadow(0 0 15px #ff9800)
-      drop-shadow(0 0 25px #ff5722)
-      drop-shadow(0 0 40px #ff2d00);
+      drop-shadow(0 0 15px #ff9800) drop-shadow(0 0 25px #ff5722) drop-shadow(0 0 40px #ff2d00);
   }
 
   100% {
     transform: scale(1.05) rotate(0deg);
     filter:
-      drop-shadow(0 0 8px #ff9800)
-      drop-shadow(0 0 16px #ff5722)
-      drop-shadow(0 0 22px #ff2d00);
+      drop-shadow(0 0 8px #ff9800) drop-shadow(0 0 16px #ff5722) drop-shadow(0 0 22px #ff2d00);
   }
 }
 
@@ -1403,12 +1379,10 @@ h3 {
   position: absolute;
   inset: 0;
 
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.25),
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent);
 
   opacity: 0;
   transition: 0.4s;
@@ -1420,8 +1394,13 @@ h3 {
 }
 
 @keyframes shineBtn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(200%); }
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(200%);
+  }
 }
 
 
@@ -1442,15 +1421,15 @@ h3 {
 ⚡ 6. FLASH DEAL — ДОРОЖЕ ВИД
 =============================== */
 .flash-deal {
-  border: 1px solid rgba(0,245,255,0.2);
+  border: 1px solid rgba(0, 245, 255, 0.2);
 
   box-shadow:
-    0 0 15px rgba(0,245,255,0.25),
-    0 0 40px rgba(10,255,157,0.15);
+    0 0 15px rgba(0, 245, 255, 0.25),
+    0 0 40px rgba(10, 255, 157, 0.15);
 }
 
 .flash-deal h3 {
-  text-shadow: 0 0 10px rgba(0,245,255,0.5);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
 }
 
 
@@ -1477,8 +1456,8 @@ h3 {
   outline: none;
 
   box-shadow:
-    0 0 0 2px rgba(0,245,255,0.4),
-    0 0 15px rgba(0,245,255,0.6);
+    0 0 0 2px rgba(0, 245, 255, 0.4),
+    0 0 15px rgba(0, 245, 255, 0.6);
 }
 
 
@@ -1487,7 +1466,7 @@ h3 {
 =============================== */
 .hero-title {
   text-shadow:
-    0 0 10px rgba(0,245,255,0.2);
+    0 0 10px rgba(0, 245, 255, 0.2);
 }
 
 
@@ -1495,9 +1474,17 @@ h3 {
 💡 10. ЛЁГКИЙ ПУЛЬС (НЕ НАВЯЗЧИВО)
 =============================== */
 @keyframes subtlePulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.015); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.015);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .btn-primary {
@@ -1536,8 +1523,8 @@ h3 {
 
 .email-wrapper {
   display: flex;
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(0,245,255,0.35);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(0, 245, 255, 0.35);
   border-radius: 12px;
   overflow: hidden;
   backdrop-filter: blur(12px);
@@ -1545,8 +1532,8 @@ h3 {
   margin: 0 auto;
 
   box-shadow:
-    0 0 15px rgba(0,245,255,0.15),
-    inset 0 0 10px rgba(0,0,0,0.4);
+    0 0 15px rgba(0, 245, 255, 0.15),
+    inset 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 .email-wrapper input {
@@ -1567,7 +1554,7 @@ h3 {
 
 .email-wrapper button {
   padding: 0 22px;
-  background: linear-gradient(45deg,#0aff9d,#00f5ff);
+  background: linear-gradient(45deg, #0aff9d, #00f5ff);
   border: none;
   color: #001a1a;
   font-weight: 700;
@@ -1579,8 +1566,8 @@ h3 {
 .email-wrapper button:hover {
   filter: brightness(1.2);
   box-shadow:
-    0 0 10px rgba(0,245,255,0.6),
-    0 0 25px rgba(10,255,157,0.4);
+    0 0 10px rgba(0, 245, 255, 0.6),
+    0 0 25px rgba(10, 255, 157, 0.4);
 }
 
 
@@ -1623,17 +1610,17 @@ h3 {
 =============================== */
 
 .email-wrapper:focus-within {
-  border-color: rgba(0,245,255,0.8);
+  border-color: rgba(0, 245, 255, 0.8);
 
   box-shadow:
-    0 0 20px rgba(0,245,255,0.4),
-    0 0 40px rgba(10,255,157,0.2);
+    0 0 20px rgba(0, 245, 255, 0.4),
+    0 0 40px rgba(10, 255, 157, 0.2);
 }
 
 
 /* лёгкий hover эффект */
 .email-wrapper:hover {
-  border-color: rgba(0,245,255,0.6);
+  border-color: rgba(0, 245, 255, 0.6);
 }
 
 
@@ -1642,7 +1629,7 @@ h3 {
 @media (max-width: 768px) {
 
   .telegram-btn {
-    width: 98%;
+    width: 102%;
     max-width: none;
 
     text-align: center;
@@ -1661,7 +1648,7 @@ h3 {
 
   .btn-primary,
   .btn-secondary {
-    width: 98%;
+    width: 102%;
     max-width: none;
 
     margin-left: auto;
