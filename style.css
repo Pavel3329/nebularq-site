@@ -1079,7 +1079,7 @@ h3 {
 
  .email-wrapper {
   width: 92%;
-  max-width: 280px;
+  max-width: 300px;
   margin-left: calc((100% - 320px) / 2);
   margin-right: 0; /* или auto, но лучше 0 */
 }
