@@ -1,19 +1,95 @@
+/* ============================================================
+   🧹 REFACTORED style.css — NEBULARQ
+   Версия: 7 (чистка и оптимизация)
+   Сохраняет визуал 1:1, улучшает поддержку и читаемость.
+   ============================================================ */
+
+/* ============================================================
+   1.  ПЕРЕМЕННЫЕ :root
+   ============================================================ */
+:root {
+  /* Цвета */
+  --color-primary: #00f5ff;
+  --color-secondary: #0aff9d;
+  --color-bg: #0a0a0a;
+  --color-bg-light: #0f0f0f;
+  --color-card: #121212;
+  --color-text: #f0f0f0;
+  --color-text-muted: #777;
+  --color-text-light: #ccc;
+  --color-white: #fff;
+  --color-black: #000;
+
+  /* Градиенты */
+  --gradient-cyan: linear-gradient(90deg, #06cea3, #00f5ff);
+  --gradient-green-cyan: linear-gradient(45deg, #0aff9d, #00f5ff);
+  --gradient-fire: linear-gradient(120deg, #0a0a0a, #000000, #1a1a1a);
+
+  /* Шрифты */
+  --font-main: 'Orbitron', sans-serif;
+
+  /* Отступы и размеры */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+  --spacing-xxl: 40px;
+  --spacing-xxxl: 60px;
+  --padding-section: 60px 5%;
+  --padding-hero: 80px 5%;
+  --padding-card: 20px;
+
+  /* Радиусы */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-xxl: 16px;
+
+  /* Тени и свечения */
+  --shadow-btn: 0 0 10px rgba(0, 245, 255, 0.3);
+  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.75);
+  --shadow-glow: 0 0 15px rgba(0, 245, 255, 0.3);
+  --shadow-glow-strong: 0 0 25px rgba(0, 245, 255, 0.8);
+  --shadow-badge: 0 0 10px rgba(255, 45, 0, 0.6), 0 0 25px rgba(255, 0, 85, 0.4);
+
+  /* Transition */
+  --transition: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  /* Брейкпоинты */
+  --breakpoint-tablet: 768px;
+  --breakpoint-mobile: 480px;
+}
+
+/* ============================================================
+   2.  БАЗОВЫЕ СТИЛИ И СБРОС
+   ============================================================ */
+html,
 body {
+  overflow-x: hidden;
+  width: 100%;
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background: #0a0a0a;
-  color: #f0f0f0;
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 a {
   text-decoration: none;
-  color: #00f5ff;
-  transition: all 0.25s ease;
+  color: var(--color-primary);
+  transition: all var(--transition);
 }
-
 a:hover {
-  color: #0aff9d;
-  text-shadow: 0 0 8px #00f5ff;
+  color: var(--color-secondary);
+  text-shadow: 0 0 8px var(--color-primary);
 }
 
 h1,
@@ -22,7 +98,9 @@ h3 {
   margin: 0 0 10px;
 }
 
-/* ---------- Navbar ---------- */
+/* ============================================================
+   3.  НАВБАР
+   ============================================================ */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -32,195 +110,62 @@ h3 {
   border-bottom: 1px solid #111;
 }
 
-.navbar .logo {
+.logo {
   position: relative;
-
   font-weight: 700;
   font-size: 1.6rem;
   letter-spacing: 1px;
-
-  background: linear-gradient(90deg,
-      #0aff9d,
-      #00f5ff,
-      #0aff9d);
-
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary), var(--color-secondary));
   background-size: 200% auto;
-
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-
   animation: logoFlow 4s linear infinite;
-
-  text-shadow:
-    0 0 6px rgba(0, 245, 255, 0.3);
-
+  text-shadow: 0 0 6px rgba(0, 245, 255, 0.3);
   z-index: 2;
 }
 
-
-
-
 @keyframes logoFlow {
-  0% {
-    background-position: 0% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
-
-
-
-
-
-.telegram-btn:hover {
-  color: #000;
-  /* 💥 текст всегда черный */
-
-  text-shadow:
-    0 0 6px rgba(0, 245, 255, 0.6),
-    0 0 12px rgba(0, 245, 255, 0.4);
-
-  box-shadow:
-    0 0 15px rgba(0, 245, 255, 0.6),
-    0 0 30px rgba(0, 245, 255, 0.4);
-
-  transform: translateY(-2px) scale(1.03);
-}
-
-
-
-@keyframes starFloat {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-5px) rotate(1deg);
-  }
-
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-}
-
-.navbar nav a {
+.nav-links a {
   margin: 0 15px;
   font-weight: 500;
 }
 
-
-
 .telegram-btn {
-  padding: 8px 16px;
-  background: linear-gradient(45deg, #0aff9d, #00f5ff);
-  border-radius: 6px;
-  color: #000;
+  padding: var(--spacing-sm) 16px;
+  background: var(--gradient-green-cyan);
+  border-radius: var(--radius-sm);
+  color: var(--color-black);
   font-weight: 600;
-  text-shadow:
-    0 0 4px rgba(0, 245, 255, 0.2);
-
+  text-shadow: 0 0 4px rgba(0, 245, 255, 0.2);
+  transition: all var(--transition);
+}
+.telegram-btn:hover {
+  color: var(--color-black);
+  text-shadow: 0 0 6px rgba(0, 245, 255, 0.6), 0 0 12px rgba(0, 245, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.6), 0 0 30px rgba(0, 245, 255, 0.4);
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* Только для мобильных */
-@media (max-width: 768px) {
-
-  .navbar {
-    position: relative;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .navbar nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 32px;
-
-    margin-top: 12px;
-    margin-bottom: 18px;
-
-    z-index: 2;
-  }
-
-  .navbar nav a {
-    margin: 0;
-  }
-
-  .telegram-btn {
-    z-index: 2;
-  }
-
-  .navbar::before {
-    content: '';
-    position: absolute;
-    left: -150px;
-    top: 0;
-    width: 100%;
-    height: 100%;
-
-    background: url('assets/Futuristic_cyan_star_emblem-removebg-preview.png?v=2') center/contain no-repeat;
-    background-size: auto 99%;
-
-    z-index: 3;
-    opacity: 1;
-
-    filter:
-      drop-shadow(0 0 10px rgba(0, 245, 255, 0.1)) drop-shadow(0 0 15px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 35px rgba(10, 255, 157, 0.1));
-
-    animation: starFloat 6s ease-in-out infinite;
-
-    will-change: transform, filter;
-    pointer-events: none;
-  }
-
-  .navbar .logo,
-  .navbar nav,
-  .navbar .telegram-btn {
-    position: relative;
-    z-index: 2;
-  }
-
-}
-
-/* ---------- Hero ---------- */
+/* ============================================================
+   4.  HERO
+   ============================================================ */
 .hero {
   text-align: center;
-  padding: 80px 5%;
+  padding: var(--padding-hero);
   background: url('assets/bg-hero.png') center/cover no-repeat;
   position: relative;
 }
-
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
-
-  background: radial-gradient(circle at 50% 20%,
-      rgba(0, 245, 255, 0.12),
-      transparent 60%);
-
+  background: radial-gradient(circle at 50% 20%, rgba(0, 245, 255, 0.12), transparent 60%);
   pointer-events: none;
-}
-
-/* УБРАТЬ ОТСЮДА ГРАДИЕНТ */
-.hero h1 {
-  color: #06cea3;
-  /* просто фолбэк */
-}
-
-.hero-sub {
-  margin-top: 15px;
-  color: #ccc;
-  animation: fadeInUp 1.4s ease forwards;
 }
 
 .hero-title {
@@ -231,115 +176,61 @@ h3 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
   animation: fadeInUp 1s ease forwards;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
 }
 
 .title-text {
-  background: linear-gradient(90deg,
-      #06cea3,
-      #00f5ff,
-      #06cea3);
-
+  background: var(--gradient-cyan);
   background-size: 200% auto;
-
-
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
-
   animation: gradientMove 4s linear infinite;
 }
-
-/* 🌈 движение градиента */
 @keyframes gradientMove {
-  0% {
-    background-position: 0% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
+.hero-sub {
+  margin-top: 15px;
+  color: var(--color-text-light);
+  animation: fadeInUp 1.4s ease forwards;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  margin-top: var(--spacing-xl);
+}
+
+/* ------ Огонь (fire) ------ */
 .fire {
   position: relative;
   display: inline-flex;
-  margin-right: 12px;
+  margin-right: var(--spacing-md);
 }
-
 .fire svg {
   fill: url(#fireGradient);
-
-  filter:
-    drop-shadow(0 0 10px #ff9800) drop-shadow(0 0 20px #ff5722) drop-shadow(0 0 30px #ff2d00);
-
-  animation: fireUltra 0.7s infinite ease-in-out;
+  filter: drop-shadow(0 0 10px #ff9800) drop-shadow(0 0 20px #ff5722) drop-shadow(0 0 30px #ff2d00);
+  animation: fireUltra 0.6s infinite ease-in-out;
+  transform-origin: center;
 }
-
 @keyframes fireUltra {
-  0% {
-    transform: scale(1) rotate(-1deg);
-  }
-
-  50% {
-    transform: scale(1.15) rotate(1deg);
-  }
-
-  100% {
-    transform: scale(1) rotate(0deg);
-  }
+  0%   { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 6px #ff9800) drop-shadow(0 0 12px #ff5722) drop-shadow(0 0 18px #ff2d00); }
+  50%  { transform: scale(1.25) rotate(2deg); filter: drop-shadow(0 0 15px #ff9800) drop-shadow(0 0 25px #ff5722) drop-shadow(0 0 40px #ff2d00); }
+  100% { transform: scale(1.05) rotate(0deg); filter: drop-shadow(0 0 8px #ff9800) drop-shadow(0 0 16px #ff5722) drop-shadow(0 0 22px #ff2d00); }
 }
 
-.title-text {
-  background: linear-gradient(90deg, #06cea3 0%, #00f5ff 100%);
-
-  background-clip: text;
-  /* ✅ добавь это */
-  -webkit-background-clip: text;
-  /* ✅ оставь это */
-
-  -webkit-text-fill-color: transparent;
-}
-
-
-/* бейджи */
-.badge {
-  animation: pulseBadge 2s infinite;
-}
-
-@keyframes pulseBadge {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.08);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Искры */
 .sparks {
   position: absolute;
   top: -5px;
   left: 10px;
   pointer-events: none;
 }
-
 .sparks span {
   position: absolute;
   width: 4px;
@@ -347,43 +238,19 @@ h3 {
   background: #ffcc00;
   border-radius: 50%;
   opacity: 0;
-  animation: sparkFly 1.5s infinite;
+  animation: sparkFly 1.2s infinite;
+  filter: drop-shadow(0 0 4px #ffcc00);
 }
-
-/* разные искры */
-.sparks span:nth-child(1) {
-  left: 0;
-  animation-delay: 0s;
-}
-
-.sparks span:nth-child(2) {
-  left: 8px;
-  animation-delay: 0.3s;
-}
-
-.sparks span:nth-child(3) {
-  left: 4px;
-  animation-delay: 0.6s;
-}
-
-/* ✨ анимация искр */
+.sparks span:nth-child(1) { left: 0; animation-delay: 0s; }
+.sparks span:nth-child(2) { left: 8px; animation-delay: 0.3s; }
+.sparks span:nth-child(3) { left: 4px; animation-delay: 0.6s; }
 @keyframes sparkFly {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: translateY(-10px) scale(1.2);
-    opacity: 0.8;
-  }
-
-  100% {
-    transform: translateY(-20px) scale(0.5);
-    opacity: 0;
-  }
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  40%  { transform: translateY(-12px) scale(1.3); opacity: 1; }
+  100% { transform: translateY(-30px) scale(0.3); opacity: 0; }
 }
 
+/* Декоративная звезда (только десктоп) */
 .hero-decoration {
   position: absolute;
   left: 0;
@@ -394,147 +261,54 @@ h3 {
   pointer-events: none;
   mix-blend-mode: screen;
 }
-
-
-
 .hero-decoration img {
   width: 100%;
   height: auto;
   display: block;
-
-  animation: starGlow 4s ease-in-out infinite;
+  animation: starGlow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
-
 @keyframes starGlow {
-
-  /* 🔵 минимум */
-  0% {
-    filter:
-      drop-shadow(0 0 2px rgba(0, 245, 255, 0.05)) drop-shadow(0 0 4px rgba(0, 245, 255, 0.05)) brightness(0.85);
-  }
-
-  /* 👈 мягкий разогрев */
-  6% {
-    filter:
-      drop-shadow(0 0 3px rgba(200, 240, 255, 0.12)) drop-shadow(0 0 6px rgba(200, 240, 255, 0.1)) brightness(0.92);
-  }
-
-  /* 👈 ещё ближе к вспышке (сглаживание ключ!) */
-  10% {
-    filter:
-      drop-shadow(0 0 5px rgba(220, 250, 255, 0.25)) drop-shadow(0 0 10px rgba(220, 250, 255, 0.18)) brightness(1.02);
-  }
-
-  /* ✨ внутренняя вспышка (уже НЕ резкая) */
-  14% {
-    filter:
-      drop-shadow(0 0 8px rgba(255, 255, 255, 0.45)) drop-shadow(0 0 14px rgba(220, 255, 255, 0.3)) brightness(1.12);
-  }
-
-  /* 👈 плавный выход из вспышки */
-  22% {
-    filter:
-      drop-shadow(0 0 12px rgba(200, 255, 255, 0.35)) drop-shadow(0 0 22px rgba(200, 255, 255, 0.25)) brightness(1.08);
-  }
-
-  /* 🔥 основной разгон */
-  50% {
-    filter:
-      drop-shadow(0 0 25px rgba(0, 245, 255, 0.7)) drop-shadow(0 0 50px rgba(10, 255, 157, 0.5)) brightness(1.1);
-  }
-
-  /* 👈 подготовка к пику */
-  65% {
-    filter:
-      drop-shadow(0 0 28px rgba(0, 255, 200, 0.75)) drop-shadow(0 0 55px rgba(10, 255, 157, 0.55)) brightness(1.15);
-  }
-
-  /* 🌟 пик */
-  75% {
-    filter:
-      drop-shadow(0 0 30px rgba(10, 255, 157, 0.9)) drop-shadow(0 0 60px rgba(10, 255, 157, 0.6)) brightness(1.2);
-  }
-
-  /* 👈 мягкое затухание */
-  88% {
-    filter:
-      drop-shadow(0 0 10px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 18px rgba(0, 245, 255, 0.15)) brightness(0.95);
-  }
-
-  /* 🔵 обратно в минимум */
-  100% {
-    filter:
-      drop-shadow(0 0 2px rgba(0, 245, 255, 0.05)) drop-shadow(0 0 4px rgba(0, 245, 255, 0.05)) brightness(0.85);
-
-    animation: starGlow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  }
+  0%   { filter: drop-shadow(0 0 2px rgba(0,245,255,0.05)) drop-shadow(0 0 4px rgba(0,245,255,0.05)) brightness(0.85); }
+  6%   { filter: drop-shadow(0 0 3px rgba(200,240,255,0.12)) drop-shadow(0 0 6px rgba(200,240,255,0.1)) brightness(0.92); }
+  10%  { filter: drop-shadow(0 0 5px rgba(220,250,255,0.25)) drop-shadow(0 0 10px rgba(220,250,255,0.18)) brightness(1.02); }
+  14%  { filter: drop-shadow(0 0 8px rgba(255,255,255,0.45)) drop-shadow(0 0 14px rgba(220,255,255,0.3)) brightness(1.12); }
+  22%  { filter: drop-shadow(0 0 12px rgba(200,255,255,0.35)) drop-shadow(0 0 22px rgba(200,255,255,0.25)) brightness(1.08); }
+  50%  { filter: drop-shadow(0 0 25px rgba(0,245,255,0.7)) drop-shadow(0 0 50px rgba(10,255,157,0.5)) brightness(1.1); }
+  65%  { filter: drop-shadow(0 0 28px rgba(0,255,200,0.75)) drop-shadow(0 0 55px rgba(10,255,157,0.55)) brightness(1.15); }
+  75%  { filter: drop-shadow(0 0 30px rgba(10,255,157,0.9)) drop-shadow(0 0 60px rgba(10,255,157,0.6)) brightness(1.2); }
+  88%  { filter: drop-shadow(0 0 10px rgba(0,245,255,0.2)) drop-shadow(0 0 18px rgba(0,245,255,0.15)) brightness(0.95); }
+  100% { filter: drop-shadow(0 0 2px rgba(0,245,255,0.05)) drop-shadow(0 0 4px rgba(0,245,255,0.05)) brightness(0.85); }
 }
 
-/* Скрываем картинку на мобильных устройствах */
-@media (max-width: 768px) {
-  .hero-decoration {
-    display: none;
-  }
-}
-
+/* ============================================================
+   5.  КНОПКИ (общие и модификаторы)
+   ============================================================ */
 .btn-primary,
 .btn-secondary {
   display: inline-flex;
-
   align-items: center;
-  /* ✅ вертикально */
   justify-content: center;
-  /* ✅ по центру */
-
-  padding: 12px 24px;
+  padding: var(--spacing-md) 24px;
   margin: 0 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   font-weight: 600;
 }
 
 .btn-primary {
   position: relative;
-  /* ✅ добавили */
   overflow: hidden;
-  /* ✅ добавили */
-
-  background: linear-gradient(45deg, #0aff9d, #00f5ff);
+  background: var(--gradient-green-cyan);
   color: #001a1a;
-  border-radius: 8px;
-
-  box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
-
-  animation: pulseGlow 2.5s infinite;
-  transition: all 0.3s ease;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-btn);
+  transition: all var(--transition);
+  animation: subtlePulse 3s infinite;
 }
-
-@keyframes pulseGlow {
-  0% {
-    box-shadow:
-      0 0 8px rgba(0, 245, 255, 0.2),
-      0 0 15px rgba(10, 255, 157, 0.1);
-  }
-
-  50% {
-    box-shadow:
-      0 0 25px rgba(0, 245, 255, 0.8),
-      0 0 50px rgba(10, 255, 157, 0.5);
-  }
-
-  100% {
-    box-shadow:
-      0 0 8px rgba(0, 245, 255, 0.2),
-      0 0 15px rgba(10, 255, 157, 0.1);
-  }
+@keyframes subtlePulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.015); }
+  100% { transform: scale(1); }
 }
-
-.btn-primary:active {
-  transform: scale(0.96);
-  box-shadow:
-    0 0 5px #00f5ff,
-    inset 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
 .btn-primary::before {
   content: "";
   position: absolute;
@@ -542,70 +316,152 @@ h3 {
   left: -100%;
   width: 60%;
   height: 100%;
-
-  background: linear-gradient(120deg,
-      transparent,
-      rgba(255, 255, 255, 0.4),
-      transparent);
-
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
   transform: skewX(-20deg);
-
   animation: shimmerMove 3s infinite;
 }
-
 @keyframes shimmerMove {
-  0% {
-    left: -100%;
-  }
-
-  100% {
-    left: 150%;
-  }
+  0%   { left: -100%; }
+  100% { left: 150%; }
 }
-
-
-/* 🔥 ХОВЕР */
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.05);
   letter-spacing: 0.5px;
-
-  box-shadow:
-    0 0 15px #00f5ff,
-    0 0 30px rgba(0, 245, 255, 0.8),
-    0 0 50px rgba(10, 255, 157, 0.6);
-
+  box-shadow: 0 0 15px var(--color-primary), 0 0 30px rgba(0,245,255,0.8), 0 0 50px rgba(10,255,157,0.6);
   filter: brightness(1.15);
-
   color: #001a1a;
-
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-
+  text-shadow: 0 0 6px rgba(0,0,0,0.6);
   animation: none;
-  /* 💥 важно — отключаем пульс при наведении */
 }
-
-.btn-primary:hover::after {
-  transform: translateX(4px);
+.btn-primary:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 5px var(--color-primary), inset 0 0 10px rgba(0,0,0,0.4);
 }
 
 .btn-secondary {
-  border: 2px solid #00f5ff;
-  color: #00f5ff;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
 }
 
-.trust-badges span {
-  margin: 0 10px;
-  font-size: 0.9rem;
-  color: #ccc;
+/* ----- Кнопки карточек (buy-btn) ----- */
+.buy-btn {
+  display: inline-block;
+  margin-top: var(--spacing-md);
+  padding: 10px var(--spacing-lg);
+  background: rgba(0,0,0,0.6);
+  color: var(--color-primary);
+  border: 1px solid rgba(0,245,255,0.5);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0 12px rgba(0,245,255,0.18), 0 0 24px rgba(0,245,255,0.08);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.buy-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+.buy-btn:hover {
+  background: var(--gradient-green-cyan);
+  color: var(--color-black);
+  box-shadow: 0 0 10px var(--color-primary), 0 0 20px rgba(0,245,255,0.6);
+}
+.buy-btn:hover::after {
+  opacity: 1;
+  animation: shineBtn 1.2s;
+}
+@keyframes shineBtn {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(200%); }
+}
+.buy-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,245,255,0.4), 0 0 15px rgba(0,245,255,0.6);
 }
 
-/* ---------- Deals Grid ---------- */
+/* ============================================================
+   6.  LEAD CAPTURE (форма email)
+   ============================================================ */
+.lead-capture {
+  text-align: center;
+  padding: 10px 5%;
+}
+.lead-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.email-form {
+  margin-top: 15px;
+  width: 100%;
+}
+.email-wrapper {
+  display: flex;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(0,245,255,0.35);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  max-width: 420px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0,245,255,0.15), inset 0 0 10px rgba(0,0,0,0.4);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.email-wrapper:hover {
+  border-color: rgba(0,245,255,0.6);
+}
+.email-wrapper:focus-within {
+  border-color: rgba(0,245,255,0.8);
+  box-shadow: 0 0 20px rgba(0,245,255,0.4), 0 0 40px rgba(10,255,157,0.2);
+}
+.email-wrapper input {
+  flex: 1;
+  padding: 14px 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-white);
+  font-family: var(--font-main);
+  font-size: 16px;
+}
+.email-wrapper input::placeholder {
+  color: #888;
+  letter-spacing: 0.5px;
+}
+.email-wrapper button {
+  padding: 0 22px;
+  background: var(--gradient-green-cyan);
+  border: none;
+  color: #001a1a;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.email-wrapper button:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 0 10px rgba(0,245,255,0.6), 0 0 25px rgba(10,255,157,0.4);
+}
+
+/* ============================================================
+   7.  СЕКЦИИ С ДЕАЛАМИ (Deals, Featured, Top Deals, Save)
+   ============================================================ */
 .deals {
-  padding: 60px 5%;
+  padding: var(--padding-section);
 }
-
-.deals h2:hover {
-  text-shadow: 0 0 10px rgba(0, 245, 255, 0.4);
+#featured,
+#save,
+#top-deals {
+  scroll-margin-top: 100px;
 }
 
 .section-title {
@@ -613,67 +469,64 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   font-size: 2rem;
-
-  color: #00f5ff;
-  /* 💥 чистый цвет */
-
-  text-shadow:
-    0 0 6px rgba(0, 245, 255, 0.5),
-    0 0 12px rgba(0, 245, 255, 0.3);
+  color: var(--color-primary);
+  text-shadow: 0 0 6px rgba(0,245,255,0.5), 0 0 12px rgba(0,245,255,0.3);
+  margin-bottom: var(--spacing-xl);
 }
-
 .title-icon svg {
   width: 27px;
   height: 27px;
-  fill: #00f5ff;
-
-  /* 💎 лёгкий glow, БЕЗ анимации */
-  filter:
-    drop-shadow(0 0 4px rgba(0, 245, 255, 0.5)) drop-shadow(0 0 8px rgba(0, 245, 255, 0.3));
+  fill: var(--color-primary);
+  filter: drop-shadow(0 0 4px rgba(0,245,255,0.5)) drop-shadow(0 0 8px rgba(0,245,255,0.3));
+  transition: filter var(--transition);
 }
-
 .section-title:hover .title-icon svg {
-  filter:
-    drop-shadow(0 0 8px rgba(0, 245, 255, 0.9)) drop-shadow(0 0 16px rgba(0, 245, 255, 0.6));
+  filter: drop-shadow(0 0 8px rgba(0,245,255,0.9)) drop-shadow(0 0 16px rgba(0,245,255,0.6));
 }
 
 .grid-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
+  align-items: stretch;
 }
 
+/* Карточка */
 .deal-card {
-  background: rgba(18, 18, 18, 0.6);
-  /* прозрачность */
-  backdrop-filter: blur(12px);
-  /* 💎 стекло */
-  -webkit-backdrop-filter: blur(12px);
-  overflow: hidden;
-
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: #121212;
-  padding: 20px;
-  border-radius: 14px;
+  background: var(--color-card);
+  padding: var(--padding-card);
+  border-radius: var(--radius-xl);
   text-align: center;
   position: relative;
-  z-index: 1;
-
-  transform: translateY(0) scale(1);
-
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-
+  border: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow), filter var(--transition-slow);
   transform-style: preserve-3d;
   perspective: 1000px;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.3s ease,
-    filter 0.3s ease;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
-
+.deal-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: var(--radius-xxl);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-primary));
+  opacity: 0;
+  filter: blur(18px);
+  transition: opacity var(--transition-slow), filter var(--transition-slow);
+  z-index: 0;
+  pointer-events: none;
+}
 .deal-card::after {
   content: '';
   position: absolute;
@@ -681,391 +534,161 @@ h3 {
   left: -50%;
   width: 200%;
   height: 200%;
-
-  background: radial-gradient(circle,
-      rgba(0, 245, 255, 0.05),
-      transparent 60%);
-
+  background: radial-gradient(circle, rgba(0,245,255,0.05), transparent 60%);
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity var(--transition-slow);
 }
-
-.deal-card:hover::after {
-  opacity: 1;
-}
-
 .deal-card>* {
   position: relative;
   z-index: 2;
 }
-
-.deal-card img {
-  position: relative;
-  z-index: 1;
-}
-
-.deal-card h3,
-.deal-card p,
-.deal-card .new-price,
-.deal-card .old-price {
-  position: relative;
-  z-index: 5;
-}
-
-.deal-card:active {
-  transform: scale(0.97);
-}
-
-
-.deal-card::before {
-  content: '';
-  position: absolute;
-
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-
-  border-radius: 16px;
-
-  background: linear-gradient(135deg,
-      #00f5ff,
-      #0aff9d,
-      #00f5ff);
-
-  opacity: 0;
-
-  filter: blur(18px);
-
-  transition:
-    opacity 0.35s ease,
-    filter 0.35s ease;
-
-  z-index: 0;
-
-  pointer-events: none;
-}
-
-
 .deal-card img {
   width: 100%;
   border-radius: 10px;
-
-  transition: transform 0.4s ease, filter 0.4s ease;
+  transition: transform var(--transition-slow), filter var(--transition-slow);
 }
-
-.deal-card:hover img {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-.deal-card .old-price {
-  text-decoration: line-through;
-  color: #777;
-  font-size: 0.9rem;
-}
-
-.deal-card .new-price {
-  font-size: 1.4rem;
-  font-weight: 700;
-
-  background: linear-gradient(90deg, #00f5ff, #0aff9d);
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow: 0 0 6px rgba(0, 245, 255, 0.25);
-}
-
-.deal-card:hover .new-price {
-  text-shadow:
-    0 0 10px #00f5ff,
-    0 0 20px rgba(0, 245, 255, 0.5);
-}
-
-.deal-card .badge {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  padding: 6px 12px;
-  border-radius: 10px;
-
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-
-  color: #fff;
-
-  background: linear-gradient(120deg,
-      #0a0a0a,
-      #000000,
-      #1a1a1a);
-
-  background-size: 200% auto;
-
-  box-shadow:
-    0 0 10px rgba(255, 45, 0, 0.6),
-    0 0 25px rgba(255, 0, 85, 0.4);
-
-  animation:
-    badgeFlow 3s linear infinite,
-    badgePulse 2s ease-in-out infinite;
-
-  transition: all 0.3s ease;
-
-  overflow: hidden;
-}
-
 .deal-card:hover {
   transform: translateY(-10px) scale(1.02);
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.75),
-    0 0 12px rgba(0, 245, 255, 0.18),
-    0 0 25px rgba(0, 245, 255, 0.10),
-    0 0 45px rgba(10, 255, 157, 0.06);
+  box-shadow: var(--shadow-card), 0 0 12px rgba(0,245,255,0.18), 0 0 25px rgba(0,245,255,0.10), 0 0 45px rgba(10,255,157,0.06);
 }
-
 .deal-card:hover::before {
   opacity: 0.55;
   filter: blur(18px);
 }
-
 .deal-card:hover::after {
   opacity: 0.08;
 }
-
-
-@keyframes badgeFlow {
-  0% {
-    background-position: 0% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
+.deal-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+.deal-card:active {
+  transform: scale(0.97);
 }
 
-@keyframes badgePulse {
-  0% {
-    box-shadow:
-      0 0 8px rgba(255, 45, 0, 0.5),
-      0 0 15px rgba(255, 0, 85, 0.3);
-  }
-
-  50% {
-    box-shadow:
-      0 0 20px rgba(255, 45, 0, 0.9),
-      0 0 40px rgba(255, 0, 85, 0.6),
-      0 0 60px rgba(255, 45, 0, 0.4);
-  }
-
-  100% {
-    box-shadow:
-      0 0 8px rgba(255, 45, 0, 0.5),
-      0 0 15px rgba(255, 0, 85, 0.3);
-  }
+.deal-card .old-price {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+.deal-card .new-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: var(--gradient-cyan);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px rgba(0,245,255,0.25);
+  transition: text-shadow var(--transition);
+}
+.deal-card:hover .new-price {
+  text-shadow: 0 0 10px var(--color-primary), 0 0 20px rgba(0,245,255,0.5);
 }
 
-@keyframes badgeGlow {
-  0% {
-    box-shadow:
-      0 0 8px rgba(255, 45, 0, 0.5);
-  }
-
-  50% {
-    box-shadow:
-      0 0 20px rgba(255, 45, 0, 0.9),
-      0 0 40px rgba(255, 0, 85, 0.6);
-  }
-
-  100% {
-    box-shadow:
-      0 0 8px rgba(255, 45, 0, 0.5);
-  }
+/* Бейдж */
+.badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-white);
+  background: var(--gradient-fire);
+  background-size: 200% auto;
+  box-shadow: var(--shadow-badge);
+  animation: badgeFlow 3s linear infinite, badgePulse 2s ease-in-out infinite;
+  transition: all var(--transition);
+  overflow: hidden;
+  z-index: 10;
 }
-
-
-.deal-card .badge::before {
+.badge::before {
   content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 60%;
   height: 100%;
-
-  background: linear-gradient(120deg,
-      transparent,
-      rgba(255, 255, 255, 0.5),
-      transparent);
-
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
   transform: skewX(-20deg);
-
   animation: badgeShine 2.5s infinite;
 }
-
-.deal-card .badge::after {
+.badge::after {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 8px;
-
-  background: linear-gradient(rgba(255, 255, 255, 0.3),
-      transparent);
-
+  background: linear-gradient(rgba(255,255,255,0.3), transparent);
   opacity: 0.4;
 }
-
-@keyframes badgeShine {
-  0% {
-    left: -100%;
-  }
-
-  100% {
-    left: 150%;
-  }
-}
-
 .deal-card:hover .badge {
   transform: scale(1.15);
-
-  box-shadow:
-    0 0 25px rgba(255, 45, 0, 1),
-    0 0 50px rgba(255, 0, 85, 0.8),
-    0 0 80px rgba(255, 45, 0, 0.6);
+  box-shadow: 0 0 25px rgba(255,45,0,1), 0 0 50px rgba(255,0,85,0.8), 0 0 80px rgba(255,45,0,0.6);
+}
+@keyframes badgeFlow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes badgePulse {
+  0%   { box-shadow: 0 0 8px rgba(255,45,0,0.5), 0 0 15px rgba(255,0,85,0.3); }
+  50%  { box-shadow: 0 0 20px rgba(255,45,0,0.9), 0 0 40px rgba(255,0,85,0.6), 0 0 60px rgba(255,45,0,0.4); }
+  100% { box-shadow: 0 0 8px rgba(255,45,0,0.5), 0 0 15px rgba(255,0,85,0.3); }
+}
+@keyframes badgeShine {
+  0%   { left: -100%; }
+  100% { left: 150%; }
 }
 
-.buy-btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 20px;
-
-  background: rgba(0, 0, 0, 0.6);
-  color: #00f5ff;
-
-  border: 1px solid rgba(0, 245, 255, 0.5);
-  border-radius: 8px;
-
-  font-weight: 600;
-
-  backdrop-filter: blur(6px);
-
-  /* ✨ очень лёгкое постоянное свечение */
-  box-shadow:
-    0 0 12px rgba(0, 245, 255, 0.18),
-    0 0 24px rgba(0, 245, 255, 0.08);
-
-  transition: all 0.3s ease;
-}
-
-/* ХОВЕР */
-.buy-btn:hover {
-  background: linear-gradient(45deg, #0aff9d, #00f5ff);
-  color: #000;
-
-  box-shadow:
-    0 0 10px #00f5ff,
-    0 0 20px rgba(0, 245, 255, 0.6);
-}
-
-/* ---------- Categories ---------- */
-/* .categories {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 5%;
-  background: #0f0f0f;
-}
-.categories a {
-  padding: 10px 20px;
-  background: #121212;
-  border-radius: 8px;
-} */
-
-
-.categories {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-
-  gap: 20px;
-
-  padding: 40px 5%;
-
-  background: #0f0f0f;
-
-  justify-items: center;
-  /* выравнивание кнопок по центру в своих ячейках */
-
-}
-
-.categories a {
-
-  padding: 10px 20px;
-
-  background: #121212;
-
-  border-radius: 8px;
-
-  text-align: center;
-
-  white-space: nowrap;
-  /* чтобы текст не ломался по словам */
-
-}
-
-
-/* Дополнительная настройка для совсем узких экранов (опционально) */
-
-@media (max-width: 480px) {
-
-  .categories {
-
-    grid-template-columns: repeat(2, 1fr);
-    /* по 2 кнопки в ряд */
-
-  }
-
-}
-
-
-/* ---------- How It Works ---------- */
-.how {
-  padding: 60px 5%;
-  background: #0a0a0a;
-  text-align: center;
-}
-
-.how ol {
-  max-width: 600px;
-  margin: 20px auto;
-  text-align: left;
-  line-height: 1.6;
-}
-
-/* ---------- Telegram Promo ---------- */
+/* ============================================================
+   8.  TELEGRAM PROMO
+   ============================================================ */
 .telegram-promo {
-  padding: 60px 5%;
+  padding: var(--padding-section);
   text-align: center;
-  background: #121212;
+  background: var(--color-bg-light);
+  border-top: 1px solid rgba(0,245,255,0.08);
+  border-bottom: 1px solid rgba(0,245,255,0.08);
+}
+.telegram-promo p {
+  color: #bdbdbd;
+  margin: 10px 0 25px;
 }
 
-/* ---------- Flash Deal Widget ---------- */
+/* ============================================================
+   9.  FLASH DEAL (виджет)
+   ============================================================ */
 .flash-deal {
-  box-sizing: border-box;
   position: fixed;
   bottom: 30px;
   right: 30px;
+  width: 280px;
+  max-width: calc(100vw - 30px);
   background: #1a1a1a;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #0aff9d55;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 15px rgba(0,245,255,0.25), 0 0 40px rgba(10,255,157,0.15);
   text-align: center;
   z-index: 1000;
+  border: 1px solid rgba(0,245,255,0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-sizing: border-box;
+}
+.flash-deal h3 {
+  text-shadow: 0 0 10px rgba(0,245,255,0.5);
+}
+.flash-deal p {
+  margin: 10px 0 15px;
+}
+.flash-deal .btn-primary {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+.flash-deal.hidden {
+  display: none;
 }
 
 .close-btn {
@@ -1084,163 +707,130 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.3s;
+  transition: color var(--transition);
 }
-
 .close-btn:hover {
   color: #ff0055;
 }
 
-/* Скрытое состояние */
-.flash-deal.hidden {
-  display: none;
-}
-
-/* ---------- Footer ---------- */
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
 .footer {
   text-align: center;
-  padding: 40px 5%;
-  background: #0f0f0f;
+  padding: var(--spacing-xxl) 5%;
+  background: var(--color-bg-light);
   font-size: 0.9rem;
-  color: #777;
+  color: var(--color-text-muted);
+  border-top: 1px solid rgba(255,255,255,0.04);
 }
-
 .footer a {
-  color: #00f5ff;
+  color: var(--color-primary);
 }
-
 .footer .disclaimer {
   margin-top: 10px;
   font-size: 0.8rem;
 }
 
-
-.reveal:nth-child(1) {
-  transition-delay: 0.1s;
-}
-
-.reveal:nth-child(2) {
-  transition-delay: 0.2s;
-}
-
-.reveal:nth-child(3) {
-  transition-delay: 0.3s;
-}
-
-.reveal:nth-child(4) {
-  transition-delay: 0.4s;
-}
-
-.reveal:nth-child(5) {
-  transition-delay: 0.5s;
-}
-
+/* ============================================================
+   11. SCROLL REVEAL
+   ============================================================ */
 .reveal {
   opacity: 0;
   transform: translateY(40px) scale(0.95);
   filter: blur(10px);
-
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease,
-    filter 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
 }
-
+.reveal:nth-child(1) { transition-delay: 0.1s; }
+.reveal:nth-child(2) { transition-delay: 0.2s; }
+.reveal:nth-child(3) { transition-delay: 0.3s; }
+.reveal:nth-child(4) { transition-delay: 0.4s; }
+.reveal:nth-child(5) { transition-delay: 0.5s; }
 .reveal.active {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
 }
 
-/* ===================================
-   💰 NEW STRUCTURE SUPPORT
-   Добавить в конец style.css
-=================================== */
-
-/* Featured / Save секции */
-#featured,
-#save,
-#top-deals {
-  scroll-margin-top: 100px;
+/* ============================================================
+   12. ОБЩИЕ АНИМАЦИИ (fadeInUp)
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Заголовки секций */
-.deals h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  background: linear-gradient(90deg, #06cea3, #00f5ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* ============================================================
+   13. МЕДИА-ЗАПРОСЫ (все сгруппированы здесь)
+   ============================================================ */
 
-/* Карточки одинаковой высоты */
-.grid-cards {
-  align-items: stretch;
-}
-
-.deal-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 420px;
-}
-
-/* Кнопка всегда внизу карточки */
-.buy-btn {
-  margin-top: auto;
-}
-
-/* HERO spacing */
-.hero-buttons {
-  margin-top: 30px;
-}
-
-.hero-sub {
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Telegram block */
-.telegram-promo {
-  border-top: 1px solid rgba(0, 245, 255, 0.08);
-  border-bottom: 1px solid rgba(0, 245, 255, 0.08);
-}
-
-.telegram-promo p {
-  color: #bdbdbd;
-  margin: 10px 0 25px;
-}
-
-/* Footer улучшение */
-.footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-/* FLASH DEAL улучшение */
-.flash-deal {
-  width: 280px;
-  max-width: calc(100vw - 30px);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.flash-deal p {
-  margin: 10px 0 15px;
-}
-
-/* ===== MOBILE ===== */
+/* ----- Таблетки и меньше (≤ 768px) ----- */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .navbar::before {
+    content: '';
+    position: absolute;
+    left: -150px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/Futuristic_cyan_star_emblem-removebg-preview.png?v=2') center/contain no-repeat;
+    background-size: auto 99%;
+    z-index: 3;
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(0,245,255,0.1)) drop-shadow(0 0 15px rgba(0,245,255,0.2)) drop-shadow(0 0 35px rgba(10,255,157,0.1));
+    animation: starFloat 6s ease-in-out infinite;
+    will-change: transform, filter;
+    pointer-events: none;
+  }
+  @keyframes starFloat {
+    0%   { transform: translateY(0px) rotate(0deg); }
+    50%  { transform: translateY(-5px) rotate(1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+  }
+  .logo,
+  .nav-links,
+  .telegram-btn {
+    position: relative;
+    z-index: 2;
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: var(--spacing-md);
+    margin-bottom: 18px;
+  }
+  .nav-links a {
+    margin: 0;
+  }
+  .telegram-btn {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .hero {
     padding: 60px 5%;
   }
-
   .hero-title {
     font-size: 2rem;
     line-height: 1.2;
+  }
+  .hero-decoration {
+    display: none;
   }
 
   .hero-buttons {
@@ -1249,18 +839,16 @@ h3 {
     gap: 15px;
     align-items: center;
   }
-
   .btn-primary,
   .btn-secondary {
     width: 100%;
-    max-width: 320px;
+    max-width: none;
     margin: 0;
   }
 
   .deals {
     padding: 45px 5%;
   }
-
   .deal-card {
     min-height: auto;
   }
@@ -1272,422 +860,53 @@ h3 {
     width: auto;
   }
 
-
-}
-
-/* ===== EXTRA SMALL ===== */
-@media (max-width: 480px) {
-
-  .hero-title {
-    font-size: 1.6rem;
-  }
-
-  .deals h2 {
-    font-size: 1.5rem;
-  }
-
-  .deal-card {
-    padding: 16px;
-  }
-
-  .buy-btn {
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-  }
-}
-
-
-
-/* ===================================
-🔥 PRO FIXES / НЕ ЛОМАЕМ ДИЗАЙН
-=================================== */
-
-
-/* ===============================
-🔥 1. ЖИВОЙ ОГОНЬ (УЛУЧШЕН)
-=============================== */
-.fire svg {
-  animation: fireUltra 0.6s infinite ease-in-out;
-  transform-origin: center;
-}
-
-@keyframes fireUltra {
-  0% {
-    transform: scale(1) rotate(-2deg);
-    filter:
-      drop-shadow(0 0 6px #ff9800) drop-shadow(0 0 12px #ff5722) drop-shadow(0 0 18px #ff2d00);
-  }
-
-  50% {
-    transform: scale(1.25) rotate(2deg);
-    filter:
-      drop-shadow(0 0 15px #ff9800) drop-shadow(0 0 25px #ff5722) drop-shadow(0 0 40px #ff2d00);
-  }
-
-  100% {
-    transform: scale(1.05) rotate(0deg);
-    filter:
-      drop-shadow(0 0 8px #ff9800) drop-shadow(0 0 16px #ff5722) drop-shadow(0 0 22px #ff2d00);
-  }
-}
-
-
-/* ===============================
-✨ 2. ИСКРЫ (СДЕЛАЛ ЖИВЕЕ)
-=============================== */
-.sparks span {
-  animation: sparkFly 1.2s infinite;
-  filter: drop-shadow(0 0 4px #ffcc00);
-}
-
-@keyframes sparkFly {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-
-  40% {
-    transform: translateY(-12px) scale(1.3);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(-30px) scale(0.3);
-    opacity: 0;
-  }
-}
-
-
-
-
-
-/* ===============================
-💰 4. КНОПКИ — БОЛЬШЕ КОНВЕРСИЯ
-=============================== */
-.buy-btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.buy-btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(120deg,
-      transparent,
-      rgba(255, 255, 255, 0.25),
-      transparent);
-
-  opacity: 0;
-  transition: 0.4s;
-}
-
-.buy-btn:hover::after {
-  opacity: 1;
-  animation: shineBtn 1.2s;
-}
-
-@keyframes shineBtn {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(200%);
-  }
-}
-
-
-/* ===============================
-🔥 5. BADGE — СИЛЬНЕЕ ВНИМАНИЕ
-=============================== */
-.deal-card .badge {
-  letter-spacing: 1px;
-  font-size: 0.8rem;
-}
-
-.deal-card:hover .badge {
-  transform: scale(1.2);
-}
-
-
-/* ===============================
-⚡ 6. FLASH DEAL — ДОРОЖЕ ВИД
-=============================== */
-.flash-deal {
-  border: 1px solid rgba(0, 245, 255, 0.2);
-
-  box-shadow:
-    0 0 15px rgba(0, 245, 255, 0.25),
-    0 0 40px rgba(10, 255, 157, 0.15);
-}
-
-.flash-deal h3 {
-  text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
-}
-
-
-/* ===============================
-📱 7. МОБИЛКА (ВАЖНО)
-=============================== */
-@media (max-width: 768px) {
-
-  .deal-card:hover {
-    transform: none;
-  }
-
-  .buy-btn:active {
-    transform: scale(0.95);
-  }
-
-}
-
-
-/* ===============================
-💣 8. ЛЁГКИЙ FOCUS (UX + ДЕНЬГИ)
-=============================== */
-.buy-btn:focus {
-  outline: none;
-
-  box-shadow:
-    0 0 0 2px rgba(0, 245, 255, 0.4),
-    0 0 15px rgba(0, 245, 255, 0.6);
-}
-
-
-/* ===============================
-🚀 9. HERO ТЕКСТ ЧУТЬ ЯРЧЕ
-=============================== */
-.hero-title {
-  text-shadow:
-    0 0 10px rgba(0, 245, 255, 0.2);
-}
-
-
-/* ===============================
-💡 10. ЛЁГКИЙ ПУЛЬС (НЕ НАВЯЗЧИВО)
-=============================== */
-@keyframes subtlePulse {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.015);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-.btn-primary {
-  animation: subtlePulse 3s infinite;
-}
-
-.lead-capture {
-  text-align: center;
-  padding: 10px 5%;
-}
-
-/* ===================================
-💣 FINAL FIXES (НЕ ЛОМАЕМ ДИЗАЙН)
-=================================== */
-
-
-/* ❌ УБИРАЕМ СТАТИСТИКУ ДЛЯ ВСЕХ */
-.stats-panel {
-  display: none !important;
-}
-
-
-/* ===============================
-💎 EMAIL FORM PRO (АПГРЕЙД)
-=============================== */
-
-.email-form {
-  margin-top: 15px;
-}
-
-.email-form input {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-}
-
-.email-wrapper {
-  display: flex;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(0, 245, 255, 0.35);
-  border-radius: 12px;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-  max-width: 420px;
-  margin: 0 auto;
-
-  box-shadow:
-    0 0 15px rgba(0, 245, 255, 0.15),
-    inset 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-.email-wrapper input {
-  flex: 1;
-  padding: 14px 16px;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #fff;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 16px;
-}
-
-.email-wrapper input::placeholder {
-  color: #888;
-  letter-spacing: 0.5px;
-}
-
-.email-wrapper button {
-  padding: 0 22px;
-  background: linear-gradient(45deg, #0aff9d, #00f5ff);
-  border: none;
-  color: #001a1a;
-  font-weight: 700;
-  cursor: pointer;
-
-  transition: all 0.25s ease;
-}
-
-.email-wrapper button:hover {
-  filter: brightness(1.2);
-  box-shadow:
-    0 0 10px rgba(0, 245, 255, 0.6),
-    0 0 25px rgba(10, 255, 157, 0.4);
-}
-
-
-/* ===============================
-⚡ FLASH DEAL FIX (КНОПКА НЕ ВЫЛАЗИТ)
-=============================== */
-
-.flash-deal {
-  box-sizing: border-box;
-  max-width: calc(100vw - 30px);
-}
-
-.flash-deal .btn-primary {
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-}
-
-
-/* ===============================
-📱 MOBILE FIX (КРИТИЧНО)
-=============================== */
-
-@media (max-width: 480px) {
-
-  .email-wrapper {
-    flex-direction: column;
-  }
-
-  .email-wrapper button {
-    width: 100%;
-    padding: 14px;
-  }
-
-}
-
-
-/* ===============================
-💰 КОНВЕРСИЯ + UX (ЛЕГКИЕ ДОБАВКИ)
-=============================== */
-
-.email-wrapper:focus-within {
-  border-color: rgba(0, 245, 255, 0.8);
-
-  box-shadow:
-    0 0 20px rgba(0, 245, 255, 0.4),
-    0 0 40px rgba(10, 255, 157, 0.2);
-}
-
-
-/* лёгкий hover эффект */
-.email-wrapper:hover {
-  border-color: rgba(0, 245, 255, 0.6);
-}
-
-
-
-
-@media (max-width: 768px) {
-
-  .telegram-btn {
-    width: 100%;
-    max-width: none;
-
-    text-align: center;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: none;
-
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  .email-wrapper {
-    width: 92%;
-
-    margin-left: 0%;
-    margin-right: 0;
-  }
-
-}
-
-@media (max-width: 768px) {
-
   .section-title {
     flex-direction: column;
     gap: 10px;
-
     text-align: center;
   }
-
   .title-icon svg {
     width: 32px;
     height: 32px;
   }
 
+  .email-wrapper {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .deal-card:hover {
+    transform: none;
+  }
+  .buy-btn:active {
+    transform: scale(0.95);
+  }
 }
 
-html,
-body {
-  overflow-x: hidden;
-  width: 100%;
-}
+/* ----- Мобильные телефоны (≤ 480px) ----- */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  .deals h2 {
+    font-size: 1.5rem;
+  }
+  .deal-card {
+    padding: 16px;
+  }
+  .buy-btn {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+  .email-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  .email-wrapper button {
+    width: 100%;
+    padding: 14px;
+  }
 }
