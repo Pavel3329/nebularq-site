@@ -679,9 +679,9 @@ h3 {
   transform: translateY(-10px) scale(1.02);
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.75),
-    0 0 25px rgba(0, 245, 255, 0.5),
+    0 0 25px rgba(100, 245, 255, 0.9),
     0 0 50px rgba(10, 255, 157, 0.3),
-    inset 0 0 30px rgba(0, 245, 255, 0.08);
+    inset 0 0 30px rgba(0, 245, 255, 1.9);
 }
 
 /* Динамический градиентный край (управляется через JS) */
@@ -719,7 +719,7 @@ h3 {
 }
 
 .deal-card:hover::after {
-  opacity: 0.08;
+  opacity: 0.9;
 }
 
 .deal-card:hover img {
