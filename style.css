@@ -633,6 +633,7 @@ h3 {
   transform-style: preserve-3d;
   perspective: 1000px;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  will-change: transform;
 }
 
 .deal-card::before {
@@ -676,7 +677,40 @@ h3 {
 
 .deal-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: var(--shadow-card), 0 0 12px rgba(0, 245, 255, 0.18), 0 0 25px rgba(0, 245, 255, 0.10), 0 0 45px rgba(10, 255, 157, 0.06);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.75),
+    0 0 25px rgba(0, 245, 255, 0.5),
+    0 0 50px rgba(10, 255, 157, 0.3),
+    inset 0 0 30px rgba(0, 245, 255, 0.08);
+}
+
+/* Динамический градиентный край (управляется через JS) */
+.deal-card .gradient-border {
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-xxl);
+  padding: 2px;
+  background: conic-gradient(
+    from var(--gradient-angle, 0deg),
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-primary)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.deal-card:hover .gradient-border {
+  opacity: 1;
 }
 
 .deal-card:hover::before {
@@ -710,12 +744,12 @@ h3 {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 6px rgba(0, 245, 255, 0.25);
+  text-shadow: 0 0 12px rgba(0, 245, 255, 0.4);
   transition: text-shadow var(--transition);
 }
 
 .deal-card:hover .new-price {
-  text-shadow: 0 0 10px var(--color-primary), 0 0 20px rgba(0, 245, 255, 0.5);
+  text-shadow: 0 0 20px var(--color-primary), 0 0 40px rgba(0, 245, 255, 0.6);
 }
 
 /* Бейдж */

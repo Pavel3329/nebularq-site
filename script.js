@@ -98,40 +98,46 @@ document.addEventListener('DOMContentLoaded', function () {
     revealOnScroll();
 
 
-    // ===============================
-    // 😏 TILT EFFECT (PC ONLY)
-    // ===============================
-    if (window.innerWidth > 768) {
+// ===============================
+// 😏 TILT + DYNAMIC GRADIENT (PC ONLY)
+// ===============================
+if (window.innerWidth > 768) {
+  const cards = document.querySelectorAll('.deal-card');
 
-        const cards = document.querySelectorAll('.deal-card');
+  cards.forEach(card => {
+    const border = card.querySelector('.gradient-border');
 
-        cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
 
-            card.addEventListener('mousemove', (e) => {
+      // Tilt
+      const rotateX = -(y - centerY) / 12;
+      const rotateY = (x - centerX) / 12;
+      card.style.transform = `
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        scale(1.03)
+      `;
 
-                const rect = card.getBoundingClientRect();
+      // Динамический градиент
+      if (border) {
+        const angle = (Math.atan2(y - centerY, x - centerX) * 180 / Math.PI + 90);
+        border.style.setProperty('--gradient-angle', angle + 'deg');
+      }
+    });
 
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = -(y - centerY) / 12;
-                const rotateY = (x - centerX) / 12;
-
-                card.style.transform = `
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    scale(1.03)
-                `;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
-            });
-        });
-    }
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+      if (border) {
+        border.style.setProperty('--gradient-angle', '0deg');
+      }
+    });
+  });
+}
 
 
     // ===============================
