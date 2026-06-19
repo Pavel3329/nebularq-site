@@ -999,7 +999,7 @@ h3 {
   .navbar::before {
     content: '';
     position: absolute;
-    left: -150px;
+    left: -40%;
     top: 0;
     width: 100%;
     height: 100%;
