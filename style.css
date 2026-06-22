@@ -1118,16 +1118,15 @@ h3 {
   }
 
 
-  .email-wrapper {
-    display: flex;
-    flex-direction: column;
+ .email-wrapper {
+  display: flex;
+  flex-direction: column;
 
-    width: 92%;
-    max-width: 294px;
-    margin: 0 auto;
-    transform: translate(-4%);
-    
-  }
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  transform: none;
+}
 
   .email-wrapper input,
   .email-wrapper button {
@@ -1140,13 +1139,7 @@ h3 {
 
   }
 
-  .lead-buttons .btn-primary,
-  .lead-buttons .btn-secondary {
-    max-width: 320px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
 
   .deal-card:hover {
     transform: none;
@@ -1169,6 +1162,24 @@ h3 {
 
   .deal-card {
     padding: 16px;
+  }
+
+.email-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    width: 92%;
+    max-width: 294px;
+    margin: 0 auto;
+    transform: translate(-4%);
+    
+  }
+  .lead-buttons .btn-primary,
+  .lead-buttons .btn-secondary {
+    max-width: 320px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .buy-btn {
