@@ -542,6 +542,7 @@ h3 {
 
 .email-wrapper input {
   flex: 1;
+  min-width: 0;
   padding: 14px 16px;
   border: none;
   outline: none;
@@ -557,7 +558,9 @@ h3 {
 }
 
 .email-wrapper button {
-  padding: 0 22px;
+  flex-shrink: 0;
+  padding: 0 16px;
+  white-space: nowrap;
   background: var(--gradient-green-cyan);
   border: none;
   color: #001a1a;
@@ -691,16 +694,14 @@ h3 {
   inset: -2px;
   border-radius: var(--radius-xxl);
   padding: 2px;
-  background: conic-gradient(
-    from var(--gradient-angle, 0deg),
-    var(--color-primary),
-    var(--color-secondary),
-    var(--color-primary),
-    var(--color-secondary),
-    var(--color-primary)
-  );
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
+  background: conic-gradient(from var(--gradient-angle, 0deg),
+      var(--color-primary),
+      var(--color-secondary),
+      var(--color-primary),
+      var(--color-secondary),
+      var(--color-primary));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -1112,12 +1113,28 @@ h3 {
     height: 32px;
   }
 
- .email-wrapper {
-  width: 92%;
-  max-width: 300px;
-  margin-left: calc((100% - 320px) / 2);
-  margin-right: 0; /* или auto, но лучше 0 */
+
+  .email-wrapper{
+    display:flex;
+    flex-direction:column;
+
+    width:300px;
+    max-width:100%;
+
+    margin-left:calc(50% - 160px);
+    margin-right:0;
 }
+
+  .email-wrapper input,
+  .email-wrapper button {
+    width: 100%;
+  }
+
+  .email-wrapper button {
+    padding: 14px;
+
+
+  }
 
   .lead-buttons .btn-primary,
   .lead-buttons .btn-secondary {
@@ -1156,13 +1173,4 @@ h3 {
     text-align: center;
   }
 
-  .email-wrapper {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .email-wrapper button {
-    width: 100%;
-    padding: 14px;
-  }
 }
