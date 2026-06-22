@@ -513,8 +513,11 @@ h3 {
 }
 
 .email-form {
-  margin-top: 15px;
   width: 100%;
+  margin-top: 15px;
+
+  display: flex;
+  justify-content: center;
 }
 
 .email-wrapper {
@@ -525,8 +528,9 @@ h3 {
   overflow: hidden;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  max-width: 420px;
-  margin: 0 auto;
+  width: 420px;
+  max-width: 100%;
+  margin: 0;
   box-shadow: 0 0 15px rgba(0, 245, 255, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.4);
   transition: border-color var(--transition), box-shadow var(--transition);
 }
@@ -1114,16 +1118,16 @@ h3 {
   }
 
 
-  .email-wrapper{
-    display:flex;
-    flex-direction:column;
+  .email-wrapper {
+    display: flex;
+    flex-direction: column;
 
-    width:300px;
-    max-width:100%;
-
-    margin-left:calc(50% - 160px);
-    margin-right:0;
-}
+    width: 92%;
+    max-width: 294px;
+    margin: 0 auto;
+    transform: translate(-4%);
+    
+  }
 
   .email-wrapper input,
   .email-wrapper button {
