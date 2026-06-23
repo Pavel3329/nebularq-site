@@ -1004,12 +1004,12 @@ h3 {
   .navbar::before {
     content: '';
     position: absolute;
-    left: -150px;
+    left: -190px;
     top: 0;
     width: 100%;
     height: 100%;
     background: url('assets/Futuristic_cyan_star_emblem-removebg-preview.png?v=2') center/contain no-repeat;
-    background-size: auto 99%;
+    background-size: auto 95%;
     z-index: 3;
     opacity: 1;
     filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.1)) drop-shadow(0 0 15px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 35px rgba(10, 255, 157, 0.1));
@@ -1183,6 +1183,12 @@ h3 {
     
     position: relative;
     left: -6px;
+  }
+
+  .navbar::before {
+   
+    left: -150px;
+   
   }
 
   .lead-buttons .btn-primary,
