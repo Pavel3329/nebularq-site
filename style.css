@@ -1119,13 +1119,12 @@ h3 {
 
 
  .email-wrapper {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-  transform: none;
+    width: 94%;
+    max-width: none;
+    margin: 0;
 }
 
   .email-wrapper input,
@@ -1169,9 +1168,9 @@ h3 {
     flex-direction: column;
 
     width: 92%;
-    max-width: 294px;
+    max-width: 308px;
     margin: 0 auto;
-    transform: translate(-4%);
+    transform: translateX(-2.5%);
     
   }
   .lead-buttons .btn-primary,
