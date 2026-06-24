@@ -1009,7 +1009,7 @@ h3 {
     width: 100%;
     height: 100%;
     background: url('assets/Futuristic_cyan_star_emblem-removebg-preview.png?v=2') center/contain no-repeat;
-    background-size: auto 95%;
+    background-size: contain;
     z-index: 3;
     opacity: 1;
     filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.1)) drop-shadow(0 0 15px rgba(0, 245, 255, 0.2)) drop-shadow(0 0 35px rgba(10, 255, 157, 0.1));
@@ -1118,14 +1118,14 @@ h3 {
   }
 
 
- .email-wrapper {
+  .email-wrapper {
     display: flex;
     flex-direction: column;
 
     width: 94%;
     max-width: none;
     margin: 0;
-}
+  }
 
   .email-wrapper input,
   .email-wrapper button {
@@ -1162,7 +1162,7 @@ h3 {
     padding: 16px;
   }
 
-/* .email-wrapper {
+  /* .email-wrapper {
     display: flex;
     flex-direction: column;
 
@@ -1180,15 +1180,15 @@ h3 {
     margin-right: auto; */
 
     margin: 0 auto;
-    
+
     position: relative;
     left: -6px;
   }
 
   .navbar::before {
-   
+
     left: -150px;
-   
+
   }
 
   .lead-buttons .btn-primary,
