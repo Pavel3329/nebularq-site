@@ -1173,12 +1173,12 @@ h3 {
  .navbar::before{
 
     left:-38px;
-    top: 2px;
+    
 
     width:156px;
     height:156px;
 
-    background-size:156px 156px;
+    background-size:contain;
 }
 
   .lead-buttons .btn-primary,
