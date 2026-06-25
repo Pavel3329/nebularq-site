@@ -111,6 +111,10 @@ h3 {
   border-bottom: 1px solid #111;
 }
 
+.navbar-star{
+    display:none;
+}
+
 .logo {
   position: relative;
   font-weight: 700;
@@ -1001,7 +1005,7 @@ h3 {
     overflow: hidden;
   }
 
-  .navbar::before {
+ /*  .navbar::before {
     content: '';
     position: absolute;
     left: -190px;
@@ -1016,7 +1020,31 @@ h3 {
     animation: starFloat 6s ease-in-out infinite;
     will-change: transform, filter;
     pointer-events: none;
-  }
+  } */
+   .navbar-star {
+    display: block;
+
+    position: absolute;
+    left: 10px;
+    top: 0;
+
+    width: auto;
+    height: 99%;
+
+    z-index: 3;
+    opacity: 1;
+
+    filter:
+        drop-shadow(0 0 10px rgba(0,245,255,.1))
+        drop-shadow(0 0 15px rgba(0,245,255,.2))
+        drop-shadow(0 0 35px rgba(10,255,157,.1));
+
+    animation: starFloat 6s ease-in-out infinite;
+
+    will-change: transform, filter;
+
+    pointer-events: none;
+}
 
   @keyframes starFloat {
     0% {
@@ -1031,6 +1059,8 @@ h3 {
       transform: translateY(0px) rotate(0deg);
     }
   }
+
+ 
 
   .logo,
   .nav-links,
@@ -1170,16 +1200,20 @@ h3 {
     left: -6px;
   }
 
- .navbar::before{
+  .navbar::before {
 
-    left:-38px;
-    
+    left: -38px;
 
-    width:156px;
-    height:156px;
 
-    background-size:contain;
-}
+    width: 156px;
+    height: 156px;
+
+    background-size: contain;
+  }
+
+  .navbar-star {
+    left: -35px;
+  }
 
   .lead-buttons .btn-primary,
   .lead-buttons .btn-secondary {
