@@ -1173,9 +1173,10 @@ h3 {
  .navbar::before{
 
     left:-38px;
+    top: 2px;
 
-    width:150px;
-    height:150px;
+    width:156px;
+    height:156px;
 
     background-size:contain;
 }
