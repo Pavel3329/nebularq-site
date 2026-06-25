@@ -1004,7 +1004,7 @@ h3 {
   .navbar::before {
     content: '';
     position: absolute;
-    left: -190px;
+    left: -180px;
     top: 0;
     width: 100%;
     height: 100%;
