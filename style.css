@@ -1200,7 +1200,7 @@ h3 {
     left: -6px;
   }
 
-  .navbar::before {
+ /*  .navbar::before {
 
     left: -38px;
 
@@ -1209,10 +1209,10 @@ h3 {
     height: 156px;
 
     background-size: contain;
-  }
+  } */
 
   .navbar-star {
-    left: -35px;
+    left: -38px;
   }
 
   .lead-buttons .btn-primary,
