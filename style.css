@@ -664,6 +664,7 @@ h3 {
   pointer-events: none;
 }
 
+/*  0, 245, 255, 0.4 - ОТВЕЧАЕТ ЗА СВЕЧЕНИЕ КАРТ -0.4*/
 .deal-card::after {
   content: '';
   position: absolute;
@@ -671,7 +672,7 @@ h3 {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(0, 245, 255, 0.15), transparent 60%);
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.4), transparent 60%);
   opacity: 0;
   transition: opacity var(--transition-slow);
 }
