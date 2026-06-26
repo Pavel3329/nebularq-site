@@ -672,7 +672,7 @@ h3 {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(0, 245, 255, 0.4), transparent 60%);
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.35), transparent 30%);
   opacity: 0;
   transition: opacity var(--transition-slow);
 }
@@ -699,8 +699,8 @@ h3 {
     0 0 16px rgba(16, 172, 132, 0.8),
     0 0 22px rgba(0, 206, 201, .95),
     0 0 38px rgba(26, 188, 156, 0.9),
-    inset 0 0 40px rgba(51, 217, 178, 0.8),
-    inset 0 0 60px rgba(0, 184, 148, 0.7);
+    inset 0 0 40px rgba(16, 172, 132, 0.8),
+    inset 0 0 60px rgba(0, 184, 148, 0.9);
 }
 
 
@@ -767,7 +767,7 @@ h3 {
 }
 
 .deal-card:hover .new-price {
-  text-shadow: 0 0 20px var(--color-primary), 0 0 40px rgba(0, 245, 255, 0.6);
+  text-shadow: 0 0 20px var(--color-primary), 0 0 40px rgba(29, 212, 62, 0.6);
 }
 
 /* Бейдж */
